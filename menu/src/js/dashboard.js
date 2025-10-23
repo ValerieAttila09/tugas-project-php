@@ -56,10 +56,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   })
 
-  // Chart.js Line Chart Implementation
   const ctx = document.getElementById('chart1');
-  
-  // Dummy data for the chart
   const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const data = {
     labels: labels,
@@ -138,7 +135,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           },
           usePointStyle: true,
           callbacks: {
-            label: function(context) {
+            label: function (context) {
               let label = context.dataset.label || '';
               if (label) {
                 label += ': ';
@@ -160,7 +157,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               size: 11,
               family: 'Outfit'
             },
-            callback: function(value) {
+            callback: function (value) {
               return '$' + value.toLocaleString();
             }
           }
@@ -184,24 +181,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   };
 
-  // Create the chart
   const myChart = new Chart(ctx, config);
-
-  // Chart.js Pie Chart Implementation
   const ctx2 = document.getElementById('chart2');
-  
-  // Dummy data for pie chart
   const pieData = {
     labels: ['Electronics', 'Clothing', 'Food & Beverage', 'Home & Garden', 'Sports'],
     datasets: [{
       label: 'Sales by Category',
       data: [3500, 2800, 4200, 1900, 2600],
       backgroundColor: [
-        'rgba(59, 130, 246, 0.8)',   // Blue
-        'rgba(14, 165, 233, 0.8)',   // Sky Blue
-        'rgba(34, 197, 94, 0.8)',    // Green
-        'rgba(168, 85, 247, 0.8)',   // Purple
-        'rgba(251, 146, 60, 0.8)',   // Orange
+        'rgba(59, 130, 246, 0.8)',
+        'rgba(14, 165, 233, 0.8)',
+        'rgba(34, 197, 94, 0.8)',
+        'rgba(168, 85, 247, 0.8)',
+        'rgba(251, 146, 60, 0.8)',
       ],
       borderColor: [
         'rgb(59, 130, 246)',
@@ -232,7 +224,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               size: 12,
               family: 'Outfit'
             },
-            generateLabels: function(chart) {
+            generateLabels: function (chart) {
               const data = chart.data;
               if (data.labels.length && data.datasets.length) {
                 return data.labels.map((label, i) => {
@@ -277,7 +269,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             family: 'Outfit'
           },
           callbacks: {
-            label: function(context) {
+            label: function (context) {
               const label = context.label || '';
               const value = context.parsed;
               const total = context.dataset.data.reduce((acc, val) => acc + val, 0);
@@ -290,6 +282,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   };
 
-  // Create the pie chart
   const myPieChart = new Chart(ctx2, pieConfig);
 });

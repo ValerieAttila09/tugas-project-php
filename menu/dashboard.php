@@ -1,1395 +1,204 @@
-<!doctype html>
-<html lang="en">
-<!--begin::Head-->
 <?php
 session_start();
-if(!isset($_SESSION['nama'])){
+if (!isset($_SESSION['nama'])) {
   header("location:../");
 }
 ?>
 
+
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>AdminLTE v4 | Dashboard</title>
-  <!--begin::Accessibility Meta Tags-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
-  <!--end::Accessibility Meta Tags-->
-  <!--begin::Primary Meta Tags-->
-  <meta name="title" content="AdminLTE v4 | Dashboard" />
-  <meta name="author" content="ColorlibHQ" />
-  <meta
-    name="description"
-    content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance." />
-  <meta
-    name="keywords"
-    content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant" />
-  <!--end::Primary Meta Tags-->
-  <!--begin::Accessibility Features-->
-  <!-- Skip links will be dynamically added by accessibility.js -->
-  <meta name="supported-color-schemes" content="light dark" />
-  <link rel="preload" href="../dist/css/adminlte.css" as="style" />
-  <!--end::Accessibility Features-->
-  <!--begin::Fonts-->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
-    integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
-    crossorigin="anonymous"
-    media="print"
-    onload="this.media='all'" />
-  <!--end::Fonts-->
-  <!--begin::Third Party Plugin(OverlayScrollbars)-->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
-    crossorigin="anonymous" />
-  <!--end::Third Party Plugin(OverlayScrollbars)-->
-  <!--begin::Third Party Plugin(Bootstrap Icons)-->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    crossorigin="anonymous" />
-  <!--end::Third Party Plugin(Bootstrap Icons)-->
-  <!--begin::Required Plugin(AdminLTE)-->
-  <link rel="stylesheet" href="../dist/css/adminlte.css" />
-  <!--end::Required Plugin(AdminLTE)-->
-  <!-- apexcharts -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
-    integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
-    crossorigin="anonymous" />
-  <!-- jsvectormap -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
-    integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
-    crossorigin="anonymous" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
 </head>
-<!--end::Head-->
-<!--begin::Body-->
 
-<body class="layout-fixed sidebar-expand-lg sidebar-open bg-body-tertiary">
-  <!--begin::App Wrapper-->
-  <div class="app-wrapper">
-    <!--begin::Header-->
-    <nav class="app-header navbar navbar-expand bg-body">
-      <!--begin::Container-->
-      <div class="container-fluid">
-        <!--begin::Start Navbar Links-->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
-              <i class="bi bi-list"></i>
-            </a>
-          </li>
-          <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Home</a></li>
-          <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
-        </ul>
-        <!--end::Start Navbar Links-->
-        <!--begin::End Navbar Links-->
-        <ul class="navbar-nav ms-auto">
-          <!--begin::Navbar Search-->
-          <li class="nav-item">
-            <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-              <i class="bi bi-search"></i>
-            </a>
-          </li>
-          <!--end::Navbar Search-->
-          <!--begin::Messages Dropdown Menu-->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-bs-toggle="dropdown" href="#">
-              <i class="bi bi-chat-text"></i>
-              <span class="navbar-badge badge text-bg-danger">3</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-              <a href="#" class="dropdown-item">
-                <!--begin::Message-->
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img
-                      src="../dist/assets/img/user1-128x128.jpg"
-                      alt="User Avatar"
-                      class="img-size-50 rounded-circle me-3" />
-                  </div>
-                  <div class="flex-grow-1">
-                    <h3 class="dropdown-item-title">
-                      Brad Diesel
-                      <span class="float-end fs-7 text-danger"><i class="bi bi-star-fill"></i></span>
-                    </h3>
-                    <p class="fs-7">Call me whenever you can...</p>
-                    <p class="fs-7 text-secondary">
-                      <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-                <!--end::Message-->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!--begin::Message-->
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img
-                      src="../dist/assets/img/user8-128x128.jpg"
-                      alt="User Avatar"
-                      class="img-size-50 rounded-circle me-3" />
-                  </div>
-                  <div class="flex-grow-1">
-                    <h3 class="dropdown-item-title">
-                      John Pierce
-                      <span class="float-end fs-7 text-secondary">
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                    </h3>
-                    <p class="fs-7">I got your message bro</p>
-                    <p class="fs-7 text-secondary">
-                      <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-                <!--end::Message-->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!--begin::Message-->
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img
-                      src="../dist/assets/img/user3-128x128.jpg"
-                      alt="User Avatar"
-                      class="img-size-50 rounded-circle me-3" />
-                  </div>
-                  <div class="flex-grow-1">
-                    <h3 class="dropdown-item-title">
-                      Nora Silvester
-                      <span class="float-end fs-7 text-warning">
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                    </h3>
-                    <p class="fs-7">The subject goes here</p>
-                    <p class="fs-7 text-secondary">
-                      <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-                <!--end::Message-->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+<body class="outfit-thin">
+
+  <div class="w-full">
+    <div class="w-full h-screen flex">
+      <div id="sidebar" class="w-1/5 relative overflow-hidden h-screen border-r border-[#ebebeb]">
+        <div class="w-full h-full flex flex-col items-center justify-between">
+          <div class="w-full flex flex-col items-center gap-4">
+            <div class="w-full flex items-center justify-between px-3 py-2">
+              <div class="flex items-center gap-4 ps-2">
+                <img src="./src/assets/logo.png" alt="logo" class="size-8">
+                <h1 id="sidebarMenu" class="outfit-semibold text-2xl text-transparent bg-clip-text bg-linear-to-r from-blue-700 to-sky-500">AriesUp</h1>
+              </div>
+              <div id="sidebarMenu" class="">
+                <button class="p-2 rounded-md bg-white border border-[#ebebeb] hover:bg-[#fafafa] transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-700">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                  </svg>
+                </button>
+              </div>
             </div>
-          </li>
-          <!--end::Messages Dropdown Menu-->
-          <!--begin::Notifications Dropdown Menu-->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-bs-toggle="dropdown" href="#">
-              <i class="bi bi-bell-fill"></i>
-              <span class="navbar-badge badge text-bg-warning">15</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-              <span class="dropdown-item dropdown-header">15 Notifications</span>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="bi bi-envelope me-2"></i> 4 new messages
-                <span class="float-end text-secondary fs-7">3 mins</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="bi bi-people-fill me-2"></i> 8 friend requests
-                <span class="float-end text-secondary fs-7">12 hours</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
-                <span class="float-end text-secondary fs-7">2 days</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
-            </div>
-          </li>
-          <!--end::Notifications Dropdown Menu-->
-          <!--begin::Fullscreen Toggle-->
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-lte-toggle="fullscreen">
-              <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
-              <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
-            </a>
-          </li>
-          <!--end::Fullscreen Toggle-->
-          <!--begin::User Menu Dropdown-->
-          <li class="nav-item dropdown user-menu">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-              <img
-                src="../dist/assets/img/user2-160x160.jpg"
-                class="user-image rounded-circle shadow"
-                alt="User Image" />
-              <span class="d-none d-md-inline"><?= $_SESSION['nama'] ?></span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-              <!--begin::User Image-->
-              <li class="user-header text-bg-primary">
-                <img
-                  src="../dist/assets/img/user2-160x160.jpg"
-                  class="rounded-circle shadow"
-                  alt="User Image" />
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2023</small>
-                </p>
-              </li>
-              <!--end::User Image-->
-              <!--begin::Menu Body-->
-              <li class="user-body">
-                <!--begin::Row-->
-                <div class="row">
-                  <div class="col-4 text-center"><a href="#">Followers</a></div>
-                  <div class="col-4 text-center"><a href="#">Sales</a></div>
-                  <div class="col-4 text-center"><a href="#">Friends</a></div>
+            <div class="w-full flex flex-col items-center gap-2 p-3">
+              <a href="dashboard.php" class="w-full p-2 rounded-md bg-white hover:bg-[#fafafa] hover:shadow-sm transition-all">
+                <div class="w-full flex items-center justify-start ps-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-700">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                  </svg>
+                  <span id="sidebarMenu" class="text-sm text-neutral-600 outfit-regular">Dashboard</span>
                 </div>
-                <!--end::Row-->
-              </li>
-              <!--end::Menu Body-->
-              <!--begin::Menu Footer-->
-              <li class="user-footer">
-                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
-              </li>
-              <!--end::Menu Footer-->
-            </ul>
-          </li>
-          <!--end::User Menu Dropdown-->
-        </ul>
-        <!--end::End Navbar Links-->
-      </div>
-      <!--end::Container-->
-    </nav>
-    <!--end::Header-->
-    <!--begin::Sidebar-->
-    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
-      <!--begin::Sidebar Brand-->
-      <div class="sidebar-brand">
-        <!--begin::Brand Link-->
-        <a href="../dist/index.html" class="brand-link">
-          <!--begin::Brand Image-->
-          <img
-            src="../dist/assets/img/AdminLTELogo.png"
-            alt="AdminLTE Logo"
-            class="brand-image opacity-75 shadow" />
-          <!--end::Brand Image-->
-          <!--begin::Brand Text-->
-          <span class="brand-text fw-light">AdminLTE 4</span>
-          <!--end::Brand Text-->
-        </a>
-        <!--end::Brand Link-->
-      </div>
-      <!--end::Sidebar Brand-->
-      <!--begin::Sidebar Wrapper-->
-      <div class="sidebar-wrapper">
-        <nav class="mt-2">
-          <!--begin::Sidebar Menu-->
-          <ul
-            class="nav sidebar-menu flex-column"
-            data-lte-toggle="treeview"
-            role="navigation"
-            aria-label="Main navigation"
-            data-accordion="false"
-            id="navigation">
-            <li class="nav-item menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon bi bi-speedometer"></i>
-                <p>
-                  Dashboard
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../dist/index.html" class="nav-link active">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Dashboard v1</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/index2.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Dashboard v2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/index3.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Dashboard v3</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="../dist/generate/theme.html" class="nav-link">
-                <i class="nav-icon bi bi-palette"></i>
-                <p>Theme Generate</p>
+              <a href="../index.php" class="w-full p-2 rounded-md bg-white hover:bg-[#fafafa] hover:shadow-sm transition-all">
+                <div class="w-full flex items-center justify-start ps-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-700">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                  </svg>
+                  <span id="sidebarMenu" class="text-sm text-neutral-600 outfit-regular">Home</span>
+                </div>
               </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-box-seam-fill"></i>
-                <p>
-                  Widgets
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
+              <a href="../products.php" class="w-full p-2 rounded-md bg-white hover:bg-[#fafafa] hover:shadow-sm transition-all">
+                <div class="w-full flex items-center justify-start ps-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-700">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                  </svg>
+                  <span id="sidebarMenu" class="text-sm text-neutral-600 outfit-regular">Products</span>
+                </div>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../dist/widgets/small-box.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Small Box</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/widgets/info-box.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>info Box</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/widgets/cards.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Cards</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-clipboard-fill"></i>
-                <p>
-                  Layout Options
-                  <span class="nav-badge badge text-bg-secondary me-3">6</span>
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../dist/layout/unfixed-sidebar.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Default Sidebar</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/layout/fixed-sidebar.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Fixed Sidebar</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/layout/fixed-header.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Fixed Header</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/layout/fixed-footer.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Fixed Footer</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/layout/fixed-complete.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Fixed Complete</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/layout/layout-custom-area.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Layout <small>+ Custom Area </small></p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/layout/sidebar-mini.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Sidebar Mini</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/layout/collapsed-sidebar.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Sidebar Mini <small>+ Collapsed</small></p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/layout/logo-switch.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Sidebar Mini <small>+ Logo Switch</small></p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/layout/layout-rtl.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Layout RTL</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-tree-fill"></i>
-                <p>
-                  UI Elements
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../dist/UI/general.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>General</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/UI/icons.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Icons</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/UI/timeline.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Timeline</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-pencil-square"></i>
-                <p>
-                  Forms
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../dist/forms/general.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>General Elements</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-table"></i>
-                <p>
-                  Tables
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../dist/tables/simple.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Simple Tables</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-header">EXAMPLES</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                <p>
-                  Auth
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                    <p>
-                      Version 1
-                      <i class="nav-arrow bi bi-chevron-right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="../dist/examples/login.html" class="nav-link">
-                        <i class="nav-icon bi bi-circle"></i>
-                        <p>Login</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../dist/examples/register.html" class="nav-link">
-                        <i class="nav-icon bi bi-circle"></i>
-                        <p>Register</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                    <p>
-                      Version 2
-                      <i class="nav-arrow bi bi-chevron-right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="../dist/examples/login-v2.html" class="nav-link">
-                        <i class="nav-icon bi bi-circle"></i>
-                        <p>Login</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../dist/examples/register-v2.html" class="nav-link">
-                        <i class="nav-icon bi bi-circle"></i>
-                        <p>Register</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/examples/lockscreen.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Lockscreen</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-header">DOCUMENTATIONS</li>
-            <li class="nav-item">
-              <a href="../dist/docs/introduction.html" class="nav-link">
-                <i class="nav-icon bi bi-download"></i>
-                <p>Installation</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../dist/docs/layout.html" class="nav-link">
-                <i class="nav-icon bi bi-grip-horizontal"></i>
-                <p>Layout</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../dist/docs/color-mode.html" class="nav-link">
-                <i class="nav-icon bi bi-star-half"></i>
-                <p>Color Mode</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-ui-checks-grid"></i>
-                <p>
-                  Components
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../dist/docs/components/main-header.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Main Header</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/docs/components/main-sidebar.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Main Sidebar</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-filetype-js"></i>
-                <p>
-                  Javascript
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../dist/docs/javascript/treeview.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Treeview</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="../dist/docs/browser-support.html" class="nav-link">
-                <i class="nav-icon bi bi-browser-edge"></i>
-                <p>Browser Support</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../dist/docs/how-to-contribute.html" class="nav-link">
-                <i class="nav-icon bi bi-hand-thumbs-up-fill"></i>
-                <p>How To Contribute</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../dist/docs/faq.html" class="nav-link">
-                <i class="nav-icon bi bi-question-circle-fill"></i>
-                <p>FAQ</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../dist/docs/license.html" class="nav-link">
-                <i class="nav-icon bi bi-patch-check-fill"></i>
-                <p>License</p>
-              </a>
-            </li>
-            <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-circle-fill"></i>
-                <p>Level 1</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-circle-fill"></i>
-                <p>
-                  Level 1
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Level 2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>
-                      Level 2
-                      <i class="nav-arrow bi bi-chevron-right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="nav-icon bi bi-record-circle-fill"></i>
-                        <p>Level 3</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="nav-icon bi bi-record-circle-fill"></i>
-                        <p>Level 3</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="nav-icon bi bi-record-circle-fill"></i>
-                        <p>Level 3</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Level 2</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-circle-fill"></i>
-                <p>Level 1</p>
-              </a>
-            </li>
-            <li class="nav-header">LABELS</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-circle text-danger"></i>
-                <p class="text">Important</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-circle text-warning"></i>
-                <p>Warning</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-circle text-info"></i>
-                <p>Informational</p>
-              </a>
-            </li>
-          </ul>
-          <!--end::Sidebar Menu-->
-        </nav>
-      </div>
-      <!--end::Sidebar Wrapper-->
-    </aside>
-    <!--end::Sidebar-->
-    <!--begin::App Main-->
-    <main class="app-main">
-      <!--begin::App Content Header-->
-      <div class="app-content-header">
-        <!--begin::Container-->
-        <div class="container-fluid">
-          <!--begin::Row-->
-          <div class="row">
-            <div class="col-sm-6">
-              <h3 class="mb-0">Dashboard</h3>
-            </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-end">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-              </ol>
             </div>
           </div>
-          <!--end::Row-->
         </div>
-        <!--end::Container-->
       </div>
-      <!--end::App Content Header-->
-      <!--begin::App Content-->
-      <div class="app-content">
-        <!--begin::Container-->
-        <div class="container-fluid">
-          <!--begin::Row-->
-          <div class="row">
-            <!--begin::Col-->
-            <div class="col-lg-3 col-6">
-              <!--begin::Small Box Widget 1-->
-              <div class="small-box text-bg-primary">
-                <div class="inner">
-                  <h3>150</h3>
-                  <p>New Orders</p>
-                </div>
-                <svg
-                  class="small-box-icon"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true">
-                  <path
-                    d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"></path>
+      <div id="main" class="w-4/5 h-screen">
+        <div id="navbar" class="w-full border-b border-[#ebebeb] p-2">
+          <div class="w-full flex items-center justify-between">
+            <div class="">
+              <button id="sidebar-toggle" class="p-2 rounded-md bg-white border border-[#ebebeb] hover:bg-[#fafafa] transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-600">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                 </svg>
-                <a
-                  href="#"
-                  class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                  More info <i class="bi bi-link-45deg"></i>
-                </a>
-              </div>
-              <!--end::Small Box Widget 1-->
+              </button>
             </div>
-            <!--end::Col-->
-            <div class="col-lg-3 col-6">
-              <!--begin::Small Box Widget 2-->
-              <div class="small-box text-bg-success">
-                <div class="inner">
-                  <h3>53<sup class="fs-5">%</sup></h3>
-                  <p>Bounce Rate</p>
+            <div class="flex items-center gap-2">
+              <button class="cursor-pointer flex items-center gap-2">
+                <div class="rounded-full bg-neutral-400 text-lg outfit-semibold size-8 p-1 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 text-neutral-100">
+                    <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+                  </svg>
                 </div>
-                <svg
-                  class="small-box-icon"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true">
-                  <path
-                    d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"></path>
-                </svg>
-                <a
-                  href="#"
-                  class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                  More info <i class="bi bi-link-45deg"></i>
-                </a>
-              </div>
-              <!--end::Small Box Widget 2-->
+                <span class="text-sm text-neutral-600 outfit-regular"><?= $_SESSION['nama'] ?></span>
+              </button>
             </div>
-            <!--end::Col-->
-            <div class="col-lg-3 col-6">
-              <!--begin::Small Box Widget 3-->
-              <div class="small-box text-bg-warning">
-                <div class="inner">
-                  <h3>44</h3>
-                  <p>User Registrations</p>
-                </div>
-                <svg
-                  class="small-box-icon"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true">
-                  <path
-                    d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"></path>
-                </svg>
-                <a
-                  href="#"
-                  class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                  More info <i class="bi bi-link-45deg"></i>
-                </a>
-              </div>
-              <!--end::Small Box Widget 3-->
-            </div>
-            <!--end::Col-->
-            <div class="col-lg-3 col-6">
-              <!--begin::Small Box Widget 4-->
-              <div class="small-box text-bg-danger">
-                <div class="inner">
-                  <h3>65</h3>
-                  <p>Unique Visitors</p>
-                </div>
-                <svg
-                  class="small-box-icon"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true">
-                  <path
-                    clip-rule="evenodd"
-                    fill-rule="evenodd"
-                    d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"></path>
-                  <path
-                    clip-rule="evenodd"
-                    fill-rule="evenodd"
-                    d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"></path>
-                </svg>
-                <a
-                  href="#"
-                  class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                  More info <i class="bi bi-link-45deg"></i>
-                </a>
-              </div>
-              <!--end::Small Box Widget 4-->
-            </div>
-            <!--end::Col-->
           </div>
-          <!--end::Row-->
-          <!--begin::Row-->
-          <div class="row">
-            <!-- Start col -->
-            <div class="col-lg-7 connectedSortable">
-              <div class="card mb-4">
-                <div class="card-header">
-                  <h3 class="card-title">Sales Value</h3>
-                </div>
-                <div class="card-body">
-                  <div id="revenue-chart"></div>
-                </div>
-              </div>
-              <!-- /.card -->
-              <!-- DIRECT CHAT -->
-              <div class="card direct-chat direct-chat-primary mb-4">
-                <div class="card-header">
-                  <h3 class="card-title">Direct Chat</h3>
-                  <div class="card-tools">
-                    <span title="3 New Messages" class="badge text-bg-primary"> 3 </span>
-                    <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
-                      <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
-                      <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-tool"
-                      title="Contacts"
-                      data-lte-toggle="chat-pane">
-                      <i class="bi bi-chat-text-fill"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-lte-toggle="card-remove">
-                      <i class="bi bi-x-lg"></i>
-                    </button>
-                  </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <!-- Conversations are loaded here -->
-                  <div class="direct-chat-messages">
-                    <!-- Message. Default to the start -->
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-start"> Alexander Pierce </span>
-                        <span class="direct-chat-timestamp float-end"> 23 Jan 2:00 pm </span>
-                      </div>
-                      <!-- /.direct-chat-infos -->
-                      <img
-                        class="direct-chat-img"
-                        src="../dist/assets/img/user1-128x128.jpg"
-                        alt="message user image" />
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Is this template really for free? That's unbelievable!
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-                    <!-- Message to the end -->
-                    <div class="direct-chat-msg end">
-                      <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-end"> Sarah Bullock </span>
-                        <span class="direct-chat-timestamp float-start"> 23 Jan 2:05 pm </span>
-                      </div>
-                      <!-- /.direct-chat-infos -->
-                      <img
-                        class="direct-chat-img"
-                        src="../dist/assets/img/user3-128x128.jpg"
-                        alt="message user image" />
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">You better believe it!</div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-                    <!-- Message. Default to the start -->
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-start"> <?= $_SESSION['nama'] ?> </span>
-                        <span class="direct-chat-timestamp float-end"> 23 Jan 5:37 pm </span>
-                      </div>
-                      <!-- /.direct-chat-infos -->
-                      <img
-                        class="direct-chat-img"
-                        src="../dist/assets/img/user1-128x128.jpg"
-                        alt="message user image" />
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Working with AdminLTE on a great new app! Wanna join?
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-                    <!-- Message to the end -->
-                    <div class="direct-chat-msg end">
-                      <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-end"> Sarah Bullock </span>
-                        <span class="direct-chat-timestamp float-start"> 23 Jan 6:10 pm </span>
-                      </div>
-                      <!-- /.direct-chat-infos -->
-                      <img
-                        class="direct-chat-img"
-                        src="../dist/assets/img/user3-128x128.jpg"
-                        alt="message user image" />
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">I would love to.</div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-                  </div>
-                  <!-- /.direct-chat-messages-->
-                  <!-- Contacts are loaded here -->
-                  <div class="direct-chat-contacts">
-                    <ul class="contacts-list">
-                      <li>
-                        <a href="#">
-                          <img
-                            class="contacts-list-img"
-                            src="../dist/assets/img/user1-128x128.jpg"
-                            alt="User Avatar" />
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Count Dracula
-                              <small class="contacts-list-date float-end"> 2/28/2023 </small>
-                            </span>
-                            <span class="contacts-list-msg"> How have you been? I was... </span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img
-                            class="contacts-list-img"
-                            src="../dist/assets/img/user7-128x128.jpg"
-                            alt="User Avatar" />
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Sarah Doe
-                              <small class="contacts-list-date float-end"> 2/23/2023 </small>
-                            </span>
-                            <span class="contacts-list-msg"> I will be waiting for... </span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img
-                            class="contacts-list-img"
-                            src="../dist/assets/img/user3-128x128.jpg"
-                            alt="User Avatar" />
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Nadia Jolie
-                              <small class="contacts-list-date float-end"> 2/20/2023 </small>
-                            </span>
-                            <span class="contacts-list-msg"> I'll call you back at... </span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img
-                            class="contacts-list-img"
-                            src="../dist/assets/img/user5-128x128.jpg"
-                            alt="User Avatar" />
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Nora S. Vans
-                              <small class="contacts-list-date float-end"> 2/10/2023 </small>
-                            </span>
-                            <span class="contacts-list-msg"> Where is your new... </span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img
-                            class="contacts-list-img"
-                            src="../dist/assets/img/user6-128x128.jpg"
-                            alt="User Avatar" />
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              John K.
-                              <small class="contacts-list-date float-end"> 1/27/2023 </small>
-                            </span>
-                            <span class="contacts-list-msg"> Can I take a look at... </span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img
-                            class="contacts-list-img"
-                            src="../dist/assets/img/user8-128x128.jpg"
-                            alt="User Avatar" />
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Kenneth M.
-                              <small class="contacts-list-date float-end"> 1/4/2023 </small>
-                            </span>
-                            <span class="contacts-list-msg"> Never mind I found... </span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                    </ul>
-                    <!-- /.contacts-list -->
-                  </div>
-                  <!-- /.direct-chat-pane -->
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <form action="#" method="post">
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        name="message"
-                        placeholder="Type Message ..."
-                        class="form-control" />
-                      <span class="input-group-append">
-                        <button type="button" class="btn btn-primary">Send</button>
-                      </span>
-                    </div>
-                  </form>
-                </div>
-                <!-- /.card-footer-->
-              </div>
-              <!-- /.direct-chat -->
-            </div>
-            <!-- /.Start col -->
-            <!-- Start col -->
-            <div class="col-lg-5 connectedSortable">
-              <div class="card text-white bg-primary bg-gradient border-primary mb-4">
-                <div class="card-header border-0">
-                  <h3 class="card-title">Sales Value</h3>
-                  <div class="card-tools">
-                    <button
-                      type="button"
-                      class="btn btn-primary btn-sm"
-                      data-lte-toggle="card-collapse">
-                      <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
-                      <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div id="world-map" style="height: 220px"></div>
-                </div>
-                <div class="card-footer border-0">
-                  <!--begin::Row-->
-                  <div class="row">
-                    <div class="col-4 text-center">
-                      <div id="sparkline-1" class="text-dark"></div>
-                      <div class="text-white">Visitors</div>
-                    </div>
-                    <div class="col-4 text-center">
-                      <div id="sparkline-2" class="text-dark"></div>
-                      <div class="text-white">Online</div>
-                    </div>
-                    <div class="col-4 text-center">
-                      <div id="sparkline-3" class="text-dark"></div>
-                      <div class="text-white">Sales</div>
-                    </div>
-                  </div>
-                  <!--end::Row-->
-                </div>
-              </div>
-            </div>
-            <!-- /.Start col -->
-          </div>
-          <!-- /.row (main row) -->
         </div>
-        <!--end::Container-->
+        <div id="content" class="w-full bg-neutral-50 p-4">
+          <div class="w-full p-2">
+            <div class="mb-4 py-2">
+              <h1 class="mb-1 text-4xl text-neutral-900 outfit-medium">Welcome back, <?= $_SESSION['nama'] ?></h1>
+              <p class="text-md text-neutral-600 outfit-regular">Here's what's happening today</p>
+            </div>
+            <div class="mb-2 flex items-center gap-2">
+              <div class="bg-white w-full rounded-md p-4 border border-[#ebebeb]">
+                <div class="flex items-center justify-between">
+                  <h1 class="text-lg text-neutral-700 outfit-regular">Test judul</h1>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-neutral-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>
+                </div>
+                <div class="flex items-center gap-2">
+                  <h1 class="text-4xl text-neutral-900 outfit-regular">9436.35</h1>
+                  <div class="rounded-sm px-2 py-[2px] text-xs flex items-center gap-1 bg-green-50">
+                    <span class="text-green-600">23.4%</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 text-green-600">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="">
+                  <span class="text-sm text-neutral-600">
+                    Compared to last week
+                  </span>
+                </div>
+              </div>
+              <div class="bg-white w-full rounded-md p-4 border border-[#ebebeb]">
+                <div class="flex items-center justify-between">
+                  <h1 class="text-lg text-neutral-700 outfit-regular">Test judul</h1>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-neutral-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>
+                </div>
+                <div class="flex items-center gap-2">
+                  <h1 class="text-4xl text-neutral-900 outfit-regular">9436.35</h1>
+                  <div class="rounded-sm px-2 py-[2px] text-xs flex items-center gap-1 bg-green-50">
+                    <span class="text-green-600">23.4%</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 text-green-600">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="">
+                  <span class="text-sm text-neutral-600">
+                    Compared to last week
+                  </span>
+                </div>
+              </div>
+              <div class="bg-white w-full rounded-md p-4 border border-[#ebebeb]">
+                <div class="flex items-center justify-between">
+                  <h1 class="text-lg text-neutral-700 outfit-regular">Test judul</h1>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-neutral-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>
+                </div>
+                <div class="flex items-center gap-2">
+                  <h1 class="text-4xl text-neutral-900 outfit-regular">9436.35</h1>
+                  <div class="rounded-sm px-2 py-[2px] text-xs flex items-center gap-1 bg-green-50">
+                    <span class="text-green-600">23.4%</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 text-green-600">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="">
+                  <span class="text-sm text-neutral-600">
+                    Compared to last week
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="w-full grid grid-cols-5 gap-4">
+              <div class="col-span-3 bg-white flex flex-col justify-between rounded-md p-4 border border-[#ebebeb]">
+                <canvas id="chart1" class="mb-2 w-full h-auto" aria-label="test chart" role="img"></canvas>
+                <div class="flex items-center gap-2">
+                  <button class="rounded-md px-4 py-2 hover:bg-[#fafafa] border border-[#ebebeb] text-sm text-neutral-600 bg-neutral-white transition-all">See more</button>
+                  <button class="rounded-md p-2 hover:bg-[#fafafa] border border-[#ebebeb] text-sm text-neutral-600 bg-neutral-white transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-600">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="col-span-2 bg-white rounded-md p-4 border border-[#ebebeb]">
+                <canvas id="chart2" class="mb-2 w-full h-auto" aria-label="pie chart" role="img"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!--end::App Content-->
-    </main>
-    <!--end::App Main-->
-    <!--begin::Footer-->
-    <footer class="app-footer">
-      <!--begin::To the end-->
-      <div class="float-end d-none d-sm-inline">Anything you want</div>
-      <!--end::To the end-->
-      <!--begin::Copyright-->
-      <strong>
-        Copyright &copy; 2014-2025&nbsp;
-        <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
-      </strong>
-      All rights reserved.
-      <!--end::Copyright-->
-    </footer>
-    <!--end::Footer-->
+    </div>
   </div>
-  <!--end::App Wrapper-->
-  <!--begin::Script-->
-  <!--begin::Third Party Plugin(OverlayScrollbars)-->
-  <script
-    src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
-    crossorigin="anonymous"></script>
-  <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-  <script
-    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    crossorigin="anonymous"></script>
-  <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
-    crossorigin="anonymous"></script>
-  <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-  <script src="../dist/js/adminlte.js"></script>
-  <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
-  <script>
-    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
-    const Default = {
-      scrollbarTheme: 'os-theme-light',
-      scrollbarAutoHide: 'leave',
-      scrollbarClickScroll: true,
-    };
-    document.addEventListener('DOMContentLoaded', function() {
-      const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
-      if (sidebarWrapper && OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined) {
-        OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
-          scrollbars: {
-            theme: Default.scrollbarTheme,
-            autoHide: Default.scrollbarAutoHide,
-            clickScroll: Default.scrollbarClickScroll,
-          },
-        });
-      }
-    });
-  </script>
-  <!--end::OverlayScrollbars Configure-->
-  <!-- OPTIONAL SCRIPTS -->
-  <!-- sortablejs -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"
-    crossorigin="anonymous"></script>
-  <!-- sortablejs -->
-  <script>
-    new Sortable(document.querySelector('.connectedSortable'), {
-      group: 'shared',
-      handle: '.card-header',
-    });
 
-    const cardHeaders = document.querySelectorAll('.connectedSortable .card-header');
-    cardHeaders.forEach((cardHeader) => {
-      cardHeader.style.cursor = 'move';
-    });
-  </script>
-  <!-- apexcharts -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
-    integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
-    crossorigin="anonymous"></script>
-  <!-- ChartJS -->
-  <script>
-    // NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
-    // IT'S ALL JUST JUNK FOR DEMO
-    // ++++++++++++++++++++++++++++++++++++++++++
 
-    const sales_chart_options = {
-      series: [{
-          name: 'Digital Goods',
-          data: [28, 48, 40, 19, 86, 27, 90],
-        },
-        {
-          name: 'Electronics',
-          data: [65, 59, 80, 81, 56, 55, 40],
-        },
-      ],
-      chart: {
-        height: 300,
-        type: 'area',
-        toolbar: {
-          show: false,
-        },
-      },
-      legend: {
-        show: false,
-      },
-      colors: ['#0d6efd', '#20c997'],
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: 'smooth',
-      },
-      xaxis: {
-        type: 'datetime',
-        categories: [
-          '2023-01-01',
-          '2023-02-01',
-          '2023-03-01',
-          '2023-04-01',
-          '2023-05-01',
-          '2023-06-01',
-          '2023-07-01',
-        ],
-      },
-      tooltip: {
-        x: {
-          format: 'MMMM yyyy',
-        },
-      },
-    };
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
-    const sales_chart = new ApexCharts(
-      document.querySelector('#revenue-chart'),
-      sales_chart_options,
-    );
-    sales_chart.render();
-  </script>
-  <!-- jsvectormap -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js"
-    integrity="sha256-/t1nN2956BT869E6H4V1dnt0X5pAQHPytli+1nTZm2Y="
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"
-    integrity="sha256-XPpPaZlU8S/HWf7FZLAncLg2SAkP8ScUTII89x9D3lY="
-    crossorigin="anonymous"></script>
-  <!-- jsvectormap -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    // World map by jsVectorMap
-    new jsVectorMap({
-      selector: '#world-map',
-      map: 'world',
-    });
-
-    // Sparkline charts
-    const option_sparkline1 = {
-      series: [{
-        data: [1000, 1200, 920, 927, 931, 1027, 819, 930, 1021],
-      }, ],
-      chart: {
-        type: 'area',
-        height: 50,
-        sparkline: {
-          enabled: true,
-        },
-      },
-      stroke: {
-        curve: 'straight',
-      },
-      fill: {
-        opacity: 0.3,
-      },
-      yaxis: {
-        min: 0,
-      },
-      colors: ['#DCE6EC'],
-    };
-
-    const sparkline1 = new ApexCharts(document.querySelector('#sparkline-1'), option_sparkline1);
-    sparkline1.render();
-
-    const option_sparkline2 = {
-      series: [{
-        data: [515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921],
-      }, ],
-      chart: {
-        type: 'area',
-        height: 50,
-        sparkline: {
-          enabled: true,
-        },
-      },
-      stroke: {
-        curve: 'straight',
-      },
-      fill: {
-        opacity: 0.3,
-      },
-      yaxis: {
-        min: 0,
-      },
-      colors: ['#DCE6EC'],
-    };
-
-    const sparkline2 = new ApexCharts(document.querySelector('#sparkline-2'), option_sparkline2);
-    sparkline2.render();
-
-    const option_sparkline3 = {
-      series: [{
-        data: [15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21],
-      }, ],
-      chart: {
-        type: 'area',
-        height: 50,
-        sparkline: {
-          enabled: true,
-        },
-      },
-      stroke: {
-        curve: 'straight',
-      },
-      fill: {
-        opacity: 0.3,
-      },
-      yaxis: {
-        min: 0,
-      },
-      colors: ['#DCE6EC'],
-    };
-
-    const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
-    sparkline3.render();
-  </script>
-  <!--end::Script-->
+  <script src="./src/js/dashboard.js"></script>
 </body>
-<!--end::Body-->
 
 </html>
