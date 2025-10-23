@@ -1,3 +1,7 @@
+<?php
+session_reset();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,7 +87,7 @@
         <!-- END LANDING PAGE -->
 
         <!-- ABOUT -->
-         <div class="w-full"></div>
+        <div class="w-full"></div>
         <!-- END ABOUT -->
     </div>
 

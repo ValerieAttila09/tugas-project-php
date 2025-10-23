@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-  let active = true;
+  let sidebarActive = true;
+  let profileDropdownActive = false;
+  const profileDropdownToggle = document.querySelectorAll("#profileToggle");
+  const profileDropdown = document.getElementById("profileDropdown");
   const sidebarMenu = document.querySelectorAll("#sidebarMenu");
 
   gsap.set("#sidebar", {
@@ -13,9 +16,47 @@ document.addEventListener("DOMContentLoaded", (event) => {
     opacity: 1,
     marginLeft: "6px",
   });
+  gsap.set(profileDropdown, {
+    opacity: 0,
+    zIndex: -1,
+    y: -20,
+  })
 
+  profileDropdownToggle.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      if (profileDropdownActive) {
+        gsap.to(profileDropdown, {
+          opacity: 0,
+          onComplete: () => {
+            profileDropdown.classList.add("hidden");
+            gsap.to(profileDropdown, {
+              zIndex: -1,
+            })
+          },
+          y: -20,
+          duration: 0.35,
+          ease: "power2.out",
+        })
+        profileDropdownActive = !profileDropdownActive;
+      } else {
+        gsap.to(profileDropdown, {
+          opacity: 1,
+          onStart: () => {
+            profileDropdown.classList.remove("hidden");
+            gsap.to(profileDropdown, {
+              zIndex: 1,
+            })
+          },
+          y: 0,
+          duration: 0.35,
+          ease: "power2.out",
+        })
+        profileDropdownActive = !profileDropdownActive;
+      }
+    })
+  })
   document.getElementById("sidebar-toggle").addEventListener("click", () => {
-    if (active) {
+    if (sidebarActive) {
       gsap.to("#sidebar", {
         width: "5%",
         duration: 0.35,
@@ -33,7 +74,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 0.35,
         ease: "power2.out",
       });
-      active = !active;
+      sidebarActive = !sidebarActive;
     } else {
       gsap.to("#sidebar", {
         width: "20%",
@@ -52,7 +93,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 0.35,
         ease: "power2.out",
       });
-      active = !active;
+      sidebarActive = !sidebarActive;
     }
   })
 

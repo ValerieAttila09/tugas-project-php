@@ -16,6 +16,7 @@ if (isset($_POST["login"])) {
     if ($cek != 0) {
         if ($cek['level'] == "admin") {
             $_SESSION['nama'] = $cek['nama'];
+            $_SESSION['username'] = $cek['username'];
             $_SESSION['level'] = $cek['level'];
             header("location:../menu/dashboard.php");
             exit;
