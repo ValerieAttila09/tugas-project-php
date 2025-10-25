@@ -57,7 +57,7 @@ session_reset();
     <div class="w-full">
         <!-- NAVBAR -->
         <div class="max-w-5xl mx-auto p-2 flex items-center justify-between">
-            <div class="">
+            <div class="px-18">
                 <h1 class="text-lg outfit-bold text-neutral-900">AriesUp</h1>
             </div>
             <div class="flex items-center justify-center gap-4">
@@ -76,7 +76,7 @@ session_reset();
         <div class="h-[96vh] flex items-center justify-center">
             <div class="max-w-4xl flex flex-col gap-5 items-center justify-center gap-1">
                 <div class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">About Us</div>
-                <h1 class="text-7xl text-center text-neutral-900 outfit-medium text-shadow-sm">Most Powerful Way To Connect Everyone</h1>
+                <h1 class="text-7xl text-center text-neutral-900 outfit-medium text-shadow-sm">Most Powerful Way To Manage Everything</h1>
                 <p class="text-lg text-center text-neutral-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quia laborum ipsum aut. Id cumque excepturi numquam sunt dolor quo ratione, impedit ullam in voluptatum magni architecto voluptate repellendus similique!</p>
                 <div class="flex items-center gap-3">
                     <button class="rounded-full px-6 py-2 bg-neutral-900 text-white hover:bg-neutral-700 hover:shadow-sm transition-all">Get Started</button>
