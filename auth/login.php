@@ -15,9 +15,11 @@ if (isset($_POST["login"])) {
 
     if ($cek != 0) {
         if ($cek['level'] == "admin") {
+            $_SESSION['id'] = $cek['id_user'];
             $_SESSION['nama'] = $cek['nama'];
             $_SESSION['username'] = $cek['username'];
             $_SESSION['level'] = $cek['level'];
+            echo '<script>alert("berhasil login dengan id '.$cek['id_user'].'")</script>';
             header("location:../menu/dashboard.php");
             exit;
         } else {

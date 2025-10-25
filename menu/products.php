@@ -1,4 +1,5 @@
 <?php
+include "../auth/koneksi.php";
 session_start();
 if (!isset($_SESSION['nama'])) {
   header("location:../");
@@ -151,97 +152,48 @@ if (!isset($_SESSION['nama'])) {
               </div>
             </div>
             <div class="w-full">
-              <div class="bg-white overflow-x-scroll rounded-md border border-[#ebebeb] py-2">
+              <div class="bg-white rounded-md border border-[#ebebeb] py-2">
                 <div class="flex justify-between items-center px-2 mb-2">
                   <button type="button" id="toggleInsertModal" class="rounded-md bg-white border border-[#ebebeb] text-neutral-700 px-4 py-1 hover:bg-neutral-50 hover:shadow-sm transition-all">Add Product</button>
                 </div>
-                <table class="w-full">
-                  <thead>
-                    <tr class="border-b border-t border-[#ebebeb] bg-neutral-50">
-                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">No</th>
-                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Product Name</th>
-                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Description</th>
-                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Price</th>
-                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Quantity</th>
-                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Category</th>
-                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
-                      <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3 outfit-medium">329.99$</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
-                      <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
-                      </td>
-                    </tr>
-                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
-                      <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3 outfit-medium">329.99$</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
-                      <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
-                      </td>
-                    </tr>
-                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
-                      <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3 outfit-medium">329.99$</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
-                      <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
-                      </td>
-                    </tr>
-                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
-                      <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3 outfit-medium">329.99$</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
-                      <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
-                      </td>
-                    </tr>
-                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
-                      <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3 outfit-medium">329.99$</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
-                      <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
-                      </td>
-                    </tr>
-                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
-                      <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3 outfit-medium">329.99$</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
-                      <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
-                      <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="relative max-h-[calc(100vh-10rem)] overflow-y-auto">
+                  <table class="w-full">
+                    <thead>
+                      <tr class="border-b border-t border-[#ebebeb] bg-neutral-50">
+                        <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">No</th>
+                        <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Product Name</th>
+                        <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Description</th>
+                        <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Price</th>
+                        <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Quantity</th>
+                        <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Category</th>
+                        <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="relative">
+                      <?php
+                      $query = "SELECT * FROM tb_produk WHERE id_user = '" . $_SESSION['id'] . "'";
+                      $result = mysqli_query($con, $query);
+                      $no = 1;
+                      while ($row = mysqli_fetch_assoc($result)) {
+                      ?>
+                        <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
+                          <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $no++; ?></td>
+                          <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['nama_produk']; ?></td>
+                          <td class="text-sm w-[400px] text-neutral-800 p-3"><?php echo $row['deskripsi']; ?></td>
+                          <td class="text-sm text-nowrap text-neutral-800 p-3 outfit-medium"><?php echo $row['harga']; ?>$</td>
+                          <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['kuantitas']; ?></td>
+                          <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['kategori']; ?></td>
+                          <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
+                            <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
+                            <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
+                          </td>
+                        </tr>
+                      <?php
+                      }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
