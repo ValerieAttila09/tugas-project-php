@@ -120,7 +120,7 @@ if (!isset($_SESSION['nama'])) {
             </div>
           </div>
         </div>
-        <div id="content" class="w-full bg-neutral-50 p-4">
+        <div id="content" class="relative w-full bg-neutral-50 p-4">
           <div class="w-full p-2">
             <div class="w-full flex items-center justify-between gap-6">
               <div class="w-auto">
@@ -168,7 +168,7 @@ if (!isset($_SESSION['nama'])) {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="border-b border-[#ebebeb]">
+                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
                       <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
                       <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
@@ -176,11 +176,11 @@ if (!isset($_SESSION['nama'])) {
                       <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
                       <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
                       </td>
                     </tr>
-                    <tr class="border-b border-[#ebebeb]">
+                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
                       <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
                       <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
@@ -188,11 +188,11 @@ if (!isset($_SESSION['nama'])) {
                       <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
                       <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
                       </td>
                     </tr>
-                    <tr class="border-b border-[#ebebeb]">
+                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
                       <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
                       <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
@@ -200,11 +200,11 @@ if (!isset($_SESSION['nama'])) {
                       <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
                       <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
                       </td>
                     </tr>
-                    <tr class="border-b border-[#ebebeb]">
+                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
                       <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
                       <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
@@ -212,11 +212,11 @@ if (!isset($_SESSION['nama'])) {
                       <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
                       <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
                       </td>
                     </tr>
-                    <tr class="border-b border-[#ebebeb]">
+                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
                       <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
                       <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
@@ -224,11 +224,11 @@ if (!isset($_SESSION['nama'])) {
                       <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
                       <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
                       </td>
                     </tr>
-                    <tr class="border-b border-[#ebebeb]">
+                    <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
                       <td class="text-sm text-nowrap text-neutral-800 p-3">1</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">IPhone 15 Pro</td>
                       <td class="text-sm w-[400px] text-neutral-800 p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam sequi odio perferendis quae natus? Saepe in sint illo doloribus dolorem ad assumenda. Exercitationem harum possimus veniam, quo eos odio.</td>
@@ -236,12 +236,89 @@ if (!isset($_SESSION['nama'])) {
                       <td class="text-sm text-nowrap text-neutral-800 p-3">56</td>
                       <td class="text-sm text-nowrap text-neutral-800 p-3">Electronics</td>
                       <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
-                        <button class="rounded-md bg-white border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
-                        <button class="rounded-md bg-white border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
+                        <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
                       </td>
                     </tr>
                   </tbody>
                 </table>
+              </div>
+            </div>
+          </div>
+          <div class="w-full h-full z-10 fixed inset-0 bg-black/50" />
+          <div class="fixed z-15 top-10 bottom-10 inset-x-[calc(1rem*18)] bg-white rounded-md border border-[#ebebeb]">
+            <div class="w-full h-full relative overflow-y-auto">
+              <div class="p-6">
+                <form method="POST">
+                  <div class="space-y-4">
+                    <div class="border-b border-neutral-900/10 pb-12">
+                      <div class="flex items-start justify-between space-x-[calc(1rem*8)]">
+                        <div class="">
+                          <h2 class="text-2xl outfit-medium text-neutral-900">Product Details</h2>
+                          <p class="mt-1 text-sm/6 text-neutral-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non libero culpa error hic? Ea harum quo veritatis. Ab quia omnis eum asperiores animi, cum dignissimos totam beatae temporibus? Unde, eius!</p>
+                        </div>
+                        <div class="">
+                          <button class="cursor-pointer p-1 rounded-md border border-[#ebebeb] hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-sm transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-neutral-600">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                        <div class="sm:col-span-4">
+                          <label for="username" class="block text-sm/6 font-medium text-neutral-900">Product Name</label>
+                          <div class="mt-2">
+                            <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-neutral-300 focus-within:outline-2 focus-within:-outline-offset-1 focus-within:outline-blue-600">
+                              <div class="shrink-0 text-base text-neutral-500 select-none sm:text-sm/6 pe-3">AriesUp </div>
+                              <input id="username" type="text" name="username" placeholder="something..." class="block min-w-0 grow bg-white py-1.5 pr-3 pl-1 text-base text-neutral-900 border border-[#d7d7d7] rounded-r-md placeholder:text-neutral-400 focus:outline-none sm:text-sm/6" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-span-6">
+                          <label for="about" class="block text-sm/6 font-medium text-neutral-900">Description</label>
+                          <div class="mt-2 w-full">
+                            <textarea id="about" name="about" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-neutral-900 outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-400 focus:outline-1 focus:-outline-offset-1 focus:outline-blue-600 sm:text-sm/6"></textarea>
+                          </div>
+                          <p class="mt-1 text-sm/6 text-neutral-600">Write a few sentences about the product.</p>
+                        </div>
+
+                        <div class="sm:col-span-3">
+                          <label for="country" class="block text-sm/6 font-medium text-gray-900">Category</label>
+                          <div class="mt-2 grid grid-cols-1">
+                            <select id="country" name="country" autocomplete="country-name" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                              <option>United States</option>
+                              <option>Canada</option>
+                              <option>Mexico</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                          <label for="city" class="block text-sm/6 font-medium text-gray-900">Price</label>
+                          <div class="mt-2">
+                            <input id="city" type="text" name="city" autocomplete="address-level2" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                          </div>
+                        </div>
+
+                        <div class="sm:col-span-1">
+                          <label for="city" class="block text-sm/6 font-medium text-gray-900">Quantity</label>
+                          <div class="mt-2">
+                            <input id="quantity" type="number" name="quantity" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 flex items-center justify-end gap-x-6">
+                    <button type="button" class="text-sm/6 outfit-medium text-neutral-900">Cancel</button>
+                    <button type="submit" class="rounded-md bg-blue-600 px-3 py-2 text-sm outfit-medium text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Save</button>
+                  </div>
+                </form>
+
               </div>
             </div>
           </div>
@@ -255,7 +332,7 @@ if (!isset($_SESSION['nama'])) {
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
-  <script src="./src/js/dashboard.js"></script>
+  <script src="./src/js/products.js"></script>
 </body>
 
 </html>
