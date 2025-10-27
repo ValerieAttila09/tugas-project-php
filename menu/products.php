@@ -24,9 +24,9 @@ if (!isset($_SESSION['nama'])) {
 
 <body class="outfit-thin">
 
-  <div class="w-full">
+  <div class="w-full h-full overflow-hidden">
     <div class="w-full h-screen flex">
-      <div id="sidebar" class="w-1/5 relative overflow-hidden h-screen border-r border-[#ebebeb]">
+      <div id="sidebar" class="w-[240px] relative overflow-hidden h-screen border-r border-[#ebebeb]">
         <div class="w-full h-full flex flex-col items-center justify-between">
           <div class="w-full flex flex-col items-center gap-4">
             <div class="w-full flex items-center justify-between px-3 py-2">
@@ -71,7 +71,7 @@ if (!isset($_SESSION['nama'])) {
           </div>
         </div>
       </div>
-      <div id="main" class="w-4/5 h-screen">
+      <div id="main" class="min-w-[calc(100%-240px)] h-full">
         <div id="navbar" class="w-full border-b border-[#ebebeb] p-2">
           <div class="w-full flex items-center justify-between">
             <div class="">
@@ -121,7 +121,7 @@ if (!isset($_SESSION['nama'])) {
             </div>
           </div>
         </div>
-        <div id="content" class="relative w-full bg-neutral-50 p-4">
+        <div id="content" class="relative w-full h-[calc(100%-55px)] overflow-y-auto bg-neutral-50 p-4">
           <div class="w-full p-2">
             <div class="w-full flex items-center justify-between gap-6">
               <div class="w-auto">
@@ -156,7 +156,7 @@ if (!isset($_SESSION['nama'])) {
                 <div class="flex justify-between items-center px-2 mb-2">
                   <button type="button" id="toggleInsertModal" class="rounded-md bg-white border border-[#ebebeb] text-neutral-700 px-4 py-1 hover:bg-neutral-50 hover:shadow-sm transition-all">Add Product</button>
                 </div>
-                <div class="relative max-h-[calc(100vh-10rem)] overflow-y-auto">
+                <div class="relative h-full">
                   <table class="w-full">
                     <thead>
                       <tr class="border-b border-t border-[#ebebeb] bg-neutral-50">
@@ -164,7 +164,7 @@ if (!isset($_SESSION['nama'])) {
                         <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Product Name</th>
                         <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Description</th>
                         <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Price</th>
-                        <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Quantity</th>
+                        <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Stock</th>
                         <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Category</th>
                         <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Action</th>
                       </tr>
@@ -176,14 +176,14 @@ if (!isset($_SESSION['nama'])) {
                       $no = 1;
                       while ($row = mysqli_fetch_assoc($result)) {
                       ?>
-                        <tr class="border-b border-[#ebebeb] hover:bg-[#fafafa] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
+                        <tr id="product-<?php echo $row['id_produk']; ?>" class="border-b border-[#ebebeb] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
                           <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $no++; ?></td>
                           <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['nama_produk']; ?></td>
                           <td class="text-sm w-[400px] text-neutral-800 p-3"><?php echo $row['deskripsi']; ?></td>
                           <td class="text-sm text-nowrap text-neutral-800 p-3 outfit-medium"><?php echo $row['harga']; ?>$</td>
                           <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['kuantitas']; ?></td>
                           <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['kategori']; ?></td>
-                          <td class="text-sm text-neutral-800 p-3 flex items-center justify-center gap-2">
+                          <td class="text-sm text-neutral-800 p-3 flex items-center flex-nowrap justify-start gap-2">
                             <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
                             <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
                           </td>

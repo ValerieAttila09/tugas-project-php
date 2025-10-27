@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const insertModalToggle = document.querySelectorAll("#toggleInsertModal");
 
   gsap.set("#sidebar", {
-    width: "20%",
+    width: "240px",
   });
   gsap.set("#main", {
-    width: "80%",
+    width: "calc(100%-240px)",
   });
   gsap.set(sidebarMenu, {
     width: "auto",
@@ -90,12 +90,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
       sidebarActive = !sidebarActive;
     } else {
       gsap.to("#sidebar", {
-        width: "20%",
+        width: "240px",
         duration: 0.35,
         ease: "power2.out",
       });
       gsap.to("#main", {
-        width: "80%",
+        width: "calc(100% - 240px)",
         duration: 0.35,
         ease: "power2.out",
       });
