@@ -137,22 +137,35 @@ if (!isset($_SESSION['nama'])) {
                 <p class="text-sm text-neutral-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
               </div>
               <div class="mb-4 w-full flex items-center justify-end gap-2">
+                <?php
+                $productQuery = "SELECT * FROM tb_produk WHERE id_user = '" . $_SESSION['id'] . "'";
+                $productResult = mysqli_query($con, $productQuery);
+                $productCount = mysqli_num_rows($productResult);
+                ?>
                 <div class="rounded-md bg-white border border-[#ebebeb] p-4">
                   <h1 class="text-lg text-neutral-600 outfit-regular">Total Products</h1>
                   <div class="flex items-center gap-2 mb-2">
-                    <h1 class="text-3xl text-neutral-900 outfit-medium">34</h1>
+                    <h1 class="text-3xl text-neutral-900 outfit-medium"><?php echo $productCount ?></h1>
                     <div class="rounded-sm flex items-center justify-center px-2 py-[2px] bg-green-50 text-green-600">
-                      <span class="text-xs">+34</span>
+                      <span class="text-xs">+<?php echo $productCount ?></span>
                     </div>
                   </div>
                   <p class="text-xs text-neutral-500">Lorem ipsum dolor sit amet consectetur.</p>
                 </div>
+                <?php
+                $revenueQuery = "SELECT SUM(harga * kuantitas) AS total_revenue FROM tb_produk WHERE id_user = '" . $_SESSION['id'] . "'";
+                $revenueResult = mysqli_query($con, $revenueQuery);
+                $revenueRow = mysqli_fetch_assoc($revenueResult);
+                $totalRevenue = $revenueRow['total_revenue'];
+                $totalRevenue = ($totalRevenue != null) ? $totalRevenue : 0;
+                $totalRevenue = number_format($totalRevenue, 2);
+                ?>
                 <div class="rounded-md bg-white border border-[#ebebeb] p-4">
-                  <h1 class="text-lg text-neutral-600 outfit-regular">Total Products</h1>
+                  <h1 class="text-lg text-neutral-600 outfit-regular">Total Value</h1>
                   <div class="flex items-center gap-2 mb-2">
-                    <h1 class="text-3xl text-neutral-900 outfit-medium">$ 7,464</h1>
+                    <h1 class="text-3xl text-neutral-900 outfit-medium">$ <?php echo $totalRevenue; ?></h1>
                     <div class="rounded-sm flex items-center justify-center px-2 py-[2px] bg-green-50 text-green-600">
-                      <span class="text-xs">+$ 7,464</span>
+                      <span class="text-xs">+$ <?php echo $totalRevenue; ?></span>
                     </div>
                   </div>
                   <p class="text-xs text-neutral-500">Lorem ipsum dolor sit amet consectetur.</p>
@@ -192,7 +205,14 @@ if (!isset($_SESSION['nama'])) {
                           <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['kuantitas']; ?></td>
                           <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['kategori']; ?></td>
                           <td class="text-sm text-neutral-800 p-3 flex items-center flex-nowrap justify-start gap-2">
-                            <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Edit</button>
+                            <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1" 
+                              data-id="<?php echo $row['id_produk']; ?>"
+                              data-name="<?php echo htmlspecialchars($row['nama_produk']); ?>"
+                              data-desc="<?php echo htmlspecialchars($row['deskripsi']); ?>"
+                              data-category="<?php echo $row['kategori']; ?>"
+                              data-price="<?php echo $row['harga']; ?>"
+                              data-qty="<?php echo $row['kuantitas']; ?>"
+                              onclick="editProduct(this)">Edit</button>
                             <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
                           </td>
                         </tr>
@@ -206,49 +226,47 @@ if (!isset($_SESSION['nama'])) {
             </div>
           </div>
           <div id="overlay" class="w-full h-full z-10 fixed inset-0 bg-black/50 hidden" />
-          <div id="insertModal" class="fixed z-15 top-[6%] bottom-[6%] inset-x-[25%] hidden bg-white rounded-md border border-[#ebebeb]">
+          <div id="insertModal" class="fixed z-15 top-[6%] bottom-auto inset-x-[25%] hidden bg-white rounded-md border border-[#ebebeb]">
+            <div class="w-full flex items-center justify-between p-4">
+              <div class="">
+                <h1 class="text-2xl outfit-medium text-neutral-900">Insert Product</h1>
+              </div>
+              <div class="">
+                <button type="button" id="toggleInsertModal" class="cursor-pointer p-1 rounded-md border border-[#ebebeb] hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-sm transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-neutral-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
             <div class="w-full h-full relative overflow-y-auto">
-              <div class="p-6">
+              <div class="px-6 pb-6">
                 <form method="POST">
                   <div class="space-y-4">
                     <div class="border-b border-neutral-900/10 pb-12">
-                      <div class="flex items-start justify-between space-x-[calc(1rem*8)]">
-                        <div class="">
-                          <h2 class="text-2xl outfit-medium text-neutral-900">Product Details</h2>
-                          <p class="mt-1 text-sm/6 text-neutral-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non libero culpa error hic? Ea harum quo veritatis. Ab quia omnis eum asperiores animi, cum dignissimos totam beatae temporibus? Unde, eius!</p>
-                        </div>
-                        <div class="">
-                          <button type="button" id="toggleInsertModal" class="cursor-pointer p-1 rounded-md border border-[#ebebeb] hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-sm transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-neutral-600">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-
                       <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                         <div class="sm:col-span-6">
-                          <label for="product_name" class="block text-sm/6 font-medium text-neutral-900">Product Name</label>
+                          <label for="nama_produk" class="block text-sm/6 font-medium text-neutral-900">Product Name</label>
                           <div class="mt-2">
                             <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-neutral-300 focus-within:outline-1 focus-within:-outline-offset-1 focus-within:outline-blue-600">
                               <div class="shrink-0 text-base text-neutral-500 select-none sm:text-sm/6 pe-3">AriesUp </div>
-                              <input id="product_name" type="text" name="product_name" placeholder="something..." class="w-full block min-w-0 grow bg-white py-1.5 pr-3 pl-1 text-base text-neutral-900 border border-[#d7d7d7] rounded-r-md placeholder:text-neutral-400 focus:outline-none sm:text-sm/6" />
+                              <input required id="nama_produk" type="text" name="nama_produk" placeholder="something..." class="w-full block min-w-0 grow bg-white py-1.5 pr-3 pl-1 text-base text-neutral-900 border border-[#d7d7d7] rounded-r-md placeholder:text-neutral-400 focus:outline-none sm:text-sm/6" />
                             </div>
                           </div>
                         </div>
 
                         <div class="sm:col-span-6">
-                          <label for="description" class="block text-sm/6 font-medium text-neutral-900">Description</label>
+                          <label for="deskripsi" class="block text-sm/6 font-medium text-neutral-900">Description</label>
                           <div class="mt-2 w-full">
-                            <textarea id="description" name="description" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-neutral-900 outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-400 focus:outline-1 focus:-outline-offset-1 focus:outline-blue-600 sm:text-sm/6"></textarea>
+                            <textarea id="deskripsi" name="deskripsi" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-neutral-900 outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-400 focus:outline-1 focus:-outline-offset-1 focus:outline-blue-600 sm:text-sm/6"></textarea>
                           </div>
-                          <p class="mt-1 text-sm/6 text-neutral-600">Write a few sentences about the product.</p>
+                          <p class="mt-1 text-sm/6 text-neutral-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, distinctio.</p>
                         </div>
 
                         <div class="sm:col-span-3">
-                          <label for="catergory" class="block text-sm/6 font-medium text-gray-900">Category</label>
+                          <label for="kategori" class="block text-sm/6 font-medium text-gray-900">Category</label>
                           <div class="mt-2 grid grid-cols-1">
-                            <select id="catergory" name="catergory" autocomplete="catergory-name" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-600 sm:text-sm/6">
+                            <select id="kategori" name="kategori" autocomplete="kategori-name" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-600 sm:text-sm/6">
                               <option value="Furniture">Furniture</option>
                               <option value="Clothes">Clothes</option>
                               <option value="Technology">Technology</option>
@@ -260,16 +278,16 @@ if (!isset($_SESSION['nama'])) {
                         </div>
 
                         <div class="sm:col-span-2">
-                          <label for="price" class="block text-sm/6 font-medium text-gray-900">Price</label>
+                          <label for="harga" class="block text-sm/6 font-medium text-gray-900">Price</label>
                           <div class="mt-2">
-                            <input id="price" type="number" name="price" autocomplete="address-level2" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-600 sm:text-sm/6" />
+                            <input required id="harga" type="number" name="harga" autocomplete="address-level2" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-600 sm:text-sm/6" />
                           </div>
                         </div>
 
                         <div class="sm:col-span-1">
-                          <label for="quantity" class="block text-sm/6 font-medium text-gray-900">Quantity</label>
+                          <label for="kuantitas" class="block text-sm/6 font-medium text-gray-900">Quantity</label>
                           <div class="mt-2">
-                            <input id="quantity" type="number" name="quantity" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-600 sm:text-sm/6" />
+                            <input required id="kuantitas" type="number" name="kuantitas" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-600 sm:text-sm/6" />
                           </div>
                         </div>
                       </div>
@@ -277,7 +295,84 @@ if (!isset($_SESSION['nama'])) {
                   </div>
                   <div class="mt-6 flex items-center justify-end gap-x-6">
                     <button type="button" id="toggleInsertModal" class="text-sm/6 outfit-medium cursor-pointer text-neutral-900">Cancel</button>
-                    <button type="submit" name="insertNewProduct" class="cursor-pointer rounded-md bg-blue-600 px-3 py-2 text-sm outfit-medium text-white shadow-xs hover:bg-blue-500 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Save</button>
+                    <button type="submit" name="insertNewProduct" class="cursor-pointer rounded-md bg-blue-600 px-3 py-2 text-sm outfit-medium text-white shadow-xs hover:bg-blue-500 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Insert</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- Edit Product Modal -->
+          <div id="editModal" class="fixed z-15 top-[6%] bottom-auto inset-x-[25%] hidden bg-white rounded-md border border-[#ebebeb]">
+            <div class="w-full flex items-center justify-between p-4">
+              <div class="">
+                <h1 class="text-2xl outfit-medium text-neutral-900">Edit Product</h1>
+              </div>
+              <div class="">
+                <button type="button" id="toggleEditModal" class="cursor-pointer p-1 rounded-md border border-[#ebebeb] hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-sm transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-neutral-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="w-full h-full relative overflow-y-auto">
+              <div class="px-6 pb-6">
+                <form method="POST">
+                  <input type="hidden" id="edit_id_produk" name="id_produk">
+                  <div class="space-y-4">
+                    <div class="border-b border-neutral-900/10 pb-12">
+                      <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                        <div class="sm:col-span-6">
+                          <label for="edit_nama_produk" class="block text-sm/6 font-medium text-neutral-900">Product Name</label>
+                          <div class="mt-2">
+                            <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-neutral-300 focus-within:outline-1 focus-within:-outline-offset-1 focus-within:outline-blue-600">
+                              <div class="shrink-0 text-base text-neutral-500 select-none sm:text-sm/6 pe-3">AriesUp </div>
+                              <input required id="edit_nama_produk" type="text" name="nama_produk" placeholder="something..." class="w-full block min-w-0 grow bg-white py-1.5 pr-3 pl-1 text-base text-neutral-900 border border-[#d7d7d7] rounded-r-md placeholder:text-neutral-400 focus:outline-none sm:text-sm/6" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="sm:col-span-6">
+                          <label for="edit_deskripsi" class="block text-sm/6 font-medium text-neutral-900">Description</label>
+                          <div class="mt-2 w-full">
+                            <textarea id="edit_deskripsi" name="deskripsi" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-neutral-900 outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-400 focus:outline-1 focus:-outline-offset-1 focus:outline-blue-600 sm:text-sm/6"></textarea>
+                          </div>
+                          <p class="mt-1 text-sm/6 text-neutral-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, distinctio.</p>
+                        </div>
+
+                        <div class="sm:col-span-3">
+                          <label for="edit_kategori" class="block text-sm/6 font-medium text-gray-900">Category</label>
+                          <div class="mt-2 grid grid-cols-1">
+                            <select id="edit_kategori" name="kategori" autocomplete="kategori-name" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-600 sm:text-sm/6">
+                              <option value="Furniture">Furniture</option>
+                              <option value="Clothes">Clothes</option>
+                              <option value="Technology">Technology</option>
+                              <option value="Stationery">Stationery</option>
+                              <option value="Toys">Toys</option>
+                              <option value="Others">Others</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                          <label for="edit_harga" class="block text-sm/6 font-medium text-gray-900">Price</label>
+                          <div class="mt-2">
+                            <input required id="edit_harga" type="number" name="harga" autocomplete="address-level2" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-600 sm:text-sm/6" />
+                          </div>
+                        </div>
+
+                        <div class="sm:col-span-1">
+                          <label for="edit_kuantitas" class="block text-sm/6 font-medium text-gray-900">Quantity</label>
+                          <div class="mt-2">
+                            <input required id="edit_kuantitas" type="number" name="kuantitas" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-600 sm:text-sm/6" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-6 flex items-center justify-end gap-x-6">
+                    <button type="button" id="toggleEditModal" class="text-sm/6 outfit-medium cursor-pointer text-neutral-900">Cancel</button>
+                    <button type="submit" name="updateProduct" class="cursor-pointer rounded-md bg-blue-600 px-3 py-2 text-sm outfit-medium text-white shadow-xs hover:bg-blue-500 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Update</button>
                   </div>
                 </form>
               </div>
@@ -297,3 +392,41 @@ if (!isset($_SESSION['nama'])) {
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['insertNewProduct'])) {
+  $nama_produk = $_POST['nama_produk'];
+  $deskripsi = $_POST['deskripsi'];
+  $kategori = $_POST['kategori'];
+  $harga = $_POST['harga'];
+  $kuantitas = $_POST['kuantitas'];
+
+  $sql = "INSERT INTO tb_produk (id_user, nama_produk, deskripsi, kategori, harga, kuantitas) VALUES (?, ?, ?, ?, ?, ?)";
+  $insert = mysqli_prepare($con, $sql);
+  mysqli_stmt_bind_param($insert, 'issssi', $_SESSION['id'], $nama_produk, $deskripsi, $kategori, $harga, $kuantitas);
+  if (mysqli_stmt_execute($insert)) {
+    echo '<script>alert("Insert Berhasil");window.location.href="products.php";</script>';
+  } else {
+    echo '<script>alert("Insert Gagal");window.location.href="products.php";</script>';
+  }
+}
+
+if (isset($_POST['updateProduct'])) {
+  $id_produk = $_POST['id_produk'];
+  $nama_produk = $_POST['nama_produk'];
+  $deskripsi = $_POST['deskripsi'];
+  $kategori = $_POST['kategori'];
+  $harga = $_POST['harga'];
+  $kuantitas = $_POST['kuantitas'];
+
+  $sql = "UPDATE tb_produk SET nama_produk=?, deskripsi=?, kategori=?, harga=?, kuantitas=? WHERE id_produk=? AND id_user=?";
+  $update = mysqli_prepare($con, $sql);
+  mysqli_stmt_bind_param($update, 'ssssiii', $nama_produk, $deskripsi, $kategori, $harga, $kuantitas, $id_produk, $_SESSION['id']);
+  
+  if (mysqli_stmt_execute($update)) {
+    echo '<script>alert("Update Berhasil");window.location.href="products.php";</script>';
+  } else {
+    echo '<script>alert("Update Gagal");window.location.href="products.php";</script>';
+  }
+}
+?>

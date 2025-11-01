@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("sidebar-toggle").addEventListener("click", () => {
     if (sidebarActive) {
       gsap.to("#sidebar", {
-        width: "5%",
+        width: "66px",
         duration: 0.35,
         ease: "power2.out",
       });
       gsap.to("#main", {
-        width: "95%",
+        width: "calc(100%-66px)",
         duration: 0.35,
         ease: "power2.out",
       });
