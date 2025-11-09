@@ -5,12 +5,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const profileDropdown = document.getElementById("profileDropdown");
   const sidebarMenu = document.querySelectorAll("#sidebarMenu");
 
-  gsap.set("#sidebar", {
-    width: "240px",
-  });
-  gsap.set("#main", {
-    width: "calc(100% - 240px)",
-  });
   gsap.set(sidebarMenu, {
     width: "auto",
     opacity: 1,
@@ -62,8 +56,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 0.35,
         ease: "power2.out",
       });
-      gsap.to("#main", {
-        width: "calc(100%-66px)",
+      gsap.to("#mainContent", {
         duration: 0.35,
         ease: "power2.out",
       });
@@ -77,12 +70,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
       sidebarActive = !sidebarActive;
     } else {
       gsap.to("#sidebar", {
-        width: "240px",
+        width: "280px",
         duration: 0.35,
         ease: "power2.out",
       });
-      gsap.to("#main", {
-        width: "calc(100% - 240px)",
+      gsap.to("#mainContent", {
+        width: "auto",
         duration: 0.35,
         ease: "power2.out",
       });
@@ -95,7 +88,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
       sidebarActive = !sidebarActive;
     }
-  })
+  });
 
   const ctx = document.getElementById('chart1');
   const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

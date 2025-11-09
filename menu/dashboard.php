@@ -25,7 +25,7 @@ if (!isset($_SESSION['nama'])) {
 
   <div class="w-full h-full overflow-hidden">
     <div class="w-full h-screen flex">
-      <div id="sidebar" class="w-[240px] relative overflow-hidden h-screen border-r border-[#ebebeb]">
+      <div id="sidebar" class="relative overflow-hidden h-screen border-r border-[#ebebeb]">
         <div class="w-full h-full flex flex-col items-center justify-between">
           <div class="w-full flex flex-col items-center gap-4">
             <div class="w-full flex items-center justify-between px-3 py-2">
@@ -78,7 +78,7 @@ if (!isset($_SESSION['nama'])) {
           </div>
         </div>
       </div>
-      <div id="main" class="min-w-[calc(100%-240px)] h-screen">
+      <div id="mainContent" class="w-[100%] h-screen">
         <div id="navbar" class="w-full border-b border-[#ebebeb] p-2">
           <div class="w-full flex items-center justify-between">
             <div class="">
