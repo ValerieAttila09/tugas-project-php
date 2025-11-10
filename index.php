@@ -9,7 +9,10 @@ session_reset();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./menu/src/css/output.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
         .outfit-thin {
             font-family: "Outfit", sans-serif;
             font-optical-sizing: auto;
@@ -45,11 +48,6 @@ session_reset();
             font-style: normal;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body class="outfit-thin">
@@ -74,7 +72,7 @@ session_reset();
 
         <!-- LANDING PAGE -->
         <div class="h-[86vh] flex items-center justify-center">
-            <div class="max-w-4xl flex flex-col gap-5 items-center justify-center gap-1">
+            <div class="max-w-4xl flex flex-col items-center justify-center gap-1">
                 <div class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">🔥 More Faster</div>
                 <h1 class="text-7xl text-center text-neutral-900 outfit-medium text-shadow-sm">Most Powerful Way To Manage Everything</h1>
                 <p class="text-lg text-center text-neutral-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quia laborum ipsum aut. Id cumque excepturi numquam sunt dolor quo ratione, impedit ullam in voluptatum magni architecto voluptate repellendus similique!</p>
@@ -85,6 +83,29 @@ session_reset();
             </div>
         </div>
         <!-- END LANDING PAGE -->
+
+
+        <!-- TOOLS -->
+        <div class="w-full my-20 sm:my-24 md:my-26">
+            <h3 class="text-2xl outfit-medium text-neutral-800 text-center mb-2">Built With</h3>
+            <div class="max-w-4xl mx-auto flex items-center justify-center gap-6">
+                <div class="rounded-full bg-[#777BB3] w-16 h-16 flex items-center justify-center p-2">
+                    <img src="./menu/src/assets/php-logo-bigger.png" class="w-14 h-auto" alt="">
+                </div>
+                <div class="rounded-full overflow-hidden bg-[#F0DB4F] w-16 h-16 flex items-center justify-center p-2">
+                    <img src="./menu/src/assets/JavaScript-logo.png" class="w-14 h-auto" alt="">
+                </div>
+                <div class="rounded-full overflow-hidden bg-blue-100 w-16 h-16 flex items-center justify-center p-2">
+                    <img src="./menu/src/assets/tailwindcss-mark.d52e9897 (1).png" class="w-16 h-auto" alt="">
+                </div>
+                <div class="rounded-full bg-teal-100 w-16 h-16 flex items-center justify-center p-2">
+                    <img src="./menu/src/assets/greensock-gsap-icon-seeklogo.png" class="w-12 h-auto" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- END TOOLS -->
+
+
 
         <!-- REVIEW -->
         <div class="relative w-full flex items-center justify-center">
@@ -258,7 +279,7 @@ session_reset();
                         Modern and minimalist product management dashboard designed to help teams collaborate efficiently and manage projects with ease.
                     </p>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-medium text-gray-900 outfit-medium mb-4">Resources</h4>
                     <ul class="space-y-2">
@@ -268,7 +289,7 @@ session_reset();
                         <li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Support</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-medium text-gray-900 outfit-medium mb-4">Company</h4>
                     <ul class="space-y-2">
@@ -279,7 +300,7 @@ session_reset();
                     </ul>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
                 <p class="text-gray-600 outfit-regular text-sm">© 2023 AriesUp. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
