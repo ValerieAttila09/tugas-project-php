@@ -1,13 +1,9 @@
-// Since we're loading this as a module, we can use CDN for GSAP
 import gsap from 'https://cdn.skypack.dev/gsap';
 
-// Get all navbar toggle buttons
 const navbarToggles = document.querySelectorAll('.navbar-toggle');
-// Get the mobile menu (the div that contains the mobile navigation)
-const mobileMenu = document.querySelector('.navbar + div'); // Select the div after .navbar
+const mobileMenu = document.querySelector('.navbar + div'); 
 let menuActive = false;
 
-// Hide the mobile menu initially
 if (mobileMenu) {
   gsap.set(mobileMenu, {
     height: 0,
@@ -16,11 +12,9 @@ if (mobileMenu) {
   });
 }
 
-// Add event listeners to all toggle buttons
 navbarToggles.forEach((toggle) => {
   toggle.addEventListener('click', () => {
     if (menuActive) {
-      // Close menu
       gsap.to(mobileMenu, {
         duration: 0.5,
         height: 0,
@@ -33,7 +27,6 @@ navbarToggles.forEach((toggle) => {
         }
       });
     } else {
-      // Open menu
       if (mobileMenu) {
         mobileMenu.style.display = 'block';
         gsap.to(mobileMenu, {

@@ -98,7 +98,7 @@ session_reset();
 			<div class="max-w-4xl flex flex-col items-center justify-center gap-5 p-6 sm:p-0">
 				<div class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">🔥 More Faster</div>
 				<h1 class="text-4xl sm:text-5xl md:text-7xl text-center text-neutral-900 outfit-medium text-shadow-sm">Most Powerful Way To Manage Everything</h1>
-				<p class="text-sm sm:text-md lg:text-lg text-center text-neutral-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quia laborum ipsum aut. Id cumque excepturi numquam sunt dolor quo ratione, impedit ullam in voluptatum magni architecto voluptate repellendus similique!</p>
+				<p class="text-sm sm:text-md lg:text-lg text-center text-neutral-600">A comprehensive and intuitive product management dashboard designed to streamline your workflow, enhance team collaboration, and accelerate project delivery with cutting-edge tools and real-time insights.</p>
 				<div class="flex items-center gap-3">
 					<button class="cursor-pointer rounded-full px-6 py-2 bg-neutral-900 text-white hover:bg-neutral-700 hover:shadow-sm transition-all">Get Started</button>
 					<button class="cursor-pointer rounded-full px-6 py-2 bg-white border border-[#d7d7d7] hover:bg-neutral-[#fafafa] hover:shadow-sm transition-all">Docs</button>
@@ -146,34 +146,32 @@ session_reset();
 		<div class="w-full py-16 mt-16 bg-white">
 			<div class="max-w-6xl mx-auto px-4">
 				<div class="text-center mb-12">
-					<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium">Tentang Product Management Dashboard</h2>
-					<p class="mt-4 text-lg text-gray-600 outfit-regular max-w-3xl mx-auto">
-						Solusi modern dan minimalis untuk mengelola proyek dan tim Anda dengan efisiensi tinggi.
-					</p>
+					<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium">About the Product Management Dashboard</h2>
+					<p class="mt-4 text-lg text-gray-600 outfit-regular max-w-3xl mx-auto">A modern and minimalistic solution for managing your projects and team with high efficiency.</p>
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
 						<div class="text-indigo-600 text-2xl mb-4">📊</div>
-						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Visualisasi Data Real-Time</h3>
+						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Data Visualization</h3>
 						<p class="mt-2 text-gray-600 outfit-regular">
-							Pantau kinerja tim dan progres proyek secara langsung melalui dashboard interaktif yang mudah dipahami.
+							Real-time data visualization for your team and project progress.
 						</p>
 					</div>
 
 					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
 						<div class="text-indigo-600 text-2xl mb-4">🔒</div>
-						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Keamanan Terjamin</h3>
+						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Security Guaranteed</h3>
 						<p class="mt-2 text-gray-600 outfit-regular">
-							Lindungi data penting perusahaan Anda dengan enkripsi tingkat lanjut dan kontrol akses yang fleksibel.
+							Protect your company's important data with advanced encryption and flexible access controls.
 						</p>
 					</div>
 
 					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
 						<div class="text-indigo-600 text-2xl mb-4">⚡</div>
-						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Performa Tinggi</h3>
+						<h3 class="text-xl font-medium text-gray-900 outfit-medium">High Performance</h3>
 						<p class="mt-2 text-gray-600 outfit-regular">
-							Nikmati pengalaman bebas gangguan dengan sistem optimalkan untuk kecepatan dan skalabilitas maksimal.
+							Enjoy a distraction-free experience with a system optimized for maximum speed and scalability.
 						</p>
 					</div>
 				</div>
