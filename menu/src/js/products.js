@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ease: "power2.out",
       });
       gsap.to("#mainContent", {
-        width: "auto",
+        width: "100%",
         duration: 0.35,
         ease: "power2.out",
       });

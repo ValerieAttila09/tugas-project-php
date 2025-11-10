@@ -33,13 +33,6 @@ if (!isset($_SESSION['nama'])) {
                 <img src="./src/assets/logo.png" alt="logo" class="size-8">
                 <h1 id="sidebarMenu" class="outfit-semibold text-2xl text-transparent bg-clip-text bg-linear-to-r from-blue-700 to-sky-500">AriesUp</h1>
               </div>
-              <div id="sidebarMenu" class="">
-                <button class="p-2 rounded-md bg-white border border-[#ebebeb] hover:bg-[#fafafa] transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-700">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                  </svg>
-                </button>
-              </div>
             </div>
             <div class="w-full flex flex-col items-center gap-2 p-3">
               <a href="./dashboard.php" class="w-full p-2 rounded-md bg-white hover:bg-[#fafafa] hover:shadow-sm transition-all">
@@ -137,14 +130,14 @@ if (!isset($_SESSION['nama'])) {
             <div class="mb-2 flex items-center gap-2">
               <div class="bg-white w-full rounded-md p-4 border border-[#ebebeb]">
                 <div class="flex items-center justify-between">
-                  <h1 class="text-lg text-neutral-700 outfit-regular">Test judul</h1>
+                  <h1 class="text-lg text-neutral-700 outfit-regular">Total Revenue</h1>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-neutral-600">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   </svg>
                 </div>
                 <div class="flex items-center gap-2">
-                  <h1 class="text-4xl text-neutral-900 outfit-regular">9436.35</h1>
+                  <h1 class="text-4xl text-neutral-900 outfit-regular">$ 8,436.35</h1>
                   <div class="rounded-sm px-2 py-[2px] text-xs flex items-center gap-1 bg-green-50">
                     <span class="text-green-600">23.4%</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 text-green-600">
@@ -160,14 +153,14 @@ if (!isset($_SESSION['nama'])) {
               </div>
               <div class="bg-white w-full rounded-md p-4 border border-[#ebebeb]">
                 <div class="flex items-center justify-between">
-                  <h1 class="text-lg text-neutral-700 outfit-regular">Test judul</h1>
+                  <h1 class="text-lg text-neutral-700 outfit-regular">Total Sales</h1>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-neutral-600">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   </svg>
                 </div>
                 <div class="flex items-center gap-2">
-                  <h1 class="text-4xl text-neutral-900 outfit-regular">9436.35</h1>
+                  <h1 class="text-4xl text-neutral-900 outfit-regular">$ 9,436.35</h1>
                   <div class="rounded-sm px-2 py-[2px] text-xs flex items-center gap-1 bg-green-50">
                     <span class="text-green-600">23.4%</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 text-green-600">
@@ -183,14 +176,14 @@ if (!isset($_SESSION['nama'])) {
               </div>
               <div class="bg-white w-full rounded-md p-4 border border-[#ebebeb]">
                 <div class="flex items-center justify-between">
-                  <h1 class="text-lg text-neutral-700 outfit-regular">Test judul</h1>
+                  <h1 class="text-lg text-neutral-700 outfit-regular">Bounce Rate</h1>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-neutral-600">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   </svg>
                 </div>
                 <div class="flex items-center gap-2">
-                  <h1 class="text-4xl text-neutral-900 outfit-regular">9436.35</h1>
+                  <h1 class="text-4xl text-neutral-900 outfit-regular">84.3%</h1>
                   <div class="rounded-sm px-2 py-[2px] text-xs flex items-center gap-1 bg-green-50">
                     <span class="text-green-600">23.4%</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 text-green-600">

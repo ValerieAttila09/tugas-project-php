@@ -19,7 +19,6 @@ if (!isset($_SESSION['nama'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body class="outfit-thin">
@@ -33,13 +32,6 @@ if (!isset($_SESSION['nama'])) {
               <div class="flex items-center gap-4 ps-2">
                 <img src="./src/assets/logo.png" alt="logo" class="size-8">
                 <h1 id="sidebarMenu" class="outfit-semibold text-2xl text-transparent bg-clip-text bg-linear-to-r from-blue-700 to-sky-500">AriesUp</h1>
-              </div>
-              <div id="sidebarMenu" class="">
-                <button class="p-2 rounded-md bg-white border border-[#ebebeb] hover:bg-[#fafafa] transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-700">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                  </svg>
-                </button>
               </div>
             </div>
             <div class="w-full flex flex-col items-center gap-2 p-3">
@@ -205,7 +197,7 @@ if (!isset($_SESSION['nama'])) {
                           <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['kuantitas']; ?></td>
                           <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['kategori']; ?></td>
                           <td class="text-sm text-neutral-800 p-3 flex items-center flex-nowrap justify-start gap-2">
-                            <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1" 
+                            <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1"
                               data-id="<?php echo $row['id_produk']; ?>"
                               data-name="<?php echo htmlspecialchars($row['nama_produk']); ?>"
                               data-desc="<?php echo htmlspecialchars($row['deskripsi']); ?>"
@@ -213,7 +205,7 @@ if (!isset($_SESSION['nama'])) {
                               data-price="<?php echo $row['harga']; ?>"
                               data-qty="<?php echo $row['kuantitas']; ?>"
                               onclick="editProduct(this)">Edit</button>
-                            <button class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</button>
+                            <a href="products.php?delete=product&id=<?php echo $row['id_produk']; ?>" class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</a>
                           </td>
                         </tr>
                       <?php
@@ -386,7 +378,6 @@ if (!isset($_SESSION['nama'])) {
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
   <script src="./src/js/products.js"></script>
 </body>
@@ -422,11 +413,24 @@ if (isset($_POST['updateProduct'])) {
   $sql = "UPDATE tb_produk SET nama_produk=?, deskripsi=?, kategori=?, harga=?, kuantitas=? WHERE id_produk=? AND id_user=?";
   $update = mysqli_prepare($con, $sql);
   mysqli_stmt_bind_param($update, 'ssssiii', $nama_produk, $deskripsi, $kategori, $harga, $kuantitas, $id_produk, $_SESSION['id']);
-  
+
   if (mysqli_stmt_execute($update)) {
     echo '<script>alert("Update Berhasil");window.location.href="products.php";</script>';
   } else {
     echo '<script>alert("Update Gagal");window.location.href="products.php";</script>';
+  }
+}
+
+if (isset($_GET['id']) && isset($_GET['delete']) && $_GET['delete'] === 'product') {
+  $id_produk = $_GET['id'];
+  $sql = "DELETE FROM tb_produk WHERE id_produk = ? AND id_user = ?";
+  $stmt = mysqli_prepare($con, $sql);
+  mysqli_stmt_bind_param($stmt, 'ii', $id_produk, $_SESSION['id']);
+  mysqli_stmt_execute($stmt);
+  if (mysqli_stmt_affected_rows($stmt) > 0) {
+    echo '<script>alert("Delete Berhasil");window.location.href="products.php";</script>';
+  } else {
+    echo '<script>alert("Delete Gagal");window.location.href="products.php";</script>';
   }
 }
 ?>
