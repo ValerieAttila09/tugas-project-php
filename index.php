@@ -54,8 +54,8 @@ session_reset();
 
 	<div class="w-full">
 		<!-- NAVBAR -->
-		<div class="w-full fixed top-0 z-50 inset-x-0 h-auto bg-white/20 backdrop-blur-md md:max-w-6xl md:mx-auto">
-			<div class="hidden p-2 md:flex items-center justify-between">
+		<div class="w-full fixed top-0 z-50 inset-x-0 h-auto bg-white/20 backdrop-blur-md">
+			<div class="hidden p-2 md:flex items-center justify-between md:max-w-6xl md:mx-auto">
 				<div class="px-18">
 					<h1 class="text-lg outfit-bold text-neutral-900">AriesUp</h1>
 				</div>
@@ -114,7 +114,7 @@ session_reset();
 				<h1 class="text-2xl text-neutral-900 outfit-medium text-center">Minimalist Dashboard Design</h1>
 				<p class="text-sm text-neutral-600 outfit-regular text-center">Best choice for your work-space</p>
 			</div>
-			<div class="bg-[#fafafa] w-7/8 sm:w-5/7 rounded-xl border border-[#d7d7d7] p-2 shadow-2xl">
+			<div class="bg-[#fafafa] w-7/8 sm:w-5/8 rounded-xl border border-[#d7d7d7] p-2 shadow-2xl">
 				<div class="border border-[#d7d7d7] rounded-lg overflow-hidden bg-white">
 					<img src="./menu/src/assets/review.png" alt="review" class="rounded-lg w-full h-auto">
 				</div>

@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     zIndex: -1,
   });
 
-  // Function to populate and show edit modal
   window.editProduct = function(button) {
     const productId = button.getAttribute('data-id');
     const productName = button.getAttribute('data-name');
@@ -44,7 +43,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const productPrice = button.getAttribute('data-price');
     const productQty = button.getAttribute('data-qty');
     
-    // Populate the edit form with product data
     document.getElementById('edit_id_produk').value = productId;
     document.getElementById('edit_nama_produk').value = productName;
     document.getElementById('edit_deskripsi').value = productDesc;
@@ -52,9 +50,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById('edit_harga').value = productPrice;
     document.getElementById('edit_kuantitas').value = productQty;
     
-    // Show the edit modal
     if (!showEditModal) {
-      // Hide insert modal if it's open
       if (showModal) {
         gsap.to(insertModal, {
           opacity: 0,
@@ -199,7 +195,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
         showModal = !showModal;
       } else {
-        // Hide edit modal if it's open
         if (showEditModal) {
           gsap.to(editModal, {
             opacity: 0,
@@ -272,7 +267,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
         showEditModal = !showEditModal;
       } else {
-        // Hide insert modal if it's open
         if (showModal) {
           gsap.to(insertModal, {
             opacity: 0,

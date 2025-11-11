@@ -1,4 +1,5 @@
 <?php
+include "../auth/koneksi.php";
 session_start();
 if (!isset($_SESSION['nama'])) {
   header("location:../");
@@ -7,7 +8,7 @@ if (!isset($_SESSION['nama'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="container">
 
 <head>
   <meta charset="UTF-8">
@@ -18,27 +19,19 @@ if (!isset($_SESSION['nama'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body class="outfit-thin">
 
   <div class="w-full h-full overflow-hidden">
     <div class="w-full h-screen flex">
-      <div id="sidebar" class="w-[240px] relative overflow-hidden h-screen border-r border-[#ebebeb]">
+      <div id="sidebar" class="relative overflow-hidden h-screen border-r border-[#ebebeb]" style="width: 280px;">
         <div class="w-full h-full flex flex-col items-center justify-between">
           <div class="w-full flex flex-col items-center gap-4">
             <div class="w-full flex items-center justify-between px-3 py-2">
               <div class="flex items-center gap-4 ps-2">
                 <img src="./src/assets/logo.png" alt="logo" class="size-8">
                 <h1 id="sidebarMenu" class="outfit-semibold text-2xl text-transparent bg-clip-text bg-linear-to-r from-blue-700 to-sky-500">AriesUp</h1>
-              </div>
-              <div id="sidebarMenu" class="">
-                <button class="p-2 rounded-md bg-white border border-[#ebebeb] hover:bg-[#fafafa] transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-700">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                  </svg>
-                </button>
               </div>
             </div>
             <div class="w-full flex flex-col items-center gap-2 p-3">
@@ -78,7 +71,7 @@ if (!isset($_SESSION['nama'])) {
           </div>
         </div>
       </div>
-      <div id="main" class="min-w-[calc(100%-240px)] h-screen">
+      <div id="mainContent" class="w-[100%] h-full">
         <div id="navbar" class="w-full border-b border-[#ebebeb] p-2">
           <div class="w-full flex items-center justify-between">
             <div class="">
@@ -129,26 +122,15 @@ if (!isset($_SESSION['nama'])) {
           </div>
         </div>
         <div id="content" class="relative w-full h-[calc(100%-55px)] overflow-y-auto bg-neutral-50 p-4">
-          <div class="w-full p-2">
-            <div class="mb-4 py-2">
-              <h1 class="mb-1 text-4xl text-neutral-900 outfit-medium">Welcome back, <?= $_SESSION['nama'] ?></h1>
-              <p class="text-md text-neutral-600 outfit-regular">Here's what's happening today</p>
-            </div>
-            <div class="mb-2 flex items-center gap-2">
-
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
   </div>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
-  <script src="./src/js/dashboard.js"></script>
+  <script src="./src/js/feedbacks.js"></script>
 </body>
 
 </html>

@@ -25,7 +25,7 @@ if (!isset($_SESSION['nama'])) {
 
   <div class="w-full h-full overflow-hidden">
     <div class="w-full h-screen flex">
-      <div id="sidebar" class="relative overflow-hidden h-screen border-r border-[#ebebeb]">
+      <div id="sidebar" class="relative overflow-hidden h-screen border-r border-[#ebebeb]" style="width: 280px;">
         <div class="w-full h-full flex flex-col items-center justify-between">
           <div class="w-full flex flex-col items-center gap-4">
             <div class="w-full flex items-center justify-between px-3 py-2">

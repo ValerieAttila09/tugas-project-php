@@ -9,12 +9,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const modalOverlay = document.getElementById("overlay");
   const insertModalToggle = document.querySelectorAll("#toggleInsertModal");
 
-  gsap.set("#sidebar", {
-    width: "240px",
-  });
-  gsap.set("#main", {
-    width: "calc(100%-240px)",
-  });
   gsap.set(sidebarMenu, {
     width: "auto",
     opacity: 1,
@@ -25,15 +19,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     zIndex: -1,
     y: -20,
   });
-  gsap.set(insertModal, {
-    opacity: 0,
-    zIndex: -1,
-  });
-  gsap.set(modalOverlay, {
-    opacity: 0,
-    zIndex: -1,
-  });
-
 
   profileDropdownToggle.forEach((toggle) => {
     toggle.addEventListener("click", () => {
@@ -68,16 +53,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
     })
   });
-  
+
   document.getElementById("sidebar-toggle").addEventListener("click", () => {
     if (sidebarActive) {
       gsap.to("#sidebar", {
-        width: "5%",
+        width: "66px",
         duration: 0.35,
         ease: "power2.out",
       });
-      gsap.to("#main", {
-        width: "95%",
+      gsap.to("#mainContent", {
         duration: 0.35,
         ease: "power2.out",
       });
@@ -91,12 +75,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
       sidebarActive = !sidebarActive;
     } else {
       gsap.to("#sidebar", {
-        width: "240px",
+        width: "280px",
         duration: 0.35,
         ease: "power2.out",
       });
-      gsap.to("#main", {
-        width: "calc(100% - 240px)",
+      gsap.to("#mainContent", {
+        width: "100%",
         duration: 0.35,
         ease: "power2.out",
       });
