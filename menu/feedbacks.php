@@ -122,7 +122,58 @@ if (!isset($_SESSION['nama'])) {
           </div>
         </div>
         <div id="content" class="relative w-full h-[calc(100%-55px)] overflow-y-auto bg-neutral-50 p-4">
-          
+          <?php
+          $totalFeedbacks = $con->query("SELECT * FROM tb_feedback")->num_rows;
+          $totalUsers = $con->query("SELECT * FROM tb_user")->num_rows;
+          $totalProducts = $con->query("SELECT * FROM tb_produk")->num_rows;
+          ?>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="w-full h-[150px] bg-white rounded-md flex flex-col items-center justify-center gap-2">
+              <h1 class="text-lg text-neutral-700 outfit-medium">Total Feedbacks</h1>
+              <p class="text-sm text-neutral-600 outfit-regular"><?= $totalFeedbacks ?></p>
+            </div>
+            <div class="w-full h-[150px] bg-white rounded-md flex flex-col items-center justify-center gap-2">
+              <h1 class="text-lg text-neutral-700 outfit-medium">Total Users</h1>
+              <p class="text-sm text-neutral-600 outfit-regular"><?= $totalUsers ?></p>
+            </div>
+            <div class="w-full h-[150px] bg-white rounded-md flex flex-col items-center justify-center gap-2">
+              <h1 class="text-lg text-neutral-700 outfit-medium">Total Products</h1>
+              <p class="text-sm text-neutral-600 outfit-regular"><?= $totalProducts ?></p>
+            </div>
+          </div>
+          <div class="w-full h-px bg-[#ebebeb] my-6"></div>
+          <div class="grid grid-cols-3 gap-4">
+            <?php
+            $feedbacksQuery = "SELECT * FROM tb_feedback WHERE id_user = " . $_SESSION['id'];
+            $feedbacks = mysqli_query($con, $feedbacksQuery);
+            while ($feedback = mysqli_fetch_assoc($feedbacks)) {
+            ?>
+              <div class="bg-white rounded-md border border-[#ebebeb] p-4 flex flex-col justify-between">
+                <div class="space-y-2">
+                  <div class="">
+                    <h1 class="text-xl text-neutral-700 outfit-medium"><?= $feedback['nama_pengirim'] ?></h1>
+                    <h3 class="text-sm text-neutral-600 outfit-thin"><?= $feedback['email_pengirim'] ?></h3>
+                  </div>
+                  <div class="min-h-20">
+                    <p class="text-lg text-neutral-600 outfit-regular">"<?= $feedback['komentar'] ?>"</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1 mb-2">
+                  <?php
+                  for ($i = 0; $i < $feedback['rating']; $i++) {
+                  ?>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 text-yellow-500">
+                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                    </svg>
+                  <?php
+                  }
+                  ?>
+                </div>
+              </div>
+            <?php
+            }
+            ?>
+          </div>
         </div>
       </div>
     </div>
