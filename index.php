@@ -94,7 +94,7 @@ session_reset();
 		<!-- END NAVBAR -->
 
 		<!-- HERO -->
-		<div class="h-[86vh] flex items-center justify-center">
+		<div class="h-[92vh] flex items-center justify-center">
 			<div class="max-w-4xl flex flex-col items-center justify-center gap-5 p-6 sm:p-0">
 				<div class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">✨ Creative Developer</div>
 				<h1 class="text-4xl sm:text-5xl md:text-7xl text-center text-neutral-900 outfit-medium text-shadow-sm">Crafting Digital Experiences</h1>
@@ -122,7 +122,7 @@ session_reset();
 		<!-- END REVIEW -->
 
 		<!-- TOOLS -->
-		<div class="w-full my-20 sm:my-24 md:my-26">
+		<div class="w-full my-10 sm:my-14 md:my-16">
 			<h3 class="text-2xl outfit-medium text-neutral-800 text-center mb-2">Built With</h3>
 			<div class="max-w-4xl mx-auto flex items-center justify-center gap-6">
 				<div class="rounded-full bg-[#777BB3] w-16 h-16 flex items-center justify-center p-2">
@@ -142,7 +142,7 @@ session_reset();
 		<!-- END TOOLS -->
 
 		<!-- ABOUT -->
-		<div class="w-full py-16 mt-16 bg-white">
+		<div class="w-full py-16 mt-16 sm:mt-22 md:mt-26 bg-white">
 			<div class="max-w-6xl mx-auto px-4">
 				<div class="text-center mb-12">
 					<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium">About Me</h2>
@@ -200,7 +200,7 @@ session_reset();
 
 				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
 					<div class="text-indigo-600 text-2xl mb-4">�</div>
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium">JavaScript & Frontend</h3>
+					<h3 class="text-xl font-medium text-gray-900 outfit-medium">JavaScript / Typescript & Frontend</h3>
 					<p class="mt-2 text-gray-600 outfit-regular">
 						Expert in JavaScript, React, and modern frontend frameworks for interactive user experiences.
 					</p>
@@ -298,48 +298,48 @@ session_reset();
 
 			<!-- Projects Carousel Container -->
 			<div class="relative w-full overflow-hidden">
-				<div class="carousel-wrapper projects-carousel" style="position: relative; height: 400px; overflow: hidden; border-radius: 12px;">
+				<div class="carousel-wrapper projects-carousel" style="position: relative; overflow: hidden; border-radius: 12px;">
 					<div class="carousel-container" style="display: flex; position: absolute; width: 100%; height: 100%;">
 						<!-- Project 1 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="./menu/src/assets/project1.png" alt="Project 1" class="w-full h-full object-cover rounded-lg">
-							<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg flex items-end p-6">
+							<img src="menu/src/assets/project1.png" alt="Project 1" class="w-full h-full object-cover rounded-lg">
+							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
-									<h3 class="text-2xl outfit-bold mb-2">Modern Dashboard Design</h3>
-									<p class="outfit-regular text-sm">A comprehensive product management dashboard with real-time analytics.</p>
+									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Third Portfolio</h3>
+									<p class="outfit-regular text-xs sm:text-xs md:text-sm hidden sm:block">A comprehensive product management dashboard with real-time analytics.</p>
 								</div>
 							</div>
 						</div>
 
 						<!-- Project 2 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="./menu/src/assets/project2.png" alt="Project 2" class="w-full h-full object-cover rounded-lg">
-							<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg flex items-end p-6">
+							<img src="menu/src/assets/project2.png" alt="Project 2" class="w-full h-full object-cover rounded-lg">
+							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
-									<h3 class="text-2xl outfit-bold mb-2">E-Commerce Platform</h3>
-									<p class="outfit-regular text-sm">A fully responsive e-commerce solution with payment integration.</p>
+									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Simple SaaS Web Design</h3>
+									<p class="outfit-regular text-xs sm:text-xs md:text-sm hidden sm:block">A fully responsive e-commerce solution with payment integration.</p>
 								</div>
 							</div>
 						</div>
 
 						<!-- Project 3 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="./menu/src/assets/project3.png" alt="Project 3" class="w-full h-full object-cover rounded-lg">
-							<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg flex items-end p-6">
+							<img src="menu/src/assets/project3.png" alt="Project 3" class="w-full h-full object-cover rounded-lg">
+							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
-									<h3 class="text-2xl outfit-bold mb-2">Social Media App</h3>
-									<p class="outfit-regular text-sm">Interactive social platform with real-time messaging and notifications.</p>
+									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Todo List App</h3>
+									<p class="outfit-regular text-xs sm:text-xs md:text-sm hidden sm:block">Interactive social platform with real-time messaging and notifications.</p>
 								</div>
 							</div>
 						</div>
-						
-						<!-- Project 3 -->
+
+						<!-- Project 4 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="./menu/src/assets/project4.png" alt="Project 3" class="w-full h-full object-cover rounded-lg">
-							<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg flex items-end p-6">
+							<img src="menu/src/assets/project4.png" alt="Project 4" class="w-full h-full object-cover rounded-lg">
+							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
-									<h3 class="text-2xl outfit-bold mb-2">Social Media App</h3>
-									<p class="outfit-regular text-sm">Interactive social platform with real-time messaging and notifications.</p>
+									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Fourth Portfolio</h3>
+									<p class="outfit-regular text-xs sm:text-xs md:text-sm hidden sm:block">Interactive social platform with real-time messaging and notifications.</p>
 								</div>
 							</div>
 						</div>
@@ -392,17 +392,17 @@ session_reset();
 					<div class="carousel-container" style="display: flex; position: absolute; width: 100%; height: 100%;">
 						<!-- Certificate 1 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative; padding: 20px;">
-							<img src="./menu/src/assets/img/sertif1.png" alt="Certificate 1" class="w-full h-full object-contain rounded-lg bg-gray-100">
+							<img src="./menu/src/assets/img/sertif1.png" alt="Certificate 1" class="w-full h-full object-contain rounded-lg">
 						</div>
 
 						<!-- Certificate 2 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative; padding: 20px;">
-							<img src="./menu/src/assets/img/sertif2.png" alt="Certificate 2" class="w-full h-full object-contain rounded-lg bg-gray-100">
+							<img src="./menu/src/assets/img/sertif2.png" alt="Certificate 2" class="w-full h-full object-contain rounded-lg">
 						</div>
 
 						<!-- Certificate 3 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative; padding: 20px;">
-							<img src="./menu/src/assets/img/sertif3.png" alt="Certificate 3" class="w-full h-full object-contain rounded-lg bg-gray-100">
+							<img src="./menu/src/assets/img/sertif3.png" alt="Certificate 3" class="w-full h-full object-contain rounded-lg">
 						</div>
 					</div>
 				</div> <!-- Navigation Buttons -->

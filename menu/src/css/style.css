@@ -11,8 +11,10 @@ html::-webkit-scrollbar {
 /* Hide scrollbar for IE, Edge and Firefox */
 body,
 html {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .outfit-thin {
@@ -48,4 +50,122 @@ html {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+}
+
+/* CAROUSEL RESPONSIVE STYLES */
+.carousel-wrapper {
+  height: 250px;
+}
+
+@media (min-width: 640px) {
+  .carousel-wrapper {
+    height: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel-wrapper {
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-wrapper {
+    height: 460px;
+  }
+}
+
+/* Projects Carousel - specific responsive adjustments */
+.projects-carousel {
+  height: 250px;
+}
+
+.projects-carousel .carousel-item>.absolute {
+  height: auto;
+  padding: 12px;
+}
+
+.projects-carousel .carousel-item h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.projects-carousel .carousel-item p {
+  font-size: 0.7rem;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .projects-carousel {
+    height: 300px;
+  }
+
+  .projects-carousel .carousel-item h3 {
+    font-size: 1.25rem;
+  }
+
+  .projects-carousel .carousel-item p {
+    display: block;
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-carousel {
+    height: 400px;
+  }
+
+  .projects-carousel .carousel-item h3 {
+    font-size: 1.5rem;
+  }
+
+  .projects-carousel .carousel-item p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-carousel {
+    height: 460px;
+  }
+
+  .projects-carousel .carousel-item h3 {
+    font-size: 1.875rem;
+  }
+
+  .projects-carousel .carousel-item p {
+    font-size: 0.875rem;
+  }
+}
+
+/* Certificates Carousel - similar responsive */
+.certificates-carousel {
+  height: 300px;
+}
+
+@media (min-width: 640px) {
+  .certificates-carousel {
+    height: 350px;
+  }
+}
+
+@media (min-width: 768px) {
+  .certificates-carousel {
+    height: 450px;
+  }
+}
+
+/* Navigation button responsive */
+@media (max-width: 640px) {
+
+  .carousel-prev,
+  .carousel-next {
+    padding: 0.5rem;
+  }
+
+  .carousel-prev svg,
+  .carousel-next svg {
+    width: 18px;
+    height: 18px;
+  }
 }

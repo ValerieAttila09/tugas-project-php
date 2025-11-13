@@ -154,5 +154,5 @@ class Carousel {
   }
 }
 
-const projectsCarousel = new Carousel('projects-carousel',4);
+const projectsCarousel = new Carousel('projects-carousel', 4);
 const certificatesCarousel = new Carousel('certificates-carousel', 3);
