@@ -8,8 +8,8 @@ session_reset();
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>AriesUp - The Ultimate Solution</title>
-	<link rel="stylesheet" href="./menu/src/css/output.css">
+	<title>Portfolio - Creative Developer & Designer</title>
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
@@ -57,12 +57,12 @@ session_reset();
 		<div class="w-full fixed top-0 z-50 inset-x-0 h-auto bg-white/20 backdrop-blur-md">
 			<div class="hidden p-2 md:flex items-center justify-between md:max-w-6xl md:mx-auto">
 				<div class="px-18">
-					<h1 class="text-lg outfit-bold text-neutral-900">AriesUp</h1>
+					<h1 class="text-lg outfit-bold text-neutral-900">Portfolio</h1>
 				</div>
 				<div class="flex items-center justify-center gap-4">
-					<a href="#" class="text-md outfit-regular p-2 text-neutral-700 hover:text-neutral-900 hover:text-shadow-sm transition-all">Docs</a>
-					<a href="#" class="text-md outfit-regular p-2 text-neutral-700 hover:text-neutral-900 hover:text-shadow-sm transition-all">Products</a>
-					<a href="#" class="text-md outfit-regular p-2 text-neutral-700 hover:text-neutral-900 hover:text-shadow-sm transition-all">Contact</a>
+					<a href="#projects" class="text-md outfit-regular p-2 text-neutral-700 hover:text-neutral-900 hover:text-shadow-sm transition-all">Projects</a>
+					<a href="#skills" class="text-md outfit-regular p-2 text-neutral-700 hover:text-neutral-900 hover:text-shadow-sm transition-all">Skills</a>
+					<a href="#feedback" class="text-md outfit-regular p-2 text-neutral-700 hover:text-neutral-900 hover:text-shadow-sm transition-all">Feedback</a>
 				</div>
 				<div class="flex items-center justify-end gap-2">
 					<a href="./authentication/login.php" class="text-sm rounded-full border border-[#d7d7d7] px-6 py-2 hover:shadow-sm hover:bg-[#fafafa] transition-all">Login</a>
@@ -71,7 +71,7 @@ session_reset();
 			</div>
 			<div class="navbar flex p-2 md:hidden items-center justify-between">
 				<div class="px-2 cursor-pointer">
-					<h1 class="text-lg outfit-bold text-neutral-900">AriesUp</h1>
+					<h1 class="text-lg outfit-bold text-neutral-900">Portfolio</h1>
 				</div>
 				<div class="">
 					<button class="navbar-toggle cursor-pointer p-1 rounded-md border border-transparent hover:border-[#d7d7d7] transition-all">
@@ -83,10 +83,10 @@ session_reset();
 			</div>
 			<div class="mobile-menu block md:hidden w-full h-screen bg-white/20 backdrop-blur-md" style="display: none;">
 				<div class="grid grid-cols-1">
-					<button class="navbar-toggle cursor-pointer text-start p-3 bg-transparent text-lg outfit-semibold text-neutral-700 hover:bg-[#fafafa]/20 hover:shadow-sm transition-all">Home</button>
-					<button class="navbar-toggle cursor-pointer text-start p-3 bg-transparent text-lg outfit-semibold text-neutral-700 hover:bg-[#fafafa]/20 hover:shadow-sm transition-all">Docs</button>
-					<button class="navbar-toggle cursor-pointer text-start p-3 bg-transparent text-lg outfit-semibold text-neutral-700 hover:bg-[#fafafa]/20 hover:shadow-sm transition-all">Products</button>
-					<button class="navbar-toggle cursor-pointer text-start p-3 bg-transparent text-lg outfit-semibold text-neutral-700 hover:bg-[#fafafa]/20 hover:shadow-sm transition-all">Contact</button>
+					<a href="#projects" class="text-start p-3 bg-transparent text-lg outfit-semibold text-neutral-700 hover:bg-[#fafafa]/20 hover:shadow-sm transition-all">Projects</a>
+					<a href="#skills" class="text-start p-3 bg-transparent text-lg outfit-semibold text-neutral-700 hover:bg-[#fafafa]/20 hover:shadow-sm transition-all">Skills</a>
+					<a href="#feedback" class="text-start p-3 bg-transparent text-lg outfit-semibold text-neutral-700 hover:bg-[#fafafa]/20 hover:shadow-sm transition-all">Feedback</a>
+					<a href="#" class="text-start p-3 bg-transparent text-lg outfit-semibold text-neutral-700 hover:bg-[#fafafa]/20 hover:shadow-sm transition-all">Contact</a>
 				</div>
 			</div>
 			<div class="w-full h-px bg-linear-to-r from-white via-[#d7d7d7] to-white"></div>
@@ -96,30 +96,29 @@ session_reset();
 		<!-- HERO -->
 		<div class="h-[86vh] flex items-center justify-center">
 			<div class="max-w-4xl flex flex-col items-center justify-center gap-5 p-6 sm:p-0">
-				<div class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">🔥 More Faster</div>
-				<h1 class="text-4xl sm:text-5xl md:text-7xl text-center text-neutral-900 outfit-medium text-shadow-sm">Most Powerful Way To Manage Everything</h1>
-				<p class="text-sm sm:text-md lg:text-lg text-center text-neutral-600">A comprehensive and intuitive product management dashboard designed to streamline your workflow, enhance team collaboration, and accelerate project delivery with cutting-edge tools and real-time insights.</p>
+				<div class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">✨ Creative Developer</div>
+				<h1 class="text-4xl sm:text-5xl md:text-7xl text-center text-neutral-900 outfit-medium text-shadow-sm">Crafting Digital Experiences</h1>
+				<p class="text-sm sm:text-md lg:text-lg text-center text-neutral-600">I'm a passionate developer and designer creating beautiful, functional web solutions. Specializing in modern web technologies, UI/UX design, and full-stack development with a focus on performance and user experience.</p>
 				<div class="flex items-center gap-3">
-					<button class="cursor-pointer rounded-full px-6 py-2 bg-neutral-900 text-white hover:bg-neutral-700 hover:shadow-sm transition-all">Get Started</button>
-					<button class="cursor-pointer rounded-full px-6 py-2 bg-white border border-[#d7d7d7] hover:bg-neutral-[#fafafa] hover:shadow-sm transition-all">Docs</button>
+					<button class="cursor-pointer rounded-full px-6 py-2 bg-neutral-900 text-white hover:bg-neutral-700 hover:shadow-sm transition-all">View My Work</button>
+					<button class="cursor-pointer rounded-full px-6 py-2 bg-white border border-[#d7d7d7] hover:bg-neutral-[#fafafa] hover:shadow-sm transition-all">Contact Me</button>
 				</div>
 			</div>
 		</div>
 		<!-- END HERO -->
 
-
 		<!-- REVIEW -->
-		<div class="relative mt-24 sm:mt-20 w-full flex items-center justify-center">
+		<!-- <div id="projects" class="relative mt-24 sm:mt-20 w-full flex items-center justify-center">
 			<div class="absolute flex flex-col items-center justify-center -top-24 shadow-lg inset-x-auto w-auto px-6 py-3 bg-white rounded-lg border border-[#ebebeb]">
-				<h1 class="text-2xl text-neutral-900 outfit-medium text-center">Minimalist Dashboard Design</h1>
-				<p class="text-sm text-neutral-600 outfit-regular text-center">Best choice for your work-space</p>
+				<h1 class="text-2xl text-neutral-900 outfit-medium text-center">Featured Project Showcase</h1>
+				<p class="text-sm text-neutral-600 outfit-regular text-center">My latest and best work</p>
 			</div>
-			<div class="bg-[#fafafa] w-7/8 sm:w-5/8 rounded-xl border border-[#d7d7d7] p-2 shadow-2xl">
+			<div class="bg-[#fafafa] w-5/8 sm:w-5/8 rounded-xl border border-[#d7d7d7] p-2 shadow-2xl">
 				<div class="border border-[#d7d7d7] rounded-lg overflow-hidden bg-white">
 					<img src="./menu/src/assets/review.png" alt="review" class="rounded-lg w-full h-auto">
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- END REVIEW -->
 
 		<!-- TOOLS -->
@@ -146,32 +145,32 @@ session_reset();
 		<div class="w-full py-16 mt-16 bg-white">
 			<div class="max-w-6xl mx-auto px-4">
 				<div class="text-center mb-12">
-					<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium">About the Product Management Dashboard</h2>
-					<p class="mt-4 text-lg text-gray-600 outfit-regular max-w-3xl mx-auto">A modern and minimalistic solution for managing your projects and team with high efficiency.</p>
+					<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium">About Me</h2>
+					<p class="mt-4 text-lg text-gray-600 outfit-regular max-w-3xl mx-auto">Experienced developer with a passion for creating elegant solutions to complex problems. Combining technical expertise with creative design thinking.</p>
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-						<div class="text-indigo-600 text-2xl mb-4">📊</div>
-						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Data Visualization</h3>
+						<div class="text-indigo-600 text-2xl mb-4">�</div>
+						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Full-Stack Development</h3>
 						<p class="mt-2 text-gray-600 outfit-regular">
-							Real-time data visualization for your team and project progress.
+							Building complete web solutions from frontend to backend with modern technologies and best practices.
 						</p>
 					</div>
 
 					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-						<div class="text-indigo-600 text-2xl mb-4">🔒</div>
-						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Security Guaranteed</h3>
+						<div class="text-indigo-600 text-2xl mb-4">🎨</div>
+						<h3 class="text-xl font-medium text-gray-900 outfit-medium">UI/UX Design</h3>
 						<p class="mt-2 text-gray-600 outfit-regular">
-							Protect your company's important data with advanced encryption and flexible access controls.
+							Creating intuitive and beautiful interfaces that provide excellent user experience and engagement.
 						</p>
 					</div>
 
 					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
 						<div class="text-indigo-600 text-2xl mb-4">⚡</div>
-						<h3 class="text-xl font-medium text-gray-900 outfit-medium">High Performance</h3>
+						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Performance Optimization</h3>
 						<p class="mt-2 text-gray-600 outfit-regular">
-							Enjoy a distraction-free experience with a system optimized for maximum speed and scalability.
+							Optimizing websites for speed, scalability, and reliability to deliver exceptional performance.
 						</p>
 					</div>
 				</div>
@@ -184,42 +183,42 @@ session_reset();
 	<div class="w-full mt-16 py-16 bg-gray-50">
 		<div class="max-w-6xl mx-auto px-4">
 			<div class="text-center mb-12">
-				<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium">Powerful Features</h2>
+				<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium" id="skills">My Skills & Expertise</h2>
 				<p class="mt-4 text-lg text-gray-600 outfit-regular max-w-3xl mx-auto">
-					Discover the essential tools designed to streamline your project management experience.
+					Proficient in a range of modern technologies and frameworks for building robust web applications.
 				</p>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">📋</div>
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium">Task Management</h3>
+					<div class="text-indigo-600 text-2xl mb-4">�</div>
+					<h3 class="text-xl font-medium text-gray-900 outfit-medium">PHP & Backend</h3>
 					<p class="mt-2 text-gray-600 outfit-regular">
-						Create, assign, and track tasks with intuitive drag-and-drop functionality.
+						Strong expertise in PHP, database design, and server-side architecture for robust applications.
 					</p>
 				</div>
 
 				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">👥</div>
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium">Team Collaboration</h3>
+					<div class="text-indigo-600 text-2xl mb-4">�</div>
+					<h3 class="text-xl font-medium text-gray-900 outfit-medium">JavaScript & Frontend</h3>
 					<p class="mt-2 text-gray-600 outfit-regular">
-						Communicate seamlessly with your team through integrated messaging and comments.
+						Expert in JavaScript, React, and modern frontend frameworks for interactive user experiences.
 					</p>
 				</div>
 
 				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">📈</div>
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium">Progress Tracking</h3>
+					<div class="text-indigo-600 text-2xl mb-4">🎨</div>
+					<h3 class="text-xl font-medium text-gray-900 outfit-medium">UI/UX & Design</h3>
 					<p class="mt-2 text-gray-600 outfit-regular">
-						Monitor project milestones and deadlines with real-time progress indicators.
+						Proficient in Tailwind CSS, responsive design, and creating beautiful user interfaces.
 					</p>
 				</div>
 
 				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">⚙️</div>
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium">Customizable Workflows</h3>
+					<div class="text-indigo-600 text-2xl mb-4">✨</div>
+					<h3 class="text-xl font-medium text-gray-900 outfit-medium">Animations & Interactions</h3>
 					<p class="mt-2 text-gray-600 outfit-regular">
-						Tailor workflows to match your team's unique processes and requirements.
+						Creating smooth animations and interactive elements with GSAP and modern CSS techniques.
 					</p>
 				</div>
 			</div>
@@ -231,9 +230,9 @@ session_reset();
 	<div class="w-full mt-16 py-16 bg-white">
 		<div class="max-w-6xl mx-auto px-4">
 			<div class="text-center mb-12">
-				<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium">Trusted by Teams Worldwide</h2>
+				<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium" id="feedback">Client Feedback</h2>
 				<p class="mt-4 text-lg text-gray-600 outfit-regular max-w-3xl mx-auto">
-					Hear what our users say about transforming their project management experience.
+					What my clients and collaborators say about working with me.
 				</p>
 			</div>
 
@@ -243,12 +242,12 @@ session_reset();
 						<div class="text-yellow-400 text-xl">★★★★★</div>
 					</div>
 					<p class="text-gray-600 outfit-regular italic">
-						"This dashboard has completely changed how our team collaborates. The minimalist design keeps everyone focused."
+						"Exceptional work! The developer delivered exactly what we needed with clean, efficient code and great attention to detail."
 					</p>
 					<div class="mt-4 flex items-center">
 						<div class="ml-3">
-							<p class="text-gray-900 outfit-medium">Alex Morgan</p>
-							<p class="text-gray-500 outfit-regular text-sm">Product Lead, TechNova</p>
+							<p class="text-gray-900 outfit-medium">Sarah Johnson</p>
+							<p class="text-gray-500 outfit-regular text-sm">CEO, Digital Ventures</p>
 						</div>
 					</div>
 				</div>
@@ -258,12 +257,12 @@ session_reset();
 						<div class="text-yellow-400 text-xl">★★★★★</div>
 					</div>
 					<p class="text-gray-600 outfit-regular italic">
-						"Incredibly intuitive and fast. We've seen a 40% increase in productivity since switching to this platform."
+						"Outstanding design and functionality. The project was completed on time and exceeded all our expectations. Highly recommended!"
 					</p>
 					<div class="mt-4 flex items-center">
 						<div class="ml-3">
-							<p class="text-gray-900 outfit-medium">Jamie Chen</p>
-							<p class="text-gray-500 outfit-regular text-sm">CTO, BuildEase</p>
+							<p class="text-gray-900 outfit-medium">Michael Chen</p>
+							<p class="text-gray-500 outfit-regular text-sm">Project Manager, TechStart Inc</p>
 						</div>
 					</div>
 				</div>
@@ -273,12 +272,12 @@ session_reset();
 						<div class="text-yellow-400 text-xl">★★★★★</div>
 					</div>
 					<p class="text-gray-600 outfit-regular italic">
-						"The real-time data visualization helps us make informed decisions quickly. A game-changer for our workflow."
+						"Professional, responsive, and creative. They transformed our vision into reality with an amazing portfolio of work."
 					</p>
 					<div class="mt-4 flex items-center">
 						<div class="ml-3">
-							<p class="text-gray-900 outfit-medium">Taylor Williams</p>
-							<p class="text-gray-500 outfit-regular text-sm">Operations Director, InnovateX</p>
+							<p class="text-gray-900 outfit-medium">Emma Rodriguez</p>
+							<p class="text-gray-500 outfit-regular text-sm">Marketing Director, Growth Labs</p>
 						</div>
 					</div>
 				</div>
@@ -287,40 +286,188 @@ session_reset();
 	</div>
 	<!-- END TESTIMONIALS -->
 
+	<!-- PROJECTS CAROUSEL -->
+	<div class="w-full mt-16 py-16 bg-gray-50">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium" id="projects-carousel">My Projects</h2>
+				<p class="mt-4 text-lg text-gray-600 outfit-regular max-w-3xl mx-auto">
+					Explore my latest and greatest projects showcasing my technical expertise and creative solutions.
+				</p>
+			</div>
+
+			<!-- Projects Carousel Container -->
+			<div class="relative w-full overflow-hidden">
+				<div class="carousel-wrapper projects-carousel" style="position: relative; height: 400px; overflow: hidden; border-radius: 12px;">
+					<div class="carousel-container" style="display: flex; position: absolute; width: 100%; height: 100%;">
+						<!-- Project 1 -->
+						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
+							<img src="./menu/src/assets/project1.png" alt="Project 1" class="w-full h-full object-cover rounded-lg">
+							<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg flex items-end p-6">
+								<div class="text-white">
+									<h3 class="text-2xl outfit-bold mb-2">Modern Dashboard Design</h3>
+									<p class="outfit-regular text-sm">A comprehensive product management dashboard with real-time analytics.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Project 2 -->
+						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
+							<img src="./menu/src/assets/project2.png" alt="Project 2" class="w-full h-full object-cover rounded-lg">
+							<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg flex items-end p-6">
+								<div class="text-white">
+									<h3 class="text-2xl outfit-bold mb-2">E-Commerce Platform</h3>
+									<p class="outfit-regular text-sm">A fully responsive e-commerce solution with payment integration.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Project 3 -->
+						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
+							<img src="./menu/src/assets/project3.png" alt="Project 3" class="w-full h-full object-cover rounded-lg">
+							<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg flex items-end p-6">
+								<div class="text-white">
+									<h3 class="text-2xl outfit-bold mb-2">Social Media App</h3>
+									<p class="outfit-regular text-sm">Interactive social platform with real-time messaging and notifications.</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Project 3 -->
+						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
+							<img src="./menu/src/assets/project4.png" alt="Project 3" class="w-full h-full object-cover rounded-lg">
+							<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg flex items-end p-6">
+								<div class="text-white">
+									<h3 class="text-2xl outfit-bold mb-2">Social Media App</h3>
+									<p class="outfit-regular text-sm">Interactive social platform with real-time messaging and notifications.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Navigation Buttons -->
+				<button class="carousel-prev projects-carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-neutral-900 p-2 rounded-full shadow-lg transition-all hover:shadow-xl">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+					</svg>
+				</button>
+
+				<button class="carousel-next projects-carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-neutral-900 p-2 rounded-full shadow-lg transition-all hover:shadow-xl">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5L15.75 12l-7.5 7.5" />
+					</svg>
+				</button>
+			</div>
+
+			<!-- Carousel Indicators -->
+			<div class="flex items-center justify-center gap-2 mt-6">
+				<span class="carousel-indicator projects-indicator text-xs outfit-medium text-neutral-900">1</span>
+				<span class="text-neutral-400 outfit-regular">/</span>
+				<span class="carousel-total projects-total text-xs outfit-medium text-neutral-600">4</span>
+				<div class="flex gap-2 ml-4">
+					<button class="carousel-dot projects-dot active" data-index="0" style="width: 10px; height: 10px; border-radius: 50%; background-color: #1f2937; cursor: pointer;"></button>
+					<button class="carousel-dot projects-dot" data-index="1" style="width: 10px; height: 10px; border-radius: 50%; background-color: #d1d5db; cursor: pointer;"></button>
+					<button class="carousel-dot projects-dot" data-index="2" style="width: 10px; height: 10px; border-radius: 50%; background-color: #d1d5db; cursor: pointer;"></button>
+					<button class="carousel-dot projects-dot" data-index="3" style="width: 10px; height: 10px; border-radius: 50%; background-color: #d1d5db; cursor: pointer;"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END PROJECTS CAROUSEL -->
+
+	<!-- CERTIFICATES CAROUSEL -->
+	<div class="w-full mt-16 py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium" id="certificates">My Certificates</h2>
+				<p class="mt-4 text-lg text-gray-600 outfit-regular max-w-3xl mx-auto">
+					Professional certifications and achievements that validate my expertise and commitment to continuous learning.
+				</p>
+			</div>
+
+			<!-- Certificates Carousel Container -->
+			<div class="relative w-full overflow-hidden">
+				<div class="carousel-wrapper certificates-carousel" style="position: relative; height: 450px; overflow: hidden; border-radius: 12px;">
+					<div class="carousel-container" style="display: flex; position: absolute; width: 100%; height: 100%;">
+						<!-- Certificate 1 -->
+						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative; padding: 20px;">
+							<img src="./menu/src/assets/img/sertif1.png" alt="Certificate 1" class="w-full h-full object-contain rounded-lg bg-gray-100">
+						</div>
+
+						<!-- Certificate 2 -->
+						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative; padding: 20px;">
+							<img src="./menu/src/assets/img/sertif2.png" alt="Certificate 2" class="w-full h-full object-contain rounded-lg bg-gray-100">
+						</div>
+
+						<!-- Certificate 3 -->
+						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative; padding: 20px;">
+							<img src="./menu/src/assets/img/sertif3.png" alt="Certificate 3" class="w-full h-full object-contain rounded-lg bg-gray-100">
+						</div>
+					</div>
+				</div> <!-- Navigation Buttons -->
+				<button class="carousel-prev certificates-carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-neutral-900 p-2 rounded-full shadow-lg transition-all hover:shadow-xl">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+					</svg>
+				</button>
+
+				<button class="carousel-next certificates-carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-neutral-900 p-2 rounded-full shadow-lg transition-all hover:shadow-xl">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5L15.75 12l-7.5 7.5" />
+					</svg>
+				</button>
+			</div>
+
+			<!-- Carousel Indicators -->
+			<div class="flex items-center justify-center gap-2 mt-6">
+				<span class="carousel-indicator certificates-indicator text-xs outfit-medium text-neutral-900">1</span>
+				<span class="text-neutral-400 outfit-regular">/</span>
+				<span class="carousel-total certificates-total text-xs outfit-medium text-neutral-600">3</span>
+				<div class="flex gap-2 ml-4">
+					<button class="carousel-dot certificates-dot active" data-index="0" style="width: 10px; height: 10px; border-radius: 50%; background-color: #1f2937; cursor: pointer;"></button>
+					<button class="carousel-dot certificates-dot" data-index="1" style="width: 10px; height: 10px; border-radius: 50%; background-color: #d1d5db; cursor: pointer;"></button>
+					<button class="carousel-dot certificates-dot" data-index="2" style="width: 10px; height: 10px; border-radius: 50%; background-color: #d1d5db; cursor: pointer;"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END CERTIFICATES CAROUSEL -->
+
 	<!-- FOOTER -->
 	<div class="w-full mt-16 py-16 bg-white border-t border-gray-200">
 		<div class="max-w-6xl mx-auto px-4">
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 				<div class="col-span-1 md:col-span-2">
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium mb-4">AriesUp</h3>
+					<h3 class="text-xl font-medium text-gray-900 outfit-medium mb-4">Portfolio</h3>
 					<p class="text-gray-600 outfit-regular max-w-md">
-						Modern and minimalist product management dashboard designed to help teams collaborate efficiently and manage projects with ease.
+						A creative developer and designer crafting beautiful, functional web solutions. Specializing in modern web technologies and user-centered design.
 					</p>
 				</div>
 
 				<div>
-					<h4 class="text-lg font-medium text-gray-900 outfit-medium mb-4">Resources</h4>
+					<h4 class="text-lg font-medium text-gray-900 outfit-medium mb-4">Navigate</h4>
 					<ul class="space-y-2">
-						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Documentation</a></li>
-						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Tutorials</a></li>
-						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Blog</a></li>
-						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Support</a></li>
+						<li><a href="#projects-carousel" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Projects</a></li>
+						<li><a href="#skills" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Skills</a></li>
+						<li><a href="#certificates" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Certificates</a></li>
+						<li><a href="#feedback" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Feedback</a></li>
 					</ul>
 				</div>
 
 				<div>
-					<h4 class="text-lg font-medium text-gray-900 outfit-medium mb-4">Company</h4>
+					<h4 class="text-lg font-medium text-gray-900 outfit-medium mb-4">Connect</h4>
 					<ul class="space-y-2">
-						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">About Us</a></li>
-						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Careers</a></li>
-						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Contact</a></li>
-						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Privacy Policy</a></li>
+						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">GitHub</a></li>
+						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">LinkedIn</a></li>
+						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Twitter</a></li>
+						<li><a href="#" class="text-gray-600 outfit-regular hover:text-gray-900 transition-colors">Email</a></li>
 					</ul>
 				</div>
 			</div>
 
 			<div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
-				<p class="text-gray-600 outfit-regular text-sm">© 2023 AriesUp. All rights reserved.</p>
+				<p class="text-gray-600 outfit-regular text-sm">© 2024 My Portfolio. All rights reserved.</p>
 				<div class="flex space-x-6 mt-4 md:mt-0">
 					<a href="#" class="text-gray-400 hover:text-gray-500 transition-colors">
 						<span class="sr-only">Twitter</span>
