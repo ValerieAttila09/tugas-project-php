@@ -18,7 +18,9 @@
 ├── modules/                # Application modules
 │   ├── auth/               # Authentication system
 │   ├── dashboard/          # Admin dashboard
-│   └── articles/          # Articles module
+│   ├── articles/           # Articles module
+│   ├── login/              # Login module
+│   └── register/           # Registration module
 ├── uploads/                # Uploaded files
 └── index.php              # Main entry point
 ```
@@ -31,6 +33,8 @@
 4. **Responsive Design**: Mobile-friendly interface using Tailwind CSS
 5. **Rich Text Editing**: Quill.js integration for article creation
 6. **User Authentication**: Secure login/logout system
+7. **Article Management**: Create, read, and display articles with images
+8. **Dashboard Interface**: Admin panel for content management
 
 ## Setup Instructions
 
@@ -42,16 +46,24 @@
 ## Modules
 
 ### Authentication
-- User login and registration
-- Session management
+- User login and registration with password security
+- Session management for user authentication
+- Protected admin areas
 
 ### Dashboard
 - Admin panel for content management
-- Article creation interface
+- Article creation interface with rich text editor
+- Sidebar navigation and user profile management
 
 ### Articles
 - Article listing and display
-- Rich text content with images
+- Rich text content with image support
+- Individual article pages with author and date information
+
+### Login/Register
+- Dedicated login and registration pages
+- Form validation and user creation
+- Password handling and session initialization
 
 ## Technologies Used
 
@@ -60,8 +72,26 @@
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Styling**: Tailwind CSS
 - **Rich Text Editor**: Quill.js
-- **Animations**: GSAP
+- **Animations**: GSAP (GreenSock Animation Platform)
+- **UI Components**: Flowbite
 - **Security**: Prepared statements for database queries
+
+## Database Structure
+
+### tb_user
+- `id_user` (INT, PRIMARY KEY, AUTO_INCREMENT)
+- `nama` (VARCHAR(100))
+- `username` (VARCHAR(100))
+- `pass` (VARCHAR(40)) - MD5 hashed passwords
+- `level` (VARCHAR(40))
+
+### tb_artikel
+- `id` (INT, PRIMARY KEY, AUTO_INCREMENT)
+- `judul` (VARCHAR(255))
+- `isi` (TEXT)
+- `publisher` (VARCHAR(100))
+- `gambar` (VARCHAR(255))
+- `tanggal` (DATETIME, DEFAULT CURRENT_TIMESTAMP)
 
 ## Security Features
 
@@ -69,12 +99,24 @@
 - XSS prevention through input sanitization
 - Session-based authentication
 - File upload validation
+- Password hashing (MD5 - for demonstration purposes)
+
+## File Uploads
+
+- Images are stored in the `uploads/` directory
+- File names are timestamped to prevent conflicts
+- Supported formats: PNG, JPG, GIF
+- Default image handling for articles without images
 
 ## Future Improvements
 
+- Implement stronger password hashing (bcrypt)
 - Add user roles and permissions
-- Implement article categories
+- Implement article categories and tagging
 - Add search functionality
 - Include pagination for article listings
 - Add article editing and deletion features
 - Implement comment system
+- Add article preview functionality
+- Improve error handling and user feedback
+- Add form validation with JavaScript
