@@ -1,5 +1,5 @@
 <?php
-include "../../auth/koneksi.php";
+include "../../config/database.php";
 session_start();
 if (!isset($_SESSION['nama'])) {
   header("location:../");
@@ -18,7 +18,7 @@ if (!isset($_SESSION['nama'])) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./src/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
 </head>
 
 <body class="outfit-thin">
@@ -26,7 +26,7 @@ if (!isset($_SESSION['nama'])) {
   <div class="w-full h-full overflow-hidden">
     <div class="w-full h-screen flex">
      <?php
-      include '../components/sidebar.php';
+      include '../../includes/sidebar.php';
       ?>
       <div id="mainContent" class="w-[100%] h-full">
         <div id="navbar" class="w-full border-b border-[#ebebeb] p-2">
@@ -49,7 +49,7 @@ if (!isset($_SESSION['nama'])) {
               </button>
 
               <?php 
-             include '../components/profile.php';
+             include '../../includes/profile.php';
              ?>
             </div>
           </div>
@@ -114,7 +114,7 @@ if (!isset($_SESSION['nama'])) {
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 
-  <script src="../src/js/feedbacks.js"></script>
+  <script src="../../assets/js/feedbacks.js"></script>
 </body>
 
 </html>

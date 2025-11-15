@@ -6,17 +6,17 @@ include '../../app/Controllers/ArticleController.php';
 $articleId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 if ($articleId > 0) {
-    $controller = new ArticleController();
-    $article = $controller->show($articleId);
-    
-    if (!$article) {
-        // Article not found
-        header("Location: ../../index.php");
-        exit;
-    }
+	$controller = new ArticleController();
+	$article = $controller->show($articleId);
+
+	if (!$article) {
+		// Article not found
+		header("Location: ../../index.php");
+		exit;
+	}
 } else {
-    header("Location: ../../index.php");
-    exit;
+	header("Location: ../../index.php");
+	exit;
 }
 ?>
 
@@ -50,16 +50,16 @@ include '../../includes/header.php';
 						<div class="flex items-center gap-4">
 							<div class="size-12 rounded-full bg-neutral-200 flex items-center justify-center text-center">
 								<span class="text-md text-neutral-400 outfit-bold">
-                                    <?php 
-                                    $publisher = $article['publisher'];
-                                    $initials = '';
-                                    $names = explode(' ', $publisher);
-                                    foreach ($names as $name) {
-                                        $initials .= strtoupper(substr($name, 0, 1));
-                                    }
-                                    echo $initials;
-                                    ?>
-                                </span>
+									<?php
+									$publisher = $article['publisher'];
+									$initials = '';
+									$names = explode(' ', $publisher);
+									foreach ($names as $name) {
+										$initials .= strtoupper(substr($name, 0, 1));
+									}
+									echo $initials;
+									?>
+								</span>
 							</div>
 							<div class="">
 								<h1 class="text-xl/4 text-neutral-700 outfit-medium"><?= htmlspecialchars($article['publisher']) ?></h1>
@@ -80,8 +80,8 @@ include '../../includes/header.php';
 						</div>
 						<div class="">
 							<div class="article-content">
-                                <?= $article['isi'] ?>
-                            </div>
+								<?= $article['isi'] ?>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -115,6 +115,6 @@ include '../../includes/header.php';
 		<!-- END FOOTER -->
 
 		<script type="module" src="../../assets/js/index.js"></script>
-	</body>
+</body>
 
 </html>

@@ -3,7 +3,7 @@
     <div class="w-full flex flex-col items-center gap-4">
       <div class="w-full flex items-center justify-between px-3 py-2">
         <div class="flex items-center gap-4 ps-2">
-          <img src="../src/assets/logo.png" alt="logo" class="size-8">
+          <img src="../../assets/images/logo.png" alt="logo" class="size-8">
           <h1 id="sidebarMenu" class="outfit-semibold text-2xl text-transparent bg-clip-text bg-linear-to-r from-blue-700 to-sky-500">AriesUp</h1>
         </div>
       </div>

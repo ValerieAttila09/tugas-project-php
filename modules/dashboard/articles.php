@@ -2,7 +2,6 @@
 include "../../config/database.php";
 include "../../app/Helpers/functions.php";
 
-session_start();
 if (!isLoggedIn()) {
   redirect("../../modules/auth/login.php");
 }

@@ -1,7 +1,7 @@
 <?php
-require_once '../app/Models/Article.php';
-require_once '../app/Helpers/functions.php';
-require_once '../config/database.php';
+require_once '../../app/Models/Article.php';
+require_once '../../app/Helpers/functions.php';
+require_once '../../config/database.php';
 
 class ArticleController {
     private $articleModel;
