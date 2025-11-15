@@ -1,12 +1,12 @@
 <?php
-session_reset();
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <?php 
-include './menu/components/header.php';
+include './includes/header.php';
 ?>
 
 <body class="outfit-thin overflow-x-hidden">
@@ -14,7 +14,7 @@ include './menu/components/header.php';
 	<div class="w-full">
 		<!-- NAVBAR -->
 		<?php
-		include './menu/components/navbar.php';
+		include './includes/navbar.php';
 		?>
 		<!-- END NAVBAR -->
 
@@ -32,35 +32,21 @@ include './menu/components/header.php';
 		</div>
 		<!-- END HERO -->
 
-		<!-- REVIEW -->
-		<!-- <div id="projects" class="relative mt-24 sm:mt-20 w-full flex items-center justify-center">
-			<div class="absolute flex flex-col items-center justify-center -top-24 shadow-lg inset-x-auto w-auto px-6 py-3 bg-white rounded-lg border border-[#ebebeb]">
-				<h1 class="text-2xl text-neutral-900 outfit-medium text-center">Featured Project Showcase</h1>
-				<p class="text-sm text-neutral-600 outfit-regular text-center">My latest and best work</p>
-			</div>
-			<div class="bg-[#fafafa] w-5/8 sm:w-5/8 rounded-xl border border-[#d7d7d7] p-2 shadow-2xl">
-				<div class="border border-[#d7d7d7] rounded-lg overflow-hidden bg-white">
-					<img src="./menu/src/assets/review.png" alt="review" class="rounded-lg w-full h-auto">
-				</div>
-			</div>
-		</div> -->
-		<!-- END REVIEW -->
-
 		<!-- TOOLS -->
 		<div class="w-full my-10 sm:my-14 md:my-16">
 			<h3 class="text-2xl outfit-medium text-neutral-800 text-center mb-2">Built With</h3>
 			<div class="max-w-4xl mx-auto flex items-center justify-center gap-6">
 				<div class="rounded-full bg-[#777BB3] w-16 h-16 flex items-center justify-center p-2">
-					<img src="./menu/src/assets/php-logo-bigger.png" class="w-14 h-auto" alt="">
+					<img src="./assets/images/php-logo-bigger.png" class="w-14 h-auto" alt="">
 				</div>
 				<div class="rounded-full overflow-hidden bg-[#F0DB4F] w-16 h-16 flex items-center justify-center p-2">
-					<img src="./menu/src/assets/JavaScript-logo.png" class="w-14 h-auto" alt="">
+					<img src="./assets/images/JavaScript-logo.png" class="w-14 h-auto" alt="">
 				</div>
 				<div class="rounded-full overflow-hidden bg-blue-100 w-16 h-16 flex items-center justify-center p-2">
-					<img src="./menu/src/assets/tailwindcss-mark.d52e9897 (1).png" class="w-16 h-auto" alt="">
+					<img src="./assets/images/tailwindcss-mark.d52e9897 (1).png" class="w-16 h-auto" alt="">
 				</div>
 				<div class="rounded-full bg-teal-100 w-16 h-16 flex items-center justify-center p-2">
-					<img src="./menu/src/assets/greensock-gsap-icon-seeklogo.png" class="w-12 h-auto" alt="">
+					<img src="./assets/images/greensock-gsap-icon-seeklogo.png" class="w-12 h-auto" alt="">
 				</div>
 			</div>
 		</div>
@@ -76,7 +62,7 @@ include './menu/components/header.php';
 
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-						<div class="text-indigo-600 text-2xl mb-4">�</div>
+						<div class="text-indigo-600 text-2xl mb-4">⚙️</div>
 						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Full-Stack Development</h3>
 						<p class="mt-2 text-gray-600 outfit-regular">
 							Building complete web solutions from frontend to backend with modern technologies and best practices.
@@ -116,7 +102,7 @@ include './menu/components/header.php';
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">�</div>
+					<div class="text-indigo-600 text-2xl mb-4">⚙️</div>
 					<h3 class="text-xl font-medium text-gray-900 outfit-medium">PHP & Backend</h3>
 					<p class="mt-2 text-gray-600 outfit-regular">
 						Strong expertise in PHP, database design, and server-side architecture for robust applications.
@@ -124,7 +110,7 @@ include './menu/components/header.php';
 				</div>
 
 				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">�</div>
+					<div class="text-indigo-600 text-2xl mb-4">💻</div>
 					<h3 class="text-xl font-medium text-gray-900 outfit-medium">JavaScript / Typescript & Frontend</h3>
 					<p class="mt-2 text-gray-600 outfit-regular">
 						Expert in JavaScript, React, and modern frontend frameworks for interactive user experiences.
@@ -227,7 +213,7 @@ include './menu/components/header.php';
 					<div class="carousel-container" style="display: flex; position: absolute; width: 100%; height: 100%;">
 						<!-- Project 1 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="menu/src/assets/project1.png" alt="Project 1" class="w-full h-full object-cover rounded-lg">
+							<img src="./assets/images/project1.png" alt="Project 1" class="w-full h-full object-cover rounded-lg">
 							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
 									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Third Portfolio</h3>
@@ -238,7 +224,7 @@ include './menu/components/header.php';
 
 						<!-- Project 2 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="menu/src/assets/project2.png" alt="Project 2" class="w-full h-full object-cover rounded-lg">
+							<img src="./assets/images/project2.png" alt="Project 2" class="w-full h-full object-cover rounded-lg">
 							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
 									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Simple SaaS Web Design</h3>
@@ -249,7 +235,7 @@ include './menu/components/header.php';
 
 						<!-- Project 3 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="menu/src/assets/project3.png" alt="Project 3" class="w-full h-full object-cover rounded-lg">
+							<img src="./assets/images/project3.png" alt="Project 3" class="w-full h-full object-cover rounded-lg">
 							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
 									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Todo List App</h3>
@@ -260,7 +246,7 @@ include './menu/components/header.php';
 
 						<!-- Project 4 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="menu/src/assets/project4.png" alt="Project 4" class="w-full h-full object-cover rounded-lg">
+							<img src="./assets/images/project4.png" alt="Project 4" class="w-full h-full object-cover rounded-lg">
 							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
 									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Fourth Portfolio</h3>
@@ -317,17 +303,17 @@ include './menu/components/header.php';
 					<div class="carousel-container" style="display: flex; position: absolute; width: 100%; height: 100%;">
 						<!-- Certificate 1 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative; padding: 20px;">
-							<img src="./menu/src/assets/img/sertif1.png" alt="Certificate 1" class="w-full h-full object-contain rounded-lg">
+							<img src="./assets/images/img/sertif1.png" alt="Certificate 1" class="w-full h-full object-contain rounded-lg">
 						</div>
 
 						<!-- Certificate 2 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative; padding: 20px;">
-							<img src="./menu/src/assets/img/sertif2.png" alt="Certificate 2" class="w-full h-full object-contain rounded-lg">
+							<img src="./assets/images/img/sertif2.png" alt="Certificate 2" class="w-full h-full object-contain rounded-lg">
 						</div>
 
 						<!-- Certificate 3 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative; padding: 20px;">
-							<img src="./menu/src/assets/img/sertif3.png" alt="Certificate 3" class="w-full h-full object-contain rounded-lg">
+							<img src="./assets/images/img/sertif3.png" alt="Certificate 3" class="w-full h-full object-contain rounded-lg">
 						</div>
 					</div>
 				</div> <!-- Navigation Buttons -->
@@ -361,11 +347,11 @@ include './menu/components/header.php';
 
 	<!-- FOOTER -->
 	<?php 
-	include './menu/components/footer.php';
+	include './includes/footer.php';
 	?>
 	<!-- END FOOTER -->
 
-	<script type="module" src="./scripts/index.js"></script>
+	<script type="module" src="./assets/js/index.js"></script>
 </body>
 
 </html>

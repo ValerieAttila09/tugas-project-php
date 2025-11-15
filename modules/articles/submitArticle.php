@@ -1,16 +1,18 @@
 <?php 
-include "../../auth/koneksi.php";
+include "../../config/database.php";
+include "../../app/Helpers/functions.php";
+
 session_start();
 
 // Check if user is logged in
-if (!isset($_SESSION['nama'])) {
+if (!isLoggedIn()) {
     die("Unauthorized access");
 }
 
-$title       = $_POST['judul'];
-$content     = $_POST['isi'];
-$category    = $_POST['kategori'];
-$publisher   = $_SESSION['nama']; // Get publisher name from session
+$title       = sanitizeInput($_POST['judul']);
+$content     = $_POST['isi']; // This comes from Quill.js editor
+$category    = sanitizeInput($_POST['kategori']);
+$publisher   = getUserName(); // Get publisher name from session
 
 // Handle image upload
 $targetDir = "uploads/";

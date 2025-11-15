@@ -1,11 +1,12 @@
 <?php
-include "../../auth/koneksi.php";
+include "../../config/database.php";
+include "../../app/Helpers/functions.php";
+
 session_start();
-if (!isset($_SESSION['nama'])) {
-  header("location:../");
+if (!isLoggedIn()) {
+  redirect("../../modules/auth/login.php");
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en" id="container">
@@ -19,7 +20,7 @@ if (!isset($_SESSION['nama'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../src/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
 </head>
 
 <body class="outfit-thin">
@@ -27,7 +28,7 @@ if (!isset($_SESSION['nama'])) {
   <div class="w-full h-full overflow-hidden">
     <div class="w-full h-screen flex">
       <?php
-      include '../components/sidebar.php';
+      include '../../includes/sidebar.php';
       ?>
       <div id="mainContent" class="w-[100%] h-full">
         <div id="navbar" class="w-full border-b border-[#ebebeb] p-2">
@@ -46,17 +47,17 @@ if (!isset($_SESSION['nama'])) {
                     <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
                   </svg>
                 </div>
-                <span class="text-sm text-neutral-600 outfit-regular"><?= $_SESSION['nama'] ?></span>
+                <span class="text-sm text-neutral-600 outfit-regular"><?= getUserName() ?></span>
               </button>
 
               <?php
-              include '../components/profile.php';
+              include '../../includes/profile.php';
               ?>
             </div>
           </div>
         </div>
         <div id="content" class="relative w-full h-[calc(100%-55px)] overflow-y-auto bg-neutral-50 p-4">
-          <form id="articleForm" action="../store/submitArticle.php" method="POST" enctype="multipart/form-data" class="w-full space-y-4 rounded-lg border border-[#d7d7d7] p-6 bg-white">
+          <form id="articleForm" action="../articles/submitArticle.php" method="POST" enctype="multipart/form-data" class="w-full space-y-4 rounded-lg border border-[#d7d7d7] p-6 bg-white">
             <div class="">
               <label for="judul" class="text-lg text-neutral-800 outfit-medium">Judul</label>
               <input type="text" id="judul" name="judul" class="w-full rounded-lg border border-[#cdcdcd] p-2 outline-none focus:border-indigo-600 focus:ring-indigo-600" required />
@@ -124,7 +125,7 @@ if (!isset($_SESSION['nama'])) {
 
   <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="../src/js/articles.js"></script>
+  <script src="../../assets/js/articles.js"></script>
 </body>
 
 </html>

@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       form.submit();
     });
   }
+  
   let sidebarActive = true;
   let profileDropdownActive = false;
   let showModal = false;
