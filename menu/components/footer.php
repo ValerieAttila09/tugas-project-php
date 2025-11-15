@@ -1,4 +1,4 @@
-<div class="w-full mt-16 py-16 bg-white border-t border-gray-200">
+<div class="w-full mt-16 py-16 bg-neutral-50 border-t border-gray-200">
   <div class="max-w-6xl mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <div class="col-span-1 md:col-span-2">
