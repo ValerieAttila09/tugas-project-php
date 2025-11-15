@@ -42,6 +42,21 @@ CREATE TABLE `tb_user` (
 INSERT INTO `tb_user` (`id_user`, `nama`, `username`, `pass`, `level`) VALUES
 (1, 'Sahbanta Mulia Sembiring', 'sahbanta_sembiring', '21232f297a57a5a743894a0e4a801fc3', 'admin');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_artikel`
+--
+
+CREATE TABLE `tb_artikel` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `isi` text NOT NULL,
+  `publisher` varchar(100) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -53,6 +68,12 @@ ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
+-- Indeks untuk tabel `tb_artikel`
+--
+ALTER TABLE `tb_artikel`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -61,6 +82,12 @@ ALTER TABLE `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_artikel`
+--
+ALTER TABLE `tb_artikel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

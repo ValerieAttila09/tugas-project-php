@@ -20,7 +20,7 @@ if (isset($_POST["login"])) {
             $_SESSION['username'] = $cek['username'];
             $_SESSION['level'] = $cek['level'];
             echo '<script>alert("berhasil login dengan id '.$cek['id_user'].'")</script>';
-            header("location:../menu/dashboard.php");
+            header("location:../menu/dashboard/dashboard.php");
             exit;
         } else {
             echo '<script>window.location.href="index.php"</script>';

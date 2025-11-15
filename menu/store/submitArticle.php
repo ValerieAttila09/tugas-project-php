@@ -1,32 +1,47 @@
 <?php 
 include "../../auth/koneksi.php";
+session_start();
 
-$title       = $_POST['title'];
-$description = $_POST['description'];
+// Check if user is logged in
+if (!isset($_SESSION['nama'])) {
+    die("Unauthorized access");
+}
 
+$title       = $_POST['judul'];
+$content     = $_POST['isi'];
+$category    = $_POST['kategori'];
+$publisher   = $_SESSION['nama']; // Get publisher name from session
+
+// Handle image upload
 $targetDir = "uploads/";
 if (!is_dir($targetDir)) {
-    mkdir($targetDir, 0777, true); // buat folder jika belum ada
+    mkdir($targetDir, 0777, true); // Create folder if it doesn't exist
 }
 
-$imageName = time() . "_" . basename($_FILES["image"]["name"]);
-$targetFilePath = $targetDir . $imageName;
-
-if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)) {
-    // Simpan ke database
-    $sql = "INSERT INTO tb_artikel (judul, deskripsi, gambar) VALUES (?, ?, ?)";
-    $stmt = $con->prepare($sql);
-    $stmt->bind_param("sss", $title, $description, $imageName);
-
-    if ($stmt->execute()) {
-        echo "Artikel berhasil disimpan!";
-    } else {
-        echo "Error: " . $stmt->error;
+$imageName = '';
+if (isset($_FILES["gambar"]) && $_FILES["gambar"]["name"] != '') {
+    $imageName = time() . "_" . basename($_FILES["gambar"]["name"]);
+    $targetFilePath = $targetDir . $imageName;
+    
+    if (!move_uploaded_file($_FILES["gambar"]["tmp_name"], $targetFilePath)) {
+        echo "Gagal upload gambar.";
+        $con->close();
+        exit;
     }
-    $stmt->close();
 } else {
-    echo "Gagal upload gambar.";
+    $imageName = 'default.jpg'; // Default image if none uploaded
 }
 
+// Save to database with your specified INSERT statement
+$sql = "INSERT INTO tb_artikel (id, judul, isi, publisher, gambar, tanggal) VALUES (NULL, ?, ?, ?, ?, NOW())";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("ssss", $title, $content, $publisher, $imageName);
+
+if ($stmt->execute()) {
+    echo "Artikel berhasil disimpan!";
+} else {
+    echo "Error: " . $stmt->error;
+}
+$stmt->close();
 $con->close();
 ?>
