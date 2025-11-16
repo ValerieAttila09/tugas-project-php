@@ -4,7 +4,8 @@
   "description": "```\r .\r ├── app/                    # Application core files\r │   ├── Controllers/        # Business logic controllers\r │   ├── Models/             # Database models\r │   ├── Views/              # Template files\r │   └── Helpers/            # Utility functions\r ├── assets/                 # Static assets\r │   ├── css/                # Stylesheets\r │   ├── js/                 # JavaScript files\r │   └── images/             # Image assets\r ├── config/                 # Configuration files\r ├── includes/               # Shared components (header, footer, etc.)\r ├── modules/                # Application modules\r │   ├── auth/               # Authentication system\r │   ├── dashboard/          # Admin dashboard\r │   ├── articles/           # Articles module\r │   ├── login/              # Login module\r │   └── register/           # Registration module\r ├── uploads/                # Uploaded files\r └── index.php              # Main entry point\r ```",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tail": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --watch"
   },
   "repository": {
     "type": "git",
@@ -13,7 +14,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/ValerieAttila09/tugas-project-php/issues"
   },
