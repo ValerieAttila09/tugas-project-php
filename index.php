@@ -387,7 +387,7 @@ include './includes/header.php';
 	?>
 	<!-- END FOOTER -->
 
-	<script type="module" src="./assets/js/index.js"></script>
+	<script type="module" src="./assets/js/landingPage.js"></script>
 </body>
 
 </html>
