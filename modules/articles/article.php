@@ -23,9 +23,66 @@ if ($articleId > 0) {
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-include '../../includes/header.php';
-?>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Portfolio - Creative Developer & Designer</title>
+	<link rel="stylesheet" href="../../assets/css/output.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+		.outfit-thin {
+			font-family: "Outfit", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 300;
+			font-style: normal;
+		}
+
+		.outfit-regular {
+			font-family: "Outfit", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		.outfit-medium {
+			font-family: "Outfit", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 500;
+			font-style: normal;
+		}
+
+		.outfit-semibold {
+			font-family: "Outfit", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 600;
+			font-style: normal;
+		}
+
+		.outfit-bold {
+			font-family: "Outfit", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 700;
+			font-style: normal;
+		}
+
+		h3 {
+			font-size: 3rem;
+			color: #212432;
+			margin: 18px 0px;
+		}
+
+		h4 {
+			font-size: 1.6rem;
+			color: #565658;
+			margin: 16px 0px;
+		}
+
+		strong {
+			font-weight: 500;
+		}
+	</style>
+</head>
 
 <body class="outfit-thin overflow-x-hidden">
 
@@ -74,8 +131,13 @@ include '../../includes/header.php';
 
 		<!-- ARTICLE -->
 		<div class="m-0 md:mx-24">
-			<div class="mt-20 mb-6 p-4 md:p-0">
-				<span class="text-sm text-neutral-500 outfit-regular">Home / Article / <?= htmlspecialchars($article['judul']) ?></span>
+			<div class="mt-20 mb-6 p-4 md:p-0 space-y-2">
+				<div class="">
+					<a href="./index.php" class="text-neutral-800 text-xl outfit-regular hover:underline hover:text-neutral-900 transition-all">Go back</a>
+				</div>
+				<div class="">
+					<p class="text-sm text-neutral-500 outfit-regular">Home / Article / <?= htmlspecialchars($article['judul']) ?></p>
+				</div>
 			</div>
 			<div class="w-full grid md:grid-cols-5 gap-8 md:gap-16 p-4 md:p-0">
 				<div class="md:col-span-3">

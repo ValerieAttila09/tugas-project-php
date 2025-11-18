@@ -16,7 +16,7 @@ if (!isLoggedIn()) {
   <title>Articles - AriesUp</title>
   <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/css/output.css">
-   <style>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
     .outfit-thin {
@@ -64,10 +64,10 @@ if (!isLoggedIn()) {
       include '../../includes/sidebar.php';
       ?>
       <div id="mainContent" class="w-[100%] h-full">
-        <div id="navbar" class="w-full border-b border-[#ebebeb] p-2">
+        <div id="navbar" class="w-full border-b border-[#d7d7d7] p-2">
           <div class="w-full flex items-center justify-between">
             <div class="">
-              <button id="sidebar-toggle" class="p-2 rounded-md bg-white border border-[#ebebeb] hover:bg-[#fafafa] transition-all">
+              <button id="sidebar-toggle" class="p-2 rounded-md bg-white border border-[#d7d7d7] hover:bg-[#fafafa] transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-600">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                 </svg>
@@ -89,7 +89,7 @@ if (!isLoggedIn()) {
             </div>
           </div>
         </div>
-        <div id="content" class="relative w-full h-[calc(100%-55px)] overflow-y-auto bg-neutral-50 p-4">
+        <div id="content" class="relative w-full h-[calc(100%-55px)] overflow-y-auto bg-neutral-50 p-6">
           <div class="w-full space-y-2">
             <div class="">
               <h1 class="text-4xl text-neutral-800 outfit-medium">Articles</h1>
@@ -151,8 +151,62 @@ if (!isLoggedIn()) {
               </div>
             </div>
           </div>
-
-          <div class="fixed z-15 top-[6%] bottom-auto inset-x-[25%] hidden bg-white rounded-md border border-[#ebebeb]">
+          <div class="w-full mt-6">
+            <div class="bg-white rounded-md border border-[#d7d7d7] py-2">
+              <div class="flex justify-between items-center px-2 mb-2">
+                <button type="button" id="toggleInsertModal" class="rounded-md bg-white border border-[#d7d7d7] text-neutral-700 px-4 py-1 hover:bg-neutral-50 hover:shadow-sm transition-all">Add article</button>
+              </div>
+              <div class="relative h-full">
+                <table class="w-full">
+                  <thead>
+                    <tr class="border-b border-t border-[#d7d7d7] bg-neutral-50">
+                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">No</th>
+                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Title</th>
+                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Content</th>
+                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Category</th>
+                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Publisher</th>
+                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Gambar</th>
+                      <th class="text-md text-start text-neutral-600 outfit-regular px-3 py-2">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="relative">
+                    <?php
+                    $query = "SELECT * FROM tb_artikel";
+                    $result = mysqli_query($con, $query);
+                    $no = 1;
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $content = $row['isi'];
+                      $content_singkat = substr($content, 0, 36);
+                    ?>
+                      <tr id="article-<?php echo $row['id']; ?>" class="border-b border-[#d7d7d7] hover:-translate-y-[2px] hover:rounded-lg hover:shadow-lg transition-all cursor-pointer">
+                        <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $no++; ?></td>
+                        <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['judul']; ?></td>
+                        <td class="text-sm text-neutral-800 p-3 flex"><?php echo $content_singkat; ?></td>
+                        <td class="text-sm text-nowrap text-neutral-800 p-3 outfit-medium"><?php echo $row['kategori']; ?></td>
+                        <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['publisher']; ?></td>
+                        <td class="text-sm text-nowrap text-neutral-800 p-3"><?php echo $row['gambar']; ?></td>
+                        <td class="text-sm text-neutral-800 p-3 flex items-center flex-nowrap justify-start gap-2">
+                          <button class="rounded-md bg-white cursor-pointer border hover:bg-yellow-100 hover:text-yellow-600 hover:border-yellow-200 hover:shadow-sm transition-all border-[#d7d7d7] px-4 py-1"
+                            data-id="<?php echo $row['id']; ?>"
+                            data-title="<?php echo htmlspecialchars($row['judul']); ?>"
+                            data-content="<?php echo htmlspecialchars($row['isi']); ?>"
+                            data-category="<?php echo $row['kategori']; ?>"
+                            data-publisher="<?php echo $row['publisher']; ?>"
+                            data-image="<?php echo $row['gambar']; ?>">
+                            Edit
+                          </button>
+                          <a href="articles.php?delete=article&id=<?php echo $row['id']; ?>" class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#d7d7d7] px-4 py-1">Delete</a>
+                        </td>
+                      </tr>
+                    <?php
+                    }
+                    ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="fixed z-15 top-[6%] bottom-auto inset-x-[25%] hidden bg-white rounded-md border border-[#d7d7d7]">
             <form id="articleForm" action="../articles/submitArticle.php" method="POST" enctype="multipart/form-data" class="w-full space-y-4 rounded-lg border border-[#d7d7d7] p-6 bg-white">
               <div class="">
                 <label for="judul" class="text-lg text-neutral-800 outfit-medium">Judul</label>
