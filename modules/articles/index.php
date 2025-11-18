@@ -164,6 +164,7 @@ $articles = $controller->index();
     <!-- END FOOTER -->
 
     <script type="module" src="../../assets/js/index.js"></script>
+    <script src="../../assets/js/articles.js"></script>
 </body>
 
 </html>
