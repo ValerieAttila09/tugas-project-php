@@ -16,7 +16,7 @@ include './includes/header.php';
 		<div class="w-full fixed top-0 z-50 inset-x-0 h-auto bg-white/20 backdrop-blur-md">
 			<div class="hidden p-2 md:flex items-center justify-between md:max-w-6xl md:mx-auto">
 				<div class="px-18">
-					<h1 class="text-lg outfit-bold text-neutral-900">Portfolio</h1>
+					<h1 class="text-lg outfit-bold text-neutral-900">Valerie</h1>
 				</div>
 				<div class="flex items-center justify-center gap-4">
 					<a href="#projects" class="text-md outfit-regular p-2 text-neutral-700 hover:text-neutral-900 hover:text-shadow-sm transition-all">Projects</a>
@@ -59,7 +59,7 @@ include './includes/header.php';
 			<div class="max-w-4xl flex flex-col items-center justify-center gap-5 p-6 sm:p-0">
 				<div class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">✨ Creative Developer</div>
 				<h1 class="text-4xl sm:text-5xl md:text-7xl text-center text-neutral-900 outfit-medium text-shadow-sm">Crafting Digital Experiences</h1>
-				<p class="text-sm sm:text-md lg:text-lg text-center text-neutral-600">I'm a passionate developer and designer creating beautiful, functional web solutions. Specializing in modern web technologies, UI/UX design, and full-stack development with a focus on performance and user experience.</p>
+				<p class="text-sm sm:text-md lg:text-lg text-center text-neutral-600">Hi, I'm Valerie, a web developer based in Indonesia with passion for code.</p>
 				<div class="flex items-center gap-3">
 					<button class="cursor-pointer rounded-full px-6 py-2 bg-neutral-900 text-white hover:bg-neutral-700 hover:shadow-sm transition-all">View My Work</button>
 					<button class="cursor-pointer rounded-full px-6 py-2 bg-white border border-[#d7d7d7] hover:bg-neutral-[#fafafa] hover:shadow-sm transition-all">Contact Me</button>
@@ -234,7 +234,7 @@ include './includes/header.php';
 	<!-- END TESTIMONIALS -->
 
 	<!-- PROJECTS CAROUSEL -->
-	<div class="w-full mt-16 py-16 bg-gray-50">
+	<div class="hidden w-full mt-16 py-16 bg-gray-50">
 		<div class="max-w-6xl mx-auto px-4">
 			<div class="text-center mb-12">
 				<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium" id="projects-carousel">My Projects</h2>
@@ -244,12 +244,12 @@ include './includes/header.php';
 			</div>
 
 			<!-- Projects Carousel Container -->
-			<div class="relative w-full overflow-hidden">
+			<div class="relative w-full h-[400px]">
 				<div class="carousel-wrapper projects-carousel" style="position: relative; overflow: hidden; border-radius: 12px;">
 					<div class="carousel-container" style="display: flex; position: absolute; width: 100%; height: 100%;">
 						<!-- Project 1 -->
-						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="./assets/images/project1.png" alt="Project 1" class="w-full h-full object-cover rounded-lg">
+						<div class="carousel-item" style="min-width: 100%; min-height: 100%; position: relative;">
+							<img src="./assets/images/project1.png" alt="Project 1" class="min-w-full h-full object-cover rounded-lg">
 							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
 									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Third Portfolio</h3>
@@ -260,7 +260,7 @@ include './includes/header.php';
 
 						<!-- Project 2 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="./assets/images/project2.png" alt="Project 2" class="w-full h-full object-cover rounded-lg">
+							<img src="./assets/images/project2.png" alt="Project 2" class="w-full h-auto object-cover rounded-lg">
 							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
 									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Simple SaaS Web Design</h3>
@@ -271,7 +271,7 @@ include './includes/header.php';
 
 						<!-- Project 3 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="./assets/images/project3.png" alt="Project 3" class="w-full h-full object-cover rounded-lg">
+							<img src="./assets/images/project3.png" alt="Project 3" class="w-full h-auto object-cover rounded-lg">
 							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
 									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Todo List App</h3>
@@ -282,7 +282,7 @@ include './includes/header.php';
 
 						<!-- Project 4 -->
 						<div class="carousel-item" style="min-width: 100%; height: 100%; position: relative;">
-							<img src="./assets/images/project4.png" alt="Project 4" class="w-full h-full object-cover rounded-lg">
+							<img src="./assets/images/project4.png" alt="Project 4" class="w-full h-auto object-cover rounded-lg">
 							<div class="absolute bottom-0 inset-x-0 bg-neutral-900/60 rounded-lg p-2 sm:p-3 md:p-6">
 								<div class="text-white">
 									<h3 class="text-sm sm:text-base md:text-2xl outfit-bold mb-1 sm:mb-2">Fourth Portfolio</h3>

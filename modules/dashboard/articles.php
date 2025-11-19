@@ -99,6 +99,11 @@ if (!isLoggedIn()) {
               <h1 class="text-4xl text-neutral-800 outfit-medium">Articles</h1>
             </div>
             <div class="grid grid-cols-3 gap-3">
+              <?php
+              $artikelQuery = "SELECT * FROM tb_artikel";
+              $artikelResult = mysqli_query($con, $artikelQuery);
+              $artikelCount = mysqli_num_rows($artikelResult);
+              ?>
               <div class="col-span-1 rounded-lg border border-[#d7d7d7] p-4 bg-white">
                 <div class="flex items-center justify-between">
                   <div class="">
@@ -114,43 +119,7 @@ if (!isLoggedIn()) {
                 </div>
                 <div class="">
                   <h3 class="text-lg text-neutral-700 outfit-regular">Total Articles</h3>
-                  <h1 class="text-3xl text-neutral-900 outfit-semibold">24 Articles</h1>
-                </div>
-              </div>
-              <div class="col-span-1 rounded-lg border border-[#d7d7d7] p-4 bg-white">
-                <div class="flex items-center justify-between">
-                  <div class="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-500">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                    </svg>
-                  </div>
-                  <div class="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-600">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="">
-                  <h3 class="text-lg text-neutral-700 outfit-regular">Total Articles</h3>
-                  <h1 class="text-3xl text-neutral-900 outfit-semibold">24 Articles</h1>
-                </div>
-              </div>
-              <div class="col-span-1 rounded-lg border border-[#d7d7d7] p-4 bg-white">
-                <div class="flex items-center justify-between">
-                  <div class="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-500">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                    </svg>
-                  </div>
-                  <div class="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-neutral-600">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="">
-                  <h3 class="text-lg text-neutral-700 outfit-regular">Total Articles</h3>
-                  <h1 class="text-3xl text-neutral-900 outfit-semibold">24 Articles</h1>
+                  <h1 class="text-3xl text-neutral-900 outfit-semibold"><?= $artikelCount ?> Articles</h1>
                 </div>
               </div>
             </div>

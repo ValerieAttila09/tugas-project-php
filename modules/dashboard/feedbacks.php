@@ -133,14 +133,14 @@ if (!isset($_SESSION['nama'])) {
                 <div class="group col-span-1 bg-white rounded-lg border border-[#d7d7d7] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
 
                   <!-- Product Header -->
-                  <div class="bg-linear-to-r from-blue-50 to-indigo-50 p-4 border-b border-[#d7d7d7]">
+                  <div class="bg-linear-to-r from-yellow-50 to-indigo-50 p-4 border-b border-[#d7d7d7]">
                     <?php if ($feedback['nama_produk']) { ?>
                       <h2 class="text-xl outfit-medium text-neutral-900 line-clamp-2">
                         <?= htmlspecialchars($feedback['nama_produk']) ?>
                       </h2>
-                      <div class="mt-0.5 flex items-center justify-start">
-                        <div class="rounded-md py-0.5 bg-yellow-100">
-                          <span class="text-xs text-yellow-500 ">
+                      <div class="mt-1 flex items-center justify-start">
+                        <div class="rounded-sm px-2 flex items-center justify-center bg-yellow-100 border border-yellow-200">
+                          <span class="text-xs text-yellow-600 ">
                             <?= htmlspecialchars($feedback['kategori']) ?>
                           </span>
                         </div>
