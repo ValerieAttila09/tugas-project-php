@@ -15,7 +15,7 @@ if (!isset($_SESSION['nama'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products - AriesUp</title>
   <link rel="stylesheet" href="../../assets/css/output.css">
-   <style>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
     .outfit-thin {
@@ -59,7 +59,7 @@ if (!isset($_SESSION['nama'])) {
 
   <div class="w-full h-full overflow-hidden">
     <div class="w-full h-screen flex">
-     <?php
+      <?php
       include '../../includes/sidebar.php';
       ?>
       <div id="mainContent" class="w-[100%] h-full">
@@ -82,9 +82,9 @@ if (!isset($_SESSION['nama'])) {
                 <span class="text-sm text-neutral-600 outfit-regular"><?= $_SESSION['nama'] ?></span>
               </button>
 
-              <?php 
-             include '../../includes/profile.php';
-             ?>
+              <?php
+              include '../../includes/profile.php';
+              ?>
             </div>
           </div>
         </div>
@@ -109,38 +109,113 @@ if (!isset($_SESSION['nama'])) {
             </div>
           </div>
           <div class="w-full h-px bg-[#ebebeb] my-6"></div>
-          <div class="grid grid-cols-3 gap-4">
+
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
             <?php
-            $feedbacksQuery = "SELECT * FROM tb_feedback WHERE id_user = " . $_SESSION['id'];
+            $feedbacksQuery = "
+              SELECT 
+                tb_feedback.*,
+                tb_produk.nama_produk,
+                tb_produk.kategori,
+                tb_produk.id_produk
+              FROM tb_feedback
+              LEFT JOIN tb_produk ON tb_feedback.id_produk = tb_produk.id_produk
+              WHERE tb_feedback.id_user = " . $_SESSION['id'] . "
+              ORDER BY tb_feedback.id_feedback DESC
+            ";
             $feedbacks = mysqli_query($con, $feedbacksQuery);
-            while ($feedback = mysqli_fetch_assoc($feedbacks)) {
+
+            if (mysqli_num_rows($feedbacks) > 0) {
+              while ($feedback = mysqli_fetch_assoc($feedbacks)) {
             ?>
-              <div class="bg-white rounded-md border border-[#ebebeb] p-4 flex flex-col justify-between">
-                <div class="space-y-2">
-                  <div class="">
-                    <h1 class="text-xl text-neutral-700 outfit-medium"><?= $feedback['nama_pengirim'] ?></h1>
-                    <h3 class="text-sm text-neutral-600 outfit-thin"><?= $feedback['email_pengirim'] ?></h3>
+
+                <div class="group col-span-1 bg-white rounded-lg border border-[#d7d7d7] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+
+                  <!-- Product Header -->
+                  <div class="bg-linear-to-r from-blue-50 to-indigo-50 p-4 border-b border-[#d7d7d7]">
+                    <?php if ($feedback['nama_produk']) { ?>
+                      <h2 class="text-xl outfit-medium text-neutral-900 line-clamp-2">
+                        <?= htmlspecialchars($feedback['nama_produk']) ?>
+                      </h2>
+                      <div class="mt-0.5 flex items-center justify-start">
+                        <div class="rounded-md py-0.5 bg-yellow-100">
+                          <span class="text-xs text-yellow-500 ">
+                            <?= htmlspecialchars($feedback['kategori']) ?>
+                          </span>
+                        </div>
+                      </div>
+                    <?php } else { ?>
+                      <h2 class="text-xl outfit-medium text-neutral-600">Product Deleted</h2>
+                      <p class="text-xs text-neutral-500 mt-1">This product is no longer available</p>
+                    <?php } ?>
                   </div>
-                  <div class="min-h-20">
-                    <p class="text-lg text-neutral-600 outfit-regular">"<?= $feedback['komentar'] ?>"</p>
+
+                  <!-- Feedback Content -->
+                  <div class="flex flex-col flex-1">
+
+                    <!-- Sender Info -->
+                    <div class="p-4">
+                      <h3 class="text-sm font-medium text-neutral-800 truncate">
+                        <?= htmlspecialchars($feedback['nama_pengirim']) ?>
+                      </h3>
+                      <p class="text-xs text-neutral-500 truncate">
+                        <?= htmlspecialchars($feedback['email_pengirim']) ?>
+                      </p>
+                    </div>
+
+                    <!-- Comment -->
+                    <div class="flex-1 mb-4 px-4 pb-2">
+                      <p class="text-[14px] text-neutral-700 leading-relaxed line-clamp-5">
+                        “<?= htmlspecialchars($feedback['komentar']) ?>”
+                      </p>
+                    </div>
+
+                    <!-- Rating -->
+                    <div class="flex items-center justify-between p-4 border-t border-[#d7d7d7]">
+                      <div class="flex items-center gap-1">
+                        <?php for ($i = 0; $i < 5; $i++) { ?>
+                          <?php if ($i < $feedback['rating']) { ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-yellow-400">
+                              <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                            </svg>
+                          <?php } else { ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 text-gray-300">
+                              <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                            </svg>
+                          <?php } ?>
+                        <?php } ?>
+                      </div>
+
+                      <span class="text-xs bg-yellow-50 text-yellow-700 px-2 py-[3px] rounded-md font-medium">
+                        <?= $feedback['rating'] ?>/5
+                      </span>
+                    </div>
+
                   </div>
                 </div>
-                <div class="flex items-center gap-1 mb-2">
-                  <?php
-                  for ($i = 0; $i < $feedback['rating']; $i++) {
-                  ?>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 text-yellow-500">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                  <?php
-                  }
-                  ?>
-                </div>
+
+              <?php
+              }
+            } else {
+              ?>
+
+              <!-- Empty State -->
+              <div class="col-span-full flex flex-col items-center justify-center py-20 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="size-12 text-neutral-300 mb-4"
+                  fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path d="M9 9l.01 0m..." />
+                </svg>
+                <p class="text-neutral-600 text-sm">No feedbacks yet</p>
+                <p class="text-xs text-neutral-500 mt-1">Feedbacks from customers will appear here</p>
               </div>
+
             <?php
             }
             ?>
           </div>
+
         </div>
       </div>
     </div>

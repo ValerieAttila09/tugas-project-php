@@ -172,7 +172,8 @@ if (!isset($_SESSION['nama'])) {
                               data-price="<?php echo $row['harga']; ?>"
                               data-qty="<?php echo $row['kuantitas']; ?>"
                               onclick="editProduct(this)">Edit</button>
-                            <a href="products.php?delete=product&id=<?php echo $row['id_produk']; ?>" class="rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1">Delete</a>
+                            <button type="button" class="delete-product rounded-md bg-white cursor-pointer border hover:bg-red-100 hover:text-red-600 hover:border-red-200 hover:shadow-sm transition-all border-[#ebebeb] px-4 py-1"
+                              data-id="<?php echo $row['id_produk']; ?>">Delete</button>
                           </td>
                         </tr>
                       <?php
@@ -390,6 +391,19 @@ if (isset($_POST['updateProduct'])) {
 
 if (isset($_GET['id']) && isset($_GET['delete']) && $_GET['delete'] === 'product') {
   $id_produk = $_GET['id'];
+  $sql = "DELETE FROM tb_produk WHERE id_produk = ? AND id_user = ?";
+  $stmt = mysqli_prepare($con, $sql);
+  mysqli_stmt_bind_param($stmt, 'ii', $id_produk, $_SESSION['id']);
+  mysqli_stmt_execute($stmt);
+  if (mysqli_stmt_affected_rows($stmt) > 0) {
+    echo '<script>alert("Delete Berhasil");window.location.href="products.php";</script>';
+  } else {
+    echo '<script>alert("Delete Gagal");window.location.href="products.php";</script>';
+  }
+}
+
+if (isset($_POST['deleteProduct']) && isset($_POST['id_produk'])) {
+  $id_produk = $_POST['id_produk'];
   $sql = "DELETE FROM tb_produk WHERE id_produk = ? AND id_user = ?";
   $stmt = mysqli_prepare($con, $sql);
   mysqli_stmt_bind_param($stmt, 'ii', $id_produk, $_SESSION['id']);

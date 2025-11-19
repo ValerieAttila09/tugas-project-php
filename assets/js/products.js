@@ -35,21 +35,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
     zIndex: -1,
   });
 
-  window.editProduct = function(button) {
+  window.editProduct = function (button) {
     const productId = button.getAttribute('data-id');
     const productName = button.getAttribute('data-name');
     const productDesc = button.getAttribute('data-desc');
     const productCategory = button.getAttribute('data-category');
     const productPrice = button.getAttribute('data-price');
     const productQty = button.getAttribute('data-qty');
-    
+
     document.getElementById('edit_id_produk').value = productId;
     document.getElementById('edit_nama_produk').value = productName;
     document.getElementById('edit_deskripsi').value = productDesc;
     document.getElementById('edit_kategori').value = productCategory;
     document.getElementById('edit_harga').value = productPrice;
     document.getElementById('edit_kuantitas').value = productQty;
-    
+
     if (!showEditModal) {
       if (showModal) {
         gsap.to(insertModal, {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
         showModal = !showModal;
       }
-      
+
       gsap.to(editModal, {
         opacity: 1,
         onStart: () => {
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           });
           showEditModal = !showEditModal;
         }
-        
+
         gsap.to(insertModal, {
           opacity: 1,
           onStart: () => {
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
   })
-  
+
   editModalToggle.forEach((toggle) => {
     toggle.addEventListener("click", () => {
       if (showEditModal) {
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           });
           showModal = !showModal;
         }
-        
+
         gsap.to(editModal, {
           opacity: 1,
           onStart: () => {
@@ -309,4 +309,33 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
     })
   })
+
+  // Delete product event listener
+  document.querySelectorAll('.delete-product').forEach(function (btn) {
+    btn.addEventListener('click', async function (e) {
+      e.preventDefault();
+      const id = this.getAttribute('data-id');
+      if (!id) return;
+      if (!confirm('Apakah Anda yakin ingin menghapus produk ini?')) return;
+
+      try {
+        const res = await fetch('products.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'id_produk=' + id + '&deleteProduct=1'
+        });
+        const text = await res.text();
+        if (text.includes('Delete Berhasil')) {
+          alert('Produk berhasil dihapus');
+          window.location.reload();
+        } else {
+          alert('Gagal menghapus produk');
+        }
+      } catch (err) {
+        alert('Request failed: ' + err.message);
+      }
+    });
+  });
+  insertModal.addEventListener('click', e => e.stopPropagation());
+  editModal.addEventListener('click', e => e.stopPropagation());
 });

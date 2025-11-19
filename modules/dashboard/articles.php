@@ -53,6 +53,10 @@ if (!isLoggedIn()) {
       font-weight: 700;
       font-style: normal;
     }
+
+    /* #overlay {
+      pointer-events: none !important;
+    } */
   </style>
 </head>
 
@@ -206,8 +210,8 @@ if (!isLoggedIn()) {
               </div>
             </div>
           </div>
-          <div id="overlay" class="w-full h-full z-10 fixed inset-0 bg-black/50 hidden" />
-          <div id="insertArticle" class="fixed z-15 top-[6%] hidden bottom-auto inset-x-[25%] bg-white rounded-md border border-[#d7d7d7]">
+          <div id="overlay" class="w-full h-full fixed inset-0 bg-black/50 hidden z-40" />
+          <div id="insertArticle" class="fixed z-50 top-[6%] hidden bottom-auto inset-x-[25%] bg-white rounded-md overflow-y-scroll border border-[#d7d7d7]">
             <form id="articleForm" action="../articles/store.php" method="POST" enctype="multipart/form-data" class="w-full space-y-4 rounded-lg border border-[#d7d7d7] p-6 bg-white">
               <div class="">
                 <label for="judul" class="text-lg text-neutral-800 outfit-medium">Judul</label>
@@ -270,7 +274,7 @@ if (!isLoggedIn()) {
               </div>
             </form>
           </div>
-          <div id="editArticle" class="fixed z-15 top-[6%] hidden bottom-auto inset-x-[25%] bg-white rounded-md border border-[#d7d7d7]">
+          <div id="editArticle" class="fixed z-50 top-[6%] hidden bottom-auto inset-x-[25%] bg-white rounded-md overflow-y-scroll border border-[#d7d7d7]">
             <form id="articleEditForm" action="../articles/update.php" method="POST" enctype="multipart/form-data" class="w-full space-y-4 rounded-lg border border-[#d7d7d7] p-6 bg-white">
               <input type="hidden" name="id" id="edit_article_id" />
               <div class="">
