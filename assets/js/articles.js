@@ -251,10 +251,11 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       const res = await fetch(endpoint, {
         method: 'POST',
-        body: formData,
+        body: formData
       });
       return await res.json();
     } catch (err) {
+      // alert(err);
       return { success: false, message: err.message };
     }
   }
@@ -269,11 +270,12 @@ document.addEventListener('DOMContentLoaded', function () {
       if (btn) btn.disabled = true;
 
       const result = await postForm(createForm, '../articles/store.php');
-      alert(result.message || 'No response');
+      // alert(result.message || 'No response');
       if (result.success) {
         window.location.reload();
       } else {
         if (btn) btn.disabled = false;
+        window.location.reload();
       }
     });
   }
@@ -288,11 +290,12 @@ document.addEventListener('DOMContentLoaded', function () {
       if (btn) btn.disabled = true;
 
       const result = await postForm(editForm, '../articles/update.php');
-      alert(result.message || 'No response');
+      // alert(result.message || 'No response');
       if (result.success) {
         window.location.reload();
       } else {
         if (btn) btn.disabled = false;
+        window.location.reload();
       }
     });
   }
@@ -311,10 +314,11 @@ document.addEventListener('DOMContentLoaded', function () {
           body: JSON.stringify({ id: id })
         });
         const result = await res.json();
-        alert(result.message || 'No response');
+        // alert(result.message || 'No response');
         if (result.success) window.location.reload();
       } catch (err) {
-        alert('Request failed: ' + err.message);
+        // alert('Request failed: ' + err.message);
+        window.location.reload();
       }
     });
   });

@@ -11,7 +11,7 @@ if (!isLoggedIn()) {
 
 $title       = sanitizeInput($_POST['judul']);
 $content     = $_POST['isi']; // This comes from Quill.js editor
-$category    = sanitizeInput($_POST['kategori']);
+$category    = $_POST['kategori'];
 $publisher   = getUserName(); // Get publisher name from session
 
 // Handle image upload
@@ -35,9 +35,9 @@ if (isset($_FILES["gambar"]) && $_FILES["gambar"]["name"] != '') {
 }
 
 // Save to database with your specified INSERT statement
-$sql = "INSERT INTO tb_artikel (id, judul, isi, publisher, gambar, tanggal) VALUES (NULL, ?, ?, ?, ?, NOW())";
+$sql = "INSERT INTO tb_artikel (id, judul, isi, kategori, publisher, gambar, tanggal) VALUES (NULL, ?, ?, ?, ?, ?, NOW())";
 $stmt = $con->prepare($sql);
-$stmt->bind_param("ssss", $title, $content, $publisher, $imageName);
+$stmt->bind_param("sssss", $title, $content, $category, $publisher, $imageName);
 
 if ($stmt->execute()) {
     echo "Artikel berhasil disimpan!";

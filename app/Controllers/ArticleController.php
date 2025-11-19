@@ -38,10 +38,11 @@ class ArticleController
   {
     $judul = sanitizeInput($data['judul']);
     $isi = $data['isi'];
+    $kategori = $data['kategori'];
     $publisher = getUserName();
     $imageName = $this->handleImageUpload($gambar);
 
-    $result = $this->articleModel->createArticle($judul, $isi, $publisher, $imageName);
+    $result = $this->articleModel->createArticle($judul, $isi, $kategori, $publisher, $imageName);
     return $result;
   }
 
@@ -52,9 +53,10 @@ class ArticleController
   {
     $judul = sanitizeInput($data['judul']);
     $isi = $data['isi'];
+    $kategori = $data['kategori'];
     $imageName = $this->handleImageUpload($gambar);
 
-    $result = $this->articleModel->updateArticle($id, $judul, $isi, $imageName);
+    $result = $this->articleModel->updateArticle($id, $judul, $kategori, $isi, $imageName);
     return $result;
   }
 

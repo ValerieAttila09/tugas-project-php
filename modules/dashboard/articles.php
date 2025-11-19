@@ -230,7 +230,7 @@ if (!isLoggedIn()) {
                   </p>
                 </div>
                 <div class="rounded-b-lg bg-white" id="editor"></div>
-                <input type="hidden" id="isi" name="isi" />
+                <input type="text" hidden id="isi" name="isi" />
               </div>
               <div class="grid grid-cols-5 gap-3">
                 <div class="col-span-4">
@@ -255,7 +255,7 @@ if (!isLoggedIn()) {
                   <label for="kategori" class="text-lg text-neutral-800 outfit-medium">Kategori</label>
                   <div class="mt-2 grid grid-cols-1">
                     <select id="kategori" name="kategori" autocomplete="kategori-name" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-                      <option value="Teknologi">Teknologi</option>
+                      <option default value="Teknologi">Teknologi</option>
                       <option value="Fashion">Fashion</option>
                       <option value="Kuliner">Kuliner</option>
                       <option value="Olahraga">Olahraga</option>
@@ -274,7 +274,7 @@ if (!isLoggedIn()) {
               </div>
             </form>
           </div>
-          <div id="editArticle" class="fixed z-50 top-[6%] hidden bottom-auto inset-x-[25%] bg-white rounded-md overflow-y-scroll border border-[#d7d7d7]">
+          <div id="editArticle" class="fixed z-50 top-[6%] hidden bottom-auto inset-x-[25%] bg-white rounded-md border border-[#d7d7d7]">
             <form id="articleEditForm" action="../articles/update.php" method="POST" enctype="multipart/form-data" class="w-full space-y-4 rounded-lg border border-[#d7d7d7] p-6 bg-white">
               <input type="hidden" name="id" id="edit_article_id" />
               <div class="">
@@ -294,7 +294,7 @@ if (!isLoggedIn()) {
                   </p>
                 </div>
                 <div class="rounded-b-lg bg-white" id="editor-edit"></div>
-                <input type="hidden" id="edit_isi" name="isi" />
+                <input type="text" hidden id="edit_isi" name="isi" />
               </div>
               <div class="grid grid-cols-5 gap-3">
                 <div class="col-span-4">
@@ -319,7 +319,7 @@ if (!isLoggedIn()) {
                   <label for="edit_kategori" class="text-lg text-neutral-800 outfit-medium">Kategori</label>
                   <div class="mt-2 grid grid-cols-1">
                     <select id="edit_kategori" name="kategori" autocomplete="kategori-name" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-                      <option value="Teknologi">Teknologi</option>
+                      <option default value="Teknologi">Teknologi</option>
                       <option value="Fashion">Fashion</option>
                       <option value="Kuliner">Kuliner</option>
                       <option value="Olahraga">Olahraga</option>

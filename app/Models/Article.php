@@ -34,22 +34,22 @@ class Article
   /**
    * Create a new article
    */
-  public function createArticle($judul, $isi, $publisher, $gambar)
+  public function createArticle($judul, $isi, $kategori, $publisher, $gambar)
   {
-    $sql = "INSERT INTO tb_artikel (judul, isi, publisher, gambar, tanggal) VALUES (?, ?, ?, ?, NOW())";
+    $sql = "INSERT INTO tb_artikel (judul, isi, kategori, publisher, gambar, tanggal) VALUES (?, ?, ?, ?, ?, NOW())";
     $stmt = $this->con->prepare($sql);
-    $stmt->bind_param("ssss", $judul, $isi, $publisher, $gambar);
+    $stmt->bind_param("sssss", $judul, $isi, $kategori, $publisher, $gambar);
     return $stmt->execute();
   }
 
   /**
    * Update an article
    */
-  public function updateArticle($id, $judul, $isi, $gambar)
+  public function updateArticle($id, $judul, $isi, $kategori, $gambar)
   {
-    $sql = "UPDATE tb_artikel SET judul = ?, isi = ?, gambar = ? WHERE id = ?";
+    $sql = "UPDATE tb_artikel SET judul = ?, isi = ?, kategori = ?, gambar = ? WHERE id = ?";
     $stmt = $this->con->prepare($sql);
-    $stmt->bind_param("sssi", $judul, $isi, $gambar, $id);
+    $stmt->bind_param("ssssi", $judul, $isi, $kategori, $gambar, $id);
     return $stmt->execute();
   }
 

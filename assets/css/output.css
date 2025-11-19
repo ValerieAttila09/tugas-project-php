@@ -278,6 +278,9 @@
   .inset-x-\[25\%\] {
     inset-inline: 25%;
   }
+  .inset-y-\[15\%\] {
+    inset-block: 15%;
+  }
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
@@ -531,6 +534,15 @@
   }
   .h-screen {
     height: 100vh;
+  }
+  .max-h-\[200px\] {
+    max-height: 200px;
+  }
+  .max-h-\[480px\] {
+    max-height: 480px;
+  }
+  .max-h-\[680px\] {
+    max-height: 680px;
   }
   .w-1 {
     width: calc(var(--spacing) * 1);
