@@ -404,11 +404,17 @@ if (isset($_GET['id']) && isset($_GET['delete']) && $_GET['delete'] === 'product
 
 if (isset($_POST['deleteProduct']) && isset($_POST['id_produk'])) {
   $id_produk = $_POST['id_produk'];
-  $sql = "DELETE FROM tb_produk WHERE id_produk = ? AND id_user = ?";
-  $stmt = mysqli_prepare($con, $sql);
-  mysqli_stmt_bind_param($stmt, 'ii', $id_produk, $_SESSION['id']);
-  mysqli_stmt_execute($stmt);
-  if (mysqli_stmt_affected_rows($stmt) > 0) {
+  $sqlProduk = "DELETE FROM tb_produk WHERE id_produk = ? AND id_user = ?";
+  $sqlFeedback = "DELETE FROM tb_feedback WHERE id_produk = ? AND id_user = ?";
+  
+  $stmtFeedback = mysqli_prepare($con, $sqlFeedback);
+  mysqli_stmt_bind_param($stmtFeedback, 'ii', $id_produk, $_SESSION['id']);
+  mysqli_stmt_execute($stmtFeedback);
+  
+  $stmtProduk = mysqli_prepare($con, $sqlProduk);
+  mysqli_stmt_bind_param($stmtProduk, 'ii', $id_produk, $_SESSION['id']);
+  mysqli_stmt_execute($stmtProduk);
+  if (mysqli_stmt_affected_rows($stmtFeedback) > 0 && mysqli_stmt_affected_rows($stmtProduk) > 0) {
     echo '<script>alert("Delete Berhasil");window.location.href="products.php";</script>';
   } else {
     echo '<script>alert("Delete Gagal");window.location.href="products.php";</script>';

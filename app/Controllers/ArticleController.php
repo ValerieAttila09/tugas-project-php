@@ -56,7 +56,7 @@ class ArticleController
     $kategori = $data['kategori'];
     $imageName = $this->handleImageUpload($gambar);
 
-    $result = $this->articleModel->updateArticle($id, $judul, $kategori, $isi, $imageName);
+    $result = $this->articleModel->updateArticle($id, $judul, $isi, $kategori, $imageName);
     return $result;
   }
 
