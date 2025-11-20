@@ -56,7 +56,7 @@ include './includes/header.php';
 
 		<!-- HERO -->
 		<div class="h-[92vh] flex items-center justify-center">
-			<div class="max-w-6xl flex items-center justify-around gap-5 p-6 sm:p-0">
+			<div class="max-w-6xl md:flex md:items-center md:justify-around grid gap-6 p-6 md:p-0">
 				<div class="flex flex-col items-start justify-start gap-4">
 					<div class="flex items-center justify-start">
 						<span class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">✨ Creative Developer</span>
@@ -68,7 +68,7 @@ include './includes/header.php';
 						<button class="cursor-pointer rounded-full px-6 py-2 bg-white border border-[#d7d7d7] hover:bg-neutral-[#fafafa] hover:shadow-sm transition-all">Contact Me</button>
 					</div>
 				</div>
-				<div class="w-36 h-64 overflow-hidden rounded-xl relative">
+				<div class="w-auto h-[360px] overflow-hidden rounded-xl relative">
 					<img src="./assets/images/me.jpeg" alt="ini gambar gw" class="w-full h-full object-cover rounded-xl">
 				</div>
 			</div>
