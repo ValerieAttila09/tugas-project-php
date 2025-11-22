@@ -1,5 +1,6 @@
 <?php
 session_start();
+include './modules/auth/koneksi.php'
 ?>
 
 <!DOCTYPE html>
@@ -56,20 +57,24 @@ include './includes/header.php';
 
 		<!-- HERO -->
 		<div class="h-[92vh] flex items-center justify-center">
+			<?php
+			$hero_query = mysqli_query($con, "SELECT * FROM tb_hero");
+			$hasil_query_hero = mysqli_fetch_assoc($hero_query);
+			?>
 			<div class="max-w-6xl md:flex md:items-center md:justify-around grid gap-6 p-6 md:p-0">
 				<div class="flex flex-col items-start justify-start gap-4">
 					<div class="flex items-center justify-start">
-						<span class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">✨ Creative Developer</span>
+						<span class="rounded-full text-xs outfit-regular text-neutral-900 bg-white border border-neutral-300 px-4 py-1">✨ <?= $hasil_query_hero['quote'] ?></span>
 					</div>
-					<h1 class="text-4xl sm:text-5xl md:text-7xl text-start text-neutral-900 outfit-medium text-shadow-sm">Crafting Digital Experiences</h1>
-					<p class="text-sm sm:text-md lg:text-lg text-start text-neutral-600">Hi, I'm Valerie, a web developer based in Indonesia with passion for code.</p>
+					<h1 class="text-4xl sm:text-5xl md:text-7xl text-start text-neutral-900 outfit-medium text-shadow-sm"><?= $hasil_query_hero['judul'] ?></h1>
+					<p class="text-sm sm:text-md lg:text-lg text-start text-neutral-600"><?= $hasil_query_hero['keterangan'] ?></p>
 					<div class="flex items-center gap-3">
 						<button class="cursor-pointer rounded-full px-6 py-2 bg-neutral-900 text-white hover:bg-neutral-700 hover:shadow-sm transition-all">View My Work</button>
 						<button class="cursor-pointer rounded-full px-6 py-2 bg-white border border-[#d7d7d7] hover:bg-neutral-[#fafafa] hover:shadow-sm transition-all">Contact Me</button>
 					</div>
 				</div>
 				<div class="w-auto h-[360px] overflow-hidden rounded-xl relative">
-					<img src="./assets/images/me.jpeg" alt="ini gambar gw" class="w-full h-full object-cover rounded-xl">
+					<img src="./assets/images/<?= $hasil_query_hero['gambar'] ?>" alt="ini gambar gw" class="w-full h-full object-cover rounded-xl">
 				</div>
 			</div>
 		</div>
@@ -102,31 +107,21 @@ include './includes/header.php';
 					<h2 class="text-3xl md:text-4xl font-semibold text-gray-900 outfit-medium">About Me</h2>
 					<p class="mt-4 text-lg text-gray-600 outfit-regular max-w-3xl mx-auto">Experienced developer with a passion for creating elegant solutions to complex problems. Combining technical expertise with creative design thinking.</p>
 				</div>
-
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-						<div class="text-indigo-600 text-2xl mb-4">⚙️</div>
-						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Full-Stack Development</h3>
-						<p class="mt-2 text-gray-600 outfit-regular">
-							Building complete web solutions from frontend to backend with modern technologies and best practices.
-						</p>
-					</div>
-
-					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-						<div class="text-indigo-600 text-2xl mb-4">🎨</div>
-						<h3 class="text-xl font-medium text-gray-900 outfit-medium">UI/UX Design</h3>
-						<p class="mt-2 text-gray-600 outfit-regular">
-							Creating intuitive and beautiful interfaces that provide excellent user experience and engagement.
-						</p>
-					</div>
-
-					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-						<div class="text-indigo-600 text-2xl mb-4">⚡</div>
-						<h3 class="text-xl font-medium text-gray-900 outfit-medium">Performance Optimization</h3>
-						<p class="mt-2 text-gray-600 outfit-regular">
-							Optimizing websites for speed, scalability, and reliability to deliver exceptional performance.
-						</p>
-					</div>
+					<?php
+					$query_about = mysqli_query($con, "SELECT * FROM tb_about_me");
+					while ($hasil_query_about = mysqli_fetch_assoc($query_about)) {
+					?>
+						<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+							<div class="text-indigo-600 text-2xl mb-4"><?= $hasil_query_about['icon'] ?></div>
+							<h3 class="text-xl font-medium text-gray-900 outfit-medium"><?= $hasil_query_about['judul'] ?></h3>
+							<p class="mt-2 text-gray-600 outfit-regular">
+								<?= $hasil_query_about['keterangan'] ?>
+							</p>
+						</div>
+					<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
@@ -144,37 +139,20 @@ include './includes/header.php';
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">⚙️</div>
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium">PHP & Backend</h3>
-					<p class="mt-2 text-gray-600 outfit-regular">
-						Strong expertise in PHP, database design, and server-side architecture for robust applications.
-					</p>
-				</div>
-
-				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">💻</div>
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium">JavaScript / Typescript & Frontend</h3>
-					<p class="mt-2 text-gray-600 outfit-regular">
-						Expert in JavaScript, React, and modern frontend frameworks for interactive user experiences.
-					</p>
-				</div>
-
-				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">🎨</div>
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium">UI/UX & Design</h3>
-					<p class="mt-2 text-gray-600 outfit-regular">
-						Proficient in Tailwind CSS, responsive design, and creating beautiful user interfaces.
-					</p>
-				</div>
-
-				<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="text-indigo-600 text-2xl mb-4">✨</div>
-					<h3 class="text-xl font-medium text-gray-900 outfit-medium">Animations & Interactions</h3>
-					<p class="mt-2 text-gray-600 outfit-regular">
-						Creating smooth animations and interactive elements with GSAP and modern CSS techniques.
-					</p>
-				</div>
+				<?php
+				$query_skill = mysqli_query($con, "SELECT * FROM tb_skill");
+				while ($hasil_query_skill = mysqli_fetch_assoc($query_skill)) {
+				?>
+					<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+						<div class="text-indigo-600 text-2xl mb-4"><?= $hasil_query_skill['icon'] ?></div>
+						<h3 class="text-xl font-medium text-gray-900 outfit-medium"><?= $hasil_query_skill['skill'] ?></h3>
+						<p class="mt-2 text-gray-600 outfit-regular">
+							<?= $hasil_query_skill['keterangan'] ?>
+						</p>
+					</div>
+				<?php
+				}
+				?>
 			</div>
 		</div>
 	</div>
@@ -191,50 +169,37 @@ include './includes/header.php';
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-				<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="flex items-center mb-4">
-						<div class="text-yellow-400 text-xl">★★★★★</div>
-					</div>
-					<p class="text-gray-600 outfit-regular italic">
-						"Exceptional work! The developer delivered exactly what we needed with clean, efficient code and great attention to detail."
-					</p>
-					<div class="mt-4 flex items-center">
-						<div class="ml-3">
-							<p class="text-gray-900 outfit-medium">Sarah Johnson</p>
-							<p class="text-gray-500 outfit-regular text-sm">CEO, Digital Ventures</p>
+				<?php
+				$query_testimonial = mysqli_query($con, "SELECT * FROM tb_client");
+				while ($hasil_query_testimonial = mysqli_fetch_assoc($query_testimonial)) {
+				?>
+					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+						<div class="">
+							<div class="flex items-center mb-4">
+								<div class="text-yellow-400 text-xl">
+									<?php
+									for ($i = 0; $i < $hasil_query_testimonial['rating']; $i++) {
+									?>
+										★
+									<?php
+									}
+									?>
+								</div>
+							</div>
+							<p class="text-gray-600 outfit-regular italic">
+								"<?= $hasil_query_testimonial['feedback'] ?>"
+							</p>
+						</div>
+						<div class="mt-4 flex items-center">
+							<div class="ml-3">
+								<p class="text-gray-900 outfit-medium"><?= $hasil_query_testimonial['nama'] ?></p>
+								<p class="text-gray-500 outfit-regular text-sm"><?= $hasil_query_testimonial['jabatan'] ?></p>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="flex items-center mb-4">
-						<div class="text-yellow-400 text-xl">★★★★★</div>
-					</div>
-					<p class="text-gray-600 outfit-regular italic">
-						"Outstanding design and functionality. The project was completed on time and exceeded all our expectations. Highly recommended!"
-					</p>
-					<div class="mt-4 flex items-center">
-						<div class="ml-3">
-							<p class="text-gray-900 outfit-medium">Michael Chen</p>
-							<p class="text-gray-500 outfit-regular text-sm">Project Manager, TechStart Inc</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-					<div class="flex items-center mb-4">
-						<div class="text-yellow-400 text-xl">★★★★★</div>
-					</div>
-					<p class="text-gray-600 outfit-regular italic">
-						"Professional, responsive, and creative. They transformed our vision into reality with an amazing portfolio of work."
-					</p>
-					<div class="mt-4 flex items-center">
-						<div class="ml-3">
-							<p class="text-gray-900 outfit-medium">Emma Rodriguez</p>
-							<p class="text-gray-500 outfit-regular text-sm">Marketing Director, Growth Labs</p>
-						</div>
-					</div>
-				</div>
+				<?php
+				}
+				?>
 			</div>
 		</div>
 	</div>
