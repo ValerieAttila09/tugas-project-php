@@ -252,7 +252,7 @@ if (!isset($_SESSION['nama'])) {
   <!-- Quill.js -->
   <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
-  <script src="../../assets/js/sections.js"></script>
+  <script src="../../assets/js/sections-fixed.js"></script>
 </body>
 
 </html>

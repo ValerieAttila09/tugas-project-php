@@ -219,7 +219,7 @@ class SectionController
     }
 
     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-    $maxSize = 5 * 1024 * 1024; // 5MB
+    $maxSize = 5 * 1024 * 1024;
 
     if (!in_array($file['type'], $allowedTypes)) {
       throw new Exception('Invalid file type. Only JPG, PNG, GIF, and WebP are allowed.');
@@ -240,9 +240,6 @@ class SectionController
     throw new Exception('Failed to upload image.');
   }
 
-  /**
-   * Send JSON response
-   */
   public static function jsonResponse($success, $message, $data = null)
   {
     header('Content-Type: application/json');

@@ -12,7 +12,7 @@ class HeroModel extends SectionModel
    */
   public function getHero()
   {
-    $sql = "SELECT id, quote, judul, keterangan, gambar FROM tb_hero LIMIT 1";
+    $sql = "SELECT id_hero, quote, judul, keterangan, gambar FROM tb_hero LIMIT 1";
     $result = $this->selectAll($sql);
     return !empty($result) ? $result[0] : null;
   }
@@ -23,10 +23,10 @@ class HeroModel extends SectionModel
   public function updateHero($id, $quote, $judul, $keterangan, $gambar = null)
   {
     if ($gambar !== null) {
-      $sql = "UPDATE tb_hero SET quote = ?, judul = ?, keterangan = ?, gambar = ? WHERE id = ?";
+      $sql = "UPDATE tb_hero SET quote = ?, judul = ?, keterangan = ?, gambar = ? WHERE id_hero = ?";
       return $this->execute($sql, "ssssi", [$quote, $judul, $keterangan, $gambar, $id]);
     } else {
-      $sql = "UPDATE tb_hero SET quote = ?, judul = ?, keterangan = ? WHERE id = ?";
+      $sql = "UPDATE tb_hero SET quote = ?, judul = ?, keterangan = ? WHERE id_hero = ?";
       return $this->execute($sql, "sssi", [$quote, $judul, $keterangan, $id]);
     }
   }

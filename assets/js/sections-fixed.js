@@ -170,14 +170,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
-  // Close modal when clicking overlay
   modalOverlay.addEventListener("click", (e) => {
     if (e.target === modalOverlay) {
       hideModal();
     }
   });
 
-  // Initialize Quill editor
   function initQuill(elementId, placeholder = "Enter content...") {
     if (document.getElementById(elementId)) {
       quillEditors[elementId] = new Quill(`#${elementId}`, {
@@ -186,8 +184,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         modules: {
           toolbar: [
             ['bold', 'italic', 'underline'],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
             ['link'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
             ['clean']
           ]
         }
@@ -197,9 +195,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     return null;
   }
 
-  // ==================== HERO SECTION ====================
-
-  function loadHeroData() {
+   function loadHeroData() {
     // Show loading state
     document.getElementById('hero-content').innerHTML = `
       <div class="flex items-center justify-center py-12">
@@ -343,8 +339,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
-  // ==================== ABOUT ME SECTION ====================
-
   function loadAboutData() {
     fetch('./api/about.php')
       .then(response => response.json())
@@ -368,7 +362,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     const table = `
-      <table class="w-full">
+        <table class="w-full">
         <thead>
           <tr>
             <th class="text-left">Icon</th>
@@ -391,7 +385,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           `).join('')}
         </tbody>
       </table>
-    `;
+        `;
 
     document.getElementById('about-table').innerHTML = table;
   }
@@ -402,7 +396,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   function showAboutModal(item = null) {
     const modalHtml = `
-      <div class="p-6">
+        <div class="p-6">
         <h3 class="text-xl outfit-semibold text-neutral-900 mb-4">${item ? 'Edit' : 'Add'} About Me Item</h3>
         <form id="about-form" class="space-y-4">
           ${item ? `<input type="hidden" name="id" value="${item.id}">` : ''}
@@ -436,7 +430,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           </div>
         </form>
       </div>
-    `;
+          `;
 
     showModal(modalHtml);
 
@@ -577,7 +571,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           `).join('')}
         </tbody>
       </table>
-    `;
+        `;
 
     document.getElementById('skills-table').innerHTML = table;
   }
@@ -588,7 +582,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   function showSkillModal(item = null) {
     const modalHtml = `
-      <div class="p-6">
+        <div class="p-6">
         <h3 class="text-xl outfit-semibold text-neutral-900 mb-4">${item ? 'Edit' : 'Add'} Skill</h3>
         <form id="skill-form" class="space-y-4">
           ${item ? `<input type="hidden" name="id" value="${item.id}">` : ''}
@@ -622,7 +616,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           </div>
         </form>
       </div>
-    `;
+          `;
 
     showModal(modalHtml);
 
@@ -756,14 +750,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
               <td class="text-sm text-neutral-600">${item.jabatan}</td>
               <td class="text-sm text-neutral-600">${item.feedback.substring(0, 50)}...</td>
               <td>
-                <button onclick="editClient(${item.id})" class="text-blue-600 hover:underline text-sm mr-2">Edit</button>
-                <button onclick="deleteClient(${item.id})" class="text-red-600 hover:underline text-sm">Delete</button>
+                <button onclick="editClient(${item.id_feedback})" class="text-blue-600 hover:underline text-sm mr-2">Edit</button>
+                <button onclick="deleteClient(${item.id_feedback})" class="text-red-600 hover:underline text-sm">Delete</button>
               </td>
             </tr>
           `).join('')}
         </tbody>
       </table>
-    `;
+        `;
 
     document.getElementById('client-table').innerHTML = table;
   }
@@ -774,15 +768,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   function showClientModal(item = null) {
     const modalHtml = `
-      <div class="p-6">
+        <div class="p-6">
         <h3 class="text-xl outfit-semibold text-neutral-900 mb-4">${item ? 'Edit' : 'Add'} Client Testimonial</h3>
         <form id="client-form" class="space-y-4">
-          ${item ? `<input type="hidden" name="id" value="${item.id}">` : ''}
+          ${item ? `<input type="hidden" name="id" value="${item.id_feedback}">` : ''}
           
           <div>
             <label class="block text-sm outfit-medium text-neutral-700 mb-2">Rating (1-5)</label>
             <select name="rating" class="w-full px-4 py-2 border border-[#ebebeb] rounded-md outfit-regular text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900" required>
-              ${[1, 2, 3, 4, 5].map(r => `<option value="${r}" ${item?.rating == r ? 'selected' : ''}>${r} Star${r > 1 ? 's' : ''}</option>`).join('')}
+              ${[1, 2, 3, 4, 5].map(r => `<option value="${r}" ${item?.rating == r ? 'selected' : ''}>${r} Star${r> 1 ? 's' : ''}</option>`).join('')}
             </select>
           </div>
 
@@ -815,7 +809,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           </div>
         </form>
       </div>
-    `;
+          `;
 
     showModal(modalHtml);
 
@@ -836,7 +830,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       };
 
       if (item) {
-        data.id = item.id;
+        data.id = item.id_feedback;
       }
 
       const url = './api/client.php';
@@ -907,13 +901,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
   };
 
-  // Make functions available globally
   window.hideModal = hideModal;
-  window.loadHeroData = loadHeroData;
 
-  // ==================== INITIAL LOAD (AUTO LOAD DATA FROM DATABASE) ====================
-  loadHeroData();      // Load hero data dari database
-  loadAboutData();     // Load about me data dari database
-  loadSkillsData();    // Load skills data dari database
-  loadClientData();    // Load client testimonials dari database
+  loadHeroData();
+  loadAboutData();
+  loadSkillsData();
+  loadClientData();
 });
