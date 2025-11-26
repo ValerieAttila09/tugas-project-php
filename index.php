@@ -58,8 +58,11 @@ include './includes/header.php';
 		<!-- HERO -->
 		<div class="h-[92vh] flex items-center justify-center">
 			<?php
-			$hero_query = mysqli_query($con, "SELECT * FROM tb_hero");
-			$hasil_query_hero = mysqli_fetch_assoc($hero_query);
+			$hero_stmt = mysqli_prepare($con, "SELECT quote, judul, keterangan, gambar FROM tb_hero");
+			mysqli_stmt_execute($hero_stmt);
+			$hero_result = mysqli_stmt_get_result($hero_stmt);
+			$hasil_query_hero = mysqli_fetch_assoc($hero_result);
+			mysqli_stmt_close($hero_stmt);
 			?>
 			<div class="max-w-6xl md:flex md:items-center md:justify-around grid gap-6 p-6 md:p-0">
 				<div class="flex flex-col items-start justify-start gap-4">
@@ -109,8 +112,10 @@ include './includes/header.php';
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 					<?php
-					$query_about = mysqli_query($con, "SELECT * FROM tb_about_me");
-					while ($hasil_query_about = mysqli_fetch_assoc($query_about)) {
+					$about_stmt = mysqli_prepare($con, "SELECT icon, judul, keterangan FROM tb_about_me");
+					mysqli_stmt_execute($about_stmt);
+					$about_result = mysqli_stmt_get_result($about_stmt);
+					while ($hasil_query_about = mysqli_fetch_assoc($about_result)) {
 					?>
 						<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
 							<div class="text-indigo-600 text-2xl mb-4"><?= $hasil_query_about['icon'] ?></div>
@@ -121,6 +126,7 @@ include './includes/header.php';
 						</div>
 					<?php
 					}
+					mysqli_stmt_close($about_stmt);
 					?>
 				</div>
 			</div>
@@ -140,8 +146,10 @@ include './includes/header.php';
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 				<?php
-				$query_skill = mysqli_query($con, "SELECT * FROM tb_skill");
-				while ($hasil_query_skill = mysqli_fetch_assoc($query_skill)) {
+				$skill_stmt = mysqli_prepare($con, "SELECT icon, skill, keterangan FROM tb_skill");
+				mysqli_stmt_execute($skill_stmt);
+				$skill_result = mysqli_stmt_get_result($skill_stmt);
+				while ($hasil_query_skill = mysqli_fetch_assoc($skill_result)) {
 				?>
 					<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
 						<div class="text-indigo-600 text-2xl mb-4"><?= $hasil_query_skill['icon'] ?></div>
@@ -152,6 +160,7 @@ include './includes/header.php';
 					</div>
 				<?php
 				}
+				mysqli_stmt_close($skill_stmt);
 				?>
 			</div>
 		</div>
@@ -170,8 +179,10 @@ include './includes/header.php';
 
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 				<?php
-				$query_testimonial = mysqli_query($con, "SELECT * FROM tb_client");
-				while ($hasil_query_testimonial = mysqli_fetch_assoc($query_testimonial)) {
+				$testimonial_stmt = mysqli_prepare($con, "SELECT rating, feedback, nama, jabatan FROM tb_client");
+				mysqli_stmt_execute($testimonial_stmt);
+				$testimonial_result = mysqli_stmt_get_result($testimonial_stmt);
+				while ($hasil_query_testimonial = mysqli_fetch_assoc($testimonial_result)) {
 				?>
 					<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
 						<div class="">
@@ -199,6 +210,7 @@ include './includes/header.php';
 					</div>
 				<?php
 				}
+				mysqli_stmt_close($testimonial_stmt);
 				?>
 			</div>
 		</div>
