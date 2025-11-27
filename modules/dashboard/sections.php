@@ -170,14 +170,17 @@ if (!isset($_SESSION['nama'])) {
               <button class="tab-btn px-4 py-2 rounded-md text-sm outfit-medium transition-all" data-tab="client">
                 Client Feedback
               </button>
+              <button class="tab-btn px-4 py-2 rounded-md text-sm outfit-medium transition-all" data-tab="certificate">
+                Certificates
+              </button>
             </div>
           </div>
 
           <!-- Tab Contents -->
-          
+
           <!-- Hero Section Tab -->
           <div id="hero-tab" class="tab-content active">
-           <div class="bg-white rounded-lg shadow-sm border border-[#ebebeb] p-6">
+            <div class="bg-white rounded-lg shadow-sm border border-[#ebebeb] p-6">
               <div class="flex items-center justify-between mb-4">
                 <h2 class="text-xl outfit-semibold text-neutral-900">Hero Section</h2>
               </div>
@@ -227,6 +230,21 @@ if (!isset($_SESSION['nama'])) {
                 </button>
               </div>
               <div id="client-table" class="overflow-x-auto">
+                <!-- Will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificate Tab -->
+          <div id="certificate-tab" class="tab-content">
+            <div class="bg-white rounded-lg shadow-sm border border-[#ebebeb] p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl outfit-semibold text-neutral-900">Certificates</h2>
+                <button id="add-certificate-btn" class="px-4 py-2 bg-neutral-900 text-white rounded-md text-sm outfit-medium hover:bg-neutral-700 transition-all">
+                  + Add Certificate
+                </button>
+              </div>
+              <div id="certificate-table" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Will be populated by JavaScript -->
               </div>
             </div>

@@ -3,6 +3,7 @@ require_once __DIR__ . '/../Models/HeroModel.php';
 require_once __DIR__ . '/../Models/AboutMeModel.php';
 require_once __DIR__ . '/../Models/SkillModel.php';
 require_once __DIR__ . '/../Models/ClientModel.php';
+require_once __DIR__ . '/../Models/CertificateModel.php';
 require_once __DIR__ . '/../Helpers/functions.php';
 
 /**
@@ -16,6 +17,7 @@ class SectionController
   private $aboutModel;
   private $skillModel;
   private $clientModel;
+  private $certificateModel;
   private $uploadDir;
 
   public function __construct($database)
@@ -24,6 +26,7 @@ class SectionController
     $this->aboutModel = new AboutMeModel($database);
     $this->skillModel = new SkillModel($database);
     $this->clientModel = new ClientModel($database);
+    $this->certificateModel = new CertificateModel($database);
     $this->uploadDir = __DIR__ . '/../../assets/images/';
   }
 
@@ -46,7 +49,7 @@ class SectionController
     $quote = sanitizeInput($data['quote']);
     $judul = sanitizeInput($data['judul']);
     $keterangan = $data['keterangan']; // Allow HTML from Quill.js
-    
+
     $imageName = null;
     if ($file && isset($file['name']) && $file['name'] != '') {
       $imageName = $this->handleImageUpload($file);
@@ -205,6 +208,57 @@ class SectionController
   public function deleteClient($id)
   {
     return $this->clientModel->deleteClient($id);
+  }
+
+  // ==================== CERTIFICATE SECTION ====================
+
+  /**
+   * Get all certificates
+   */
+  public function getAllCertificates()
+  {
+    return $this->certificateModel->getAllCertificate();
+  }
+
+  /**
+   * Get single certificate
+   */
+  public function getCertificateById($id)
+  {
+    return $this->certificateModel->getCertificateById($id);
+  }
+
+  /**
+   * Create certificate
+   */
+  public function createCertificate($file)
+  {
+    $imageName = $this->handleImageUpload($file);
+    return $this->certificateModel->createCertificate($imageName);
+  }
+
+  /**
+   * Update certificate
+   */
+  public function updateCertificate($id, $file = null)
+  {
+    $imageName = null;
+    if ($file && isset($file['name']) && $file['name'] != '') {
+      $imageName = $this->handleImageUpload($file);
+    }
+
+    if ($imageName) {
+      return $this->certificateModel->updateCertificate($id, $imageName);
+    }
+    return true;
+  }
+
+  /**
+   * Delete certificate
+   */
+  public function deleteCertificate($id)
+  {
+    return $this->certificateModel->deleteCertificate($id);
   }
 
   // ==================== HELPER METHODS ====================

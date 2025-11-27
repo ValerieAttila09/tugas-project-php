@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     return null;
   }
 
-   function loadHeroData() {
+  function loadHeroData() {
     // Show loading state
     document.getElementById('hero-content').innerHTML = `
       <div class="flex items-center justify-center py-12">
@@ -776,7 +776,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           <div>
             <label class="block text-sm outfit-medium text-neutral-700 mb-2">Rating (1-5)</label>
             <select name="rating" class="w-full px-4 py-2 border border-[#ebebeb] rounded-md outfit-regular text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900" required>
-              ${[1, 2, 3, 4, 5].map(r => `<option value="${r}" ${item?.rating == r ? 'selected' : ''}>${r} Star${r> 1 ? 's' : ''}</option>`).join('')}
+              ${[1, 2, 3, 4, 5].map(r => `<option value="${r}" ${item?.rating == r ? 'selected' : ''}>${r} Star${r > 1 ? 's' : ''}</option>`).join('')}
             </select>
           </div>
 
@@ -901,10 +901,228 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
   };
 
+  // ==================== CERTIFICATE SECTION ====================
+
+  function loadCertificateData() {
+    // Show loading state
+    document.getElementById('certificate-table').innerHTML = `
+      <div class="col-span-full flex items-center justify-center py-12">
+        <div class="text-center">
+          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-neutral-900 mx-auto mb-2"></div>
+          <p class="text-sm text-neutral-600">Loading certificates...</p>
+        </div>
+      </div>
+    `;
+
+    fetch('./api/certificates.php')
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          displayCertificateGrid(data.data);
+        } else {
+          showToast('Failed to load certificates');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        showToast('Error loading certificates');
+      });
+  }
+
+  function displayCertificateGrid(items) {
+    if (!items || items.length === 0) {
+      document.getElementById('certificate-table').innerHTML = '<div class="col-span-full text-center py-12"><p class="text-neutral-500 text-sm">No certificates yet. Click "Add Certificate" to create one.</p></div>';
+      return;
+    }
+
+    const grid = `
+      ${items.map(item => `
+        <div class="bg-white rounded-lg shadow-md border border-[#ebebeb] overflow-hidden hover:shadow-lg transition-all group">
+          <div class="relative h-64 bg-neutral-100 overflow-hidden">
+            <img src="../../assets/images/${item.gambar}" alt="Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100">
+              <button onclick="editCertificate(${item.id_sertif})" class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-all" title="Edit">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487l1.687-1.688a2 2 0 012.828 0l1.87 1.87a2 2 0 010 2.828l-1.687 1.687m0 0a2 2 0 01-2.828 0m0 0l-3.464 3.464m0 0l3.464-3.464m-6.928 6.928a2 2 0 012.828 0m0 0l3.464-3.464" />
+                </svg>
+              </button>
+              <button onclick="deleteCertificate(${item.id_sertif})" class="bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-all" title="Delete">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-neutral-600 outfit-thin truncate">${item.gambar}</p>
+          </div>
+        </div>
+      `).join('')}
+    `;
+
+    document.getElementById('certificate-table').innerHTML = grid;
+  }
+
+  document.getElementById('add-certificate-btn').addEventListener('click', () => {
+    showCertificateModal();
+  });
+
+  function showCertificateModal(item = null) {
+    const isEdit = item !== null;
+    const title = isEdit ? 'Edit Certificate' : 'Add New Certificate';
+
+    const modalHTML = `
+      <div class="p-6">
+        <h2 class="text-2xl outfit-semibold text-neutral-900 mb-4">${title}</h2>
+        
+        <form id="certificate-form" enctype="multipart/form-data" class="space-y-4">
+          ${isEdit ? `<input type="hidden" name="id" value="${item.id_sertif}">` : ''}
+          
+          <div class="space-y-2">
+            <label class="text-sm outfit-medium text-neutral-700">Certificate Image</label>
+            <div class="relative">
+              ${isEdit && item.gambar ? `
+                <div class="mb-4 p-3 bg-neutral-50 rounded-lg border border-[#ebebeb]">
+                  <img src="../../assets/images/${item.gambar}" alt="Current" class="w-full h-auto rounded max-h-32 object-cover">
+                  <p class="text-xs text-neutral-600 mt-2">Current image</p>
+                </div>
+              ` : ''}
+              
+              <input 
+                type="file" 
+                name="gambar" 
+                id="certificate-image" 
+                accept="image/*" 
+                class="w-full px-4 py-2 border border-[#ebebeb] rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                ${!isEdit ? 'required' : ''}
+              >
+              <p class="text-xs text-neutral-600 mt-1">Accepted: JPG, PNG, GIF, WebP (Max 5MB)</p>
+              <p class="text-xs text-neutral-500 mt-1">${isEdit ? 'Leave empty to keep current image' : 'Select an image file'}</p>
+            </div>
+          </div>
+
+          <div class="flex gap-2 justify-end pt-4">
+            <button type="button" onclick="hideModal()" class="px-4 py-2 border border-[#ebebeb] rounded-md text-neutral-700 outfit-medium hover:bg-neutral-50 transition-all">
+              Cancel
+            </button>
+            <button type="submit" class="px-4 py-2 bg-neutral-900 text-white rounded-md text-sm outfit-medium hover:bg-neutral-700 transition-all">
+              ${isEdit ? 'Update Certificate' : 'Add Certificate'}
+            </button>
+          </div>
+        </form>
+      </div>
+    `;
+
+    showModal(modalHTML);
+
+    const form = document.getElementById('certificate-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const formData = new FormData();
+      const imageInput = document.getElementById('certificate-image');
+
+      if (isEdit) {
+        formData.append('id', item.id_sertif);
+        if (imageInput.files.length > 0) {
+          formData.append('gambar', imageInput.files[0]);
+        }
+
+        // For PUT with file, we need to use a workaround
+        fetch('./api/certificates.php', {
+          method: 'POST',
+          body: formData
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              showToast('Certificate updated successfully');
+              loadCertificateData();
+              hideModal();
+            } else {
+              showToast(data.message || 'Failed to update certificate');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            showToast('Error updating certificate');
+          });
+      } else {
+        if (imageInput.files.length === 0) {
+          showToast('Please select an image');
+          return;
+        }
+
+        formData.append('gambar', imageInput.files[0]);
+
+        fetch('./api/certificates.php', {
+          method: 'POST',
+          body: formData
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              showToast('Certificate added successfully');
+              loadCertificateData();
+              hideModal();
+            } else {
+              showToast(data.message || 'Failed to add certificate');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            showToast('Error adding certificate');
+          });
+      }
+    });
+  }
+
+  window.editCertificate = function (id) {
+    fetch(`./api/certificates.php?id=${id}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          showCertificateModal(data.data);
+        } else {
+          showToast('Failed to load certificate');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        showToast('Error loading certificate');
+      });
+  };
+
+  window.deleteCertificate = function (id) {
+    if (!confirm('Are you sure you want to delete this certificate?')) return;
+
+    fetch('./api/certificates.php', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id: id })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          showToast('Certificate deleted successfully');
+          loadCertificateData();
+        } else {
+          showToast(data.message || 'Failed to delete certificate');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        showToast('Error deleting certificate');
+      });
+  };
+
   window.hideModal = hideModal;
 
   loadHeroData();
   loadAboutData();
   loadSkillsData();
   loadClientData();
+  loadCertificateData();
 });
